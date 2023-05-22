@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const ArtistSchema = new mongoose.Schema({
-    name: { type: String },
-    age: { type: Date },
+    name: { type: String , unique: true},
+    birthDate: { type: String },
     bio: { type: String } 
 })
 
