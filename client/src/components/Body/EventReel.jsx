@@ -1,5 +1,5 @@
 import './EventReel.css'
-import { Event } from './Event.jsx'
+import { Event } from './EventReel/Event.jsx'
 import { gql, useQuery } from '@apollo/client'
 
 const GET_EVENTS = gql`
