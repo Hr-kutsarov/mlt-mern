@@ -1,0 +1,28 @@
+.hero {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+  padding: 2rem 4rem;
+}
+
+.hero > article {
+  height: 100%;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.hero-buttons > button {
+  width: 4rem;
+  border: none;
+  background-color: transparent;
+}
+
+.hero-buttons > button:hover {
+  border-bottom: 2px solid black 0.5;
+}

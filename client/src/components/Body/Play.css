@@ -1,0 +1,14 @@
+.play-hero > img {
+  height: 220px;
+  width: 100%;
+  background-color: rgb(127, 153, 239);
+}
+
+.play-hero > h3 {
+  padding: 1rem;
+}
+
+.play-hero > p {
+  /* top right bottom left */
+  padding: 1rem 1rem 4rem 1rem;
+}

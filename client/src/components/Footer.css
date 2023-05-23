@@ -1,17 +1,28 @@
-.footer {
+footer {
   height: 100%;
   width: 100%;
   display: flex;
+  justify-content: space-evenly;
+  padding: 4rem 4rem;
+  background-color: rgb(38, 38, 38);
+  color: white;
 }
 
 #footer-contacts {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 #footer-hotlinks {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 2rem;
 }
 
 #footer-support {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  height: 100%;
+  width: 100%;
+}
+
+header > #logo-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#company-logo-image {
+  height: 40px;
+  width: 40px;
+  background-color: rgb(74, 74, 226);
+}
+
+#company-logo-text {
+  font-weight: 600;
+  font-style: italic;
+}
+
+header > nav > ul {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+header > nav > ul > li:hover {
+  border-bottom: 2px solid black 0.5;
+}

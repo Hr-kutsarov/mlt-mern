@@ -6,11 +6,7 @@ export function Body() {
     return (
         <>
             <main>
-                <h2>Main Element</h2>
-                <div className="collection">
-                    <Hero />
-                    <Play />
-                </div>
+                <Hero />
             </main>
         </>
     )}
