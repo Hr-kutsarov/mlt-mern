@@ -1,17 +1,7 @@
 import './EventReel.css'
 import { Event } from './EventReel/Event.jsx'
-import { gql, useQuery } from '@apollo/client'
-
-const GET_EVENTS = gql`
-    query {
-        allEvents {
-            _id
-            title
-            summary
-            content
-        }
-    }
-`
+import { useQuery } from '@apollo/client'
+import { GET_EVENTS } from '../../queries/eventQueries'
 
 export function EventReel() {
     const { loading, error, data } = useQuery(GET_EVENTS)
