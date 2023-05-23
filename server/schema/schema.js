@@ -9,7 +9,7 @@ const EventType = new GraphQLObjectType({
     name: 'Event',
     fields: () => ({
         title: {type: GraphQLString},
-        intro: {type: GraphQLString},
+        summary: {type: GraphQLString},
         content: {type: GraphQLString}
     })
 })
