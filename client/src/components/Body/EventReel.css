@@ -1,4 +1,4 @@
-.hero {
+#event-reel {
   height: 100%;
   width: 100%;
   display: grid;
@@ -7,7 +7,7 @@
   padding: 2rem 4rem;
 }
 
-.hero > article {
+#event-reel article {
   height: 100%;
 }
 
