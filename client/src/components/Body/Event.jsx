@@ -1,9 +1,10 @@
 import './Event.css';
 
 export function Event({ event }) {
+
     return (
         <>
-            <article className='play-hero' id={event._id}>
+            <article className='play-hero'>
                 <img id='p123' alt=''></img>
                 <h3>{event.title}</h3>
                 <p>{event.content}</p>

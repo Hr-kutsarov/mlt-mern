@@ -8,6 +8,7 @@ const User = require('../models/User.js');
 const EventType = new GraphQLObjectType({
     name: 'Event',
     fields: () => ({
+        _id: {type: GraphQLID},
         title: {type: GraphQLString},
         summary: {type: GraphQLString},
         content: {type: GraphQLString}

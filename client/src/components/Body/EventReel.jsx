@@ -5,6 +5,7 @@ import { gql, useQuery } from '@apollo/client'
 const GET_EVENTS = gql`
     query {
         allEvents {
+            _id
             title
             summary
             content
@@ -29,6 +30,4 @@ export function EventReel() {
             {!loading && !error && (data.allEvents.map(event => (<Event key={event._id} event={event}/>)))}
         </section>
     </>
-        
-    
 }
