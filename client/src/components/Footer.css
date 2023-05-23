@@ -1,0 +1,17 @@
+.footer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+#footer-contacts {
+  padding: 2rem;
+}
+
+#footer-hotlinks {
+  padding: 2rem;
+}
+
+#footer-support {
+  padding: 2rem;
+}
