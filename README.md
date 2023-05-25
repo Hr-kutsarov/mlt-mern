@@ -47,7 +47,7 @@
 ## How it works?
   The client (React) sends requests via GraphQL language (gql). Those requests are either queries or mutations and are wrapped in gql tag.
   Those queries are sent with the 'useQuery(gql_code)' hook from Apollo client. 
-  As a result from the useQuery hook we can get the loading state of the data, the error object and the data itself that wraps the
+  As a result from the 'useQuery' callback function we can get the loading state of the data, the error object and the data itself that wraps the
   entire json response. The data is also cached in the process. The data is dynamically unpacked in react components and then 
   the browser renders everything.
   
@@ -55,5 +55,21 @@
 
 # TODOs
 
-   [x] User model
-   [x] Express init
+    [x] Install express, graphql 
+    [x] Initialize Express app
+    [x] Configure environmental variables storage
+    [x] Fix CORS issue
+    [x] Connect to Mongo Database
+    [x] Create object schema - Event (GraphQL object type, the fields property tag defines the type of data that will be stored - id, title, summary, content)
+    [x] Create object schema - Artist (GraphQL object type, fields - name, birthDate, bio)
+    [x] Create object schema - Ticket (GraphQL object type, fields - built with collective data from the user and event models)
+    [x] Create object schema - User - (GraphQL object type, fields - email, password, role  
+      !TODO implement email validation? JWT token validation? salting/hashing passwords?
+    [x] Create queries for each Model (get one by id, get all)
+    [x] Create mutations (create new Model, edit Model by id and delete Model by id)
+    [x] Create mongoose schemas for Event, Artist, Ticket, User
+    [x] Put Mutations and Queries into different files
+    
+    [x] Initialize React client and install dependencies
+    [x] Divide the root element into three main components - Header , Main, Footer
+    
