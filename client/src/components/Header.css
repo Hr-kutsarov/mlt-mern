@@ -12,13 +12,13 @@ header > #logo-box {
   align-items: center;
 }
 
-#company-logo-image {
+header > #company-logo-image {
   height: 40px;
   width: 40px;
   background-color: rgb(74, 74, 226);
 }
 
-#company-logo-text {
+header > #company-logo-text {
   font-weight: 600;
   font-style: italic;
 }
