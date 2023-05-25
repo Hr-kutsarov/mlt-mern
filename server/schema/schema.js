@@ -138,7 +138,7 @@ const mutation = new GraphQLObjectType({
             type: EventType,
             args: {
                 id: {type: GraphQLID},
-                title: {type: GraphQLNonNull(GraphQLString)},
+                title: {type: GraphQLString},
                 summary: {type: GraphQLString},
                 content: {type: GraphQLString},
             },

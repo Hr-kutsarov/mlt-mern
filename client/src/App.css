@@ -2,6 +2,18 @@ li {
   list-style-type: none;
 }
 
+.create-btn {
+  color: rgb(69, 49, 185);
+}
+
+.edit-btn {
+  color: rgb(173, 171, 62);
+}
+
+.delete-btn {
+  color: rgb(210, 42, 56);
+}
+
 #root {
   display: grid;
   margin: auto;

@@ -1,6 +1,15 @@
 import './Event.css';
+import { useMutation } from '@apollo/client';
+import { DELETE_EVENT } from '../../mutations/eventMutations.js'
+import { GET_EVENTS } from '../../queries/eventQueries';
 
 export function Event({ event }) {
+    
+    const context = {
+        variables: { id: event._id},
+        refetchQueries: [{ query: GET_EVENTS}]
+    }
+    const [deleteEvent] = useMutation(DELETE_EVENT, context) 
 
     return (
         <>
@@ -9,9 +18,9 @@ export function Event({ event }) {
                 <h3>{event.title}</h3>
                 <p>{event.content}</p>
                 <div className="hero-buttons" >
-                    <button className="create-type-btn">Create</button>
-                    <button className="edit-type-btn">Edit</button>
-                    <button className="delete-type-btn">Delete</button>
+                    <button className="create-btn">Create</button>
+                    <button className="edit-btn">Edit</button>
+                    <button className="delete-btn" onClick={deleteEvent}>Delete</button>
                 </div>
             </article>
         </>

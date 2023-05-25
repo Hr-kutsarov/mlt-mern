@@ -12,3 +12,10 @@
   /* top right bottom left */
   padding: 1rem 1rem 4rem 1rem;
 }
+
+.hero-buttons > button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+}
