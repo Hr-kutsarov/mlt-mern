@@ -4,12 +4,10 @@ import { DELETE_EVENT } from '../../mutations/eventMutations.js'
 import { GET_EVENTS } from '../../queries/eventQueries';
 
 export function Event({ event }) {
-    
-    const context = {
+    const [deleteEvent] = useMutation(DELETE_EVENT, {
         variables: { id: event._id},
         refetchQueries: [{ query: GET_EVENTS}]
-    }
-    const [deleteEvent] = useMutation(DELETE_EVENT, context) 
+    }) 
 
     return (
         <>

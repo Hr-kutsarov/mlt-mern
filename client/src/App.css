@@ -18,3 +18,7 @@ li {
   display: grid;
   margin: auto;
 }
+
+a {
+  text-decoration: none;
+}
