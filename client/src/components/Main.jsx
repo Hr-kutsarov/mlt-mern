@@ -5,7 +5,7 @@ export function Main() {
     return (
         <>
             <main>
-                <EventReel key="main" />
+                <EventReel key="event-reel" />
             </main>
         </>
     )}
