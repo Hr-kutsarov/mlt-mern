@@ -22,3 +22,11 @@ li {
 a {
   text-decoration: none;
 }
+
+#error-page {
+  display: flex;
+  margin-top: 30vh;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
+}
