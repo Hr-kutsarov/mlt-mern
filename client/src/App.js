@@ -1,25 +1,39 @@
 
 import './App.css';
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
-import { Header } from './components/Header.jsx'
-import { Main } from './components/Main.jsx'
-import { Footer } from './components/Footer.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Home } from './components/Home.jsx'
+import { Register } from './components/Register.jsx'
+import { Logout } from './components/Logout.jsx'
+import { Login } from './components/Login.jsx'
+import { ErrorPage } from './ErrorPage';
 
-const client = new ApolloClient({
-  uri: `http://localhost:5000/graphql`,
-  cache: new InMemoryCache()
-})
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "login/",
+    element: <Login />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "register/",
+    element: <Register />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "logout",
+    element: <Logout />,
+    errorElement: <ErrorPage />
+  }
+]);
+
 
 export function App() {
   return (
-    <>
-      <ApolloProvider client={client}>
-        <Header />
-        <Main />
-        <Footer />
-      </ApolloProvider>
-    </>
+    <RouterProvider router={router} />
   );
 }
-
 
