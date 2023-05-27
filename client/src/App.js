@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: "edit-event/:id",
+    path: "edit-event/",
     element: <EditEvent />,
     errorElement: <ErrorPage />
   }

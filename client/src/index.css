@@ -5,21 +5,43 @@
 }
 
 @font-face {
-  font-family: Calistroga;
-  src: url("./fonts/Calistoga/Calistoga-Regular.ttf");
+  font-family: Nunito-ExtraLight;
+  src: url("./fonts/NunitoSans/NunitoSans_10pt-ExtraLight.ttf");
 }
 
 @font-face {
-  font-family: Gilda-Display;
-  src: url("./fonts/Gilda_Display/GildaDisplay-Regular.ttf");
+  font-family: Nunito-Bold;
+  src: url("./fonts/NunitoSans/NunitoSans_10pt-Bold.ttf");
+}
+
+@font-face {
+  font-family: Nunito-Medium;
+  src: url("./fonts/NunitoSans/NunitoSans_10pt-Medium.ttf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Nunito-Bold;
+}
+
+p {
+  font-family: Nunito-ExtraLight;
+}
+
+button,
+li,
+a {
+  font-family: Nunito-Medium;
 }
 
 body {
-  font-family: Gilda-Display, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 24px;
-  font-weight: 600;
 }
 
 code {
