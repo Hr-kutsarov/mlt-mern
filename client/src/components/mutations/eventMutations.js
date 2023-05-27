@@ -19,5 +19,23 @@ const ADD_EVENT = gql`
     }
 `
 
+const EDIT_EVENT = gql`
+    mutation editEvent(
+        $id: ID!
+        $title: String!
+        $summary: String!
+        $content: String!
+        ) {
+            editEvent(
+                id: $id,
+                title: $title
+                summary: $summary
+                content: $content
+                ) {
+                    title
+                }
+        }
+`
 
-export { DELETE_EVENT, ADD_EVENT }
+
+export { DELETE_EVENT, ADD_EVENT , EDIT_EVENT}
