@@ -7,7 +7,7 @@ export function Navigation() {
                 <ul>
                     <li>Upcoming</li>
                     <li>Newest</li>
-                    <li>Top Rated</li>
+                    <li>Top-Rated</li>
                     <li>Promo</li>
                     <li>Login/Register</li>
                 </ul>

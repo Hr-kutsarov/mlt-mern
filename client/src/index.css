@@ -4,12 +4,22 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Calistroga;
+  src: url("./fonts/Calistoga/Calistoga-Regular.ttf");
+}
+
+@font-face {
+  font-family: Gilda-Display;
+  src: url("./fonts/Gilda_Display/GildaDisplay-Regular.ttf");
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Gilda-Display, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 code {

@@ -1,0 +1,14 @@
+header > #logo-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 4rem;
+}
+
+#company-logo-image {
+  height: 100px;
+  width: 120px;
+  background-image: url("../../static/logo.png");
+  background-size: cover;
+  margin: 1rem 0;
+}
