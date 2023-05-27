@@ -1,21 +1,47 @@
-.play-hero > img {
-  height: 220px;
-  width: 100%;
-  background-color: rgb(127, 153, 239);
+.play-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 0.5rem;
 }
 
-.play-hero > h3 {
+.play-hero > .properties > img {
+  height: 220px;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-image: -webkit-repeating-linear-gradient(
+    rgb(214, 214, 211),
+    rgba(53, 53, 53, 0.44)
+  );
+}
+
+.play-hero > .properties > h4 {
   padding: 1rem;
 }
 
-.play-hero > p {
+.play-hero > .properties > p {
   /* top right bottom left */
-  padding: 1rem 1rem 4rem 1rem;
+  padding: 0rem 1rem 3rem 1rem;
+  font-size: 1.25rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin: 0 1rem 0.5rem 0;
 }
 
 .hero-buttons > button {
-  width: 6rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: unset;
+  color: rgba(39, 27, 27, 0.632);
+}
+
+.hero-buttons > button > a {
+  color: inherit;
 }

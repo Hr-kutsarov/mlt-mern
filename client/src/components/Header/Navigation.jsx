@@ -1,11 +1,12 @@
 import './Navigation.css'
+import { Link } from 'react-router-dom'
 
 export function Navigation() {
     return (
         <>
             <nav>
                 <ul>
-                    <li>Upcoming</li>
+                    <li><Link to="/" >Home</Link></li>
                     <li>Newest</li>
                     <li>Top-Rated</li>
                     <li>Promo</li>

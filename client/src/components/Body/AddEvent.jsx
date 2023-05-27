@@ -3,10 +3,11 @@ import { ADD_EVENT } from '../mutations/eventMutations.js'
 import { GET_EVENTS } from '../queries/eventQueries.js';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
+import { useEventStore } from '../../store/appStore'
 
 
-
-export function AddEvent(object) {
+export function AddEvent() {
+    const eventId = useEventStore((state) => state.id)
     const [title, setTitle] = useState('')
     const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
@@ -28,7 +29,9 @@ export function AddEvent(object) {
         setSummary('')
         setContent('')
     }
-    return (
+
+    if (!eventId) {
+        return (
         <div id='add-event-form-wrapper'>
             <span id="add-form-picture"></span>
             <form id="add-event-form" onSubmit={submitForm}>
@@ -42,6 +45,7 @@ export function AddEvent(object) {
                 <button>Create</button>
             </form>
         </div>
- );
+        )
+    }
  
  }
