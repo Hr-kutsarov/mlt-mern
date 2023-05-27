@@ -1,22 +1,13 @@
 import './Header.css';
+import { LogoBox } from './Header/LogoBox'
+import { Navigation } from './Header/Navigation'
 
 export function Header() {
     return (
         <>
             <header>
-                <div id='logo-box'>
-                    <span id='company-logo-image'></span>
-                    <span id='company-logo-text'>Company logo text</span>
-                </div>
-                <nav>
-                    <ul>
-                        <li>Upcoming</li>
-                        <li>Newest</li>
-                        <li>Top Rated</li>
-                        <li>Promo</li>
-                        <li>Login/Register</li>
-                    </ul>
-                </nav>
+                <LogoBox />
+                <Navigation />
             </header>
         </>
     )
