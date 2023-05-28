@@ -24,21 +24,24 @@ export function EditEvent() {
     const eventTitle = useEventStore((state) => state.title)
     const eventSummary = useEventStore((state) => state.summary)
     const eventContent = useEventStore((state) => state.content)
+    const eventPicture = useEventStore((state) => state.pictureUrl)
 
     // setters
     const setTitle = useEventStore((state) => state.setTitle)
     const setSummary = useEventStore((state) => state.setSummary)
     const setContent = useEventStore((state) => state.setContent)
+    const setPictureUrl = useEventStore((state) => state.setPictureUrl)
 
     // unset
     const unsetId = useEventStore((state) => state.unsetId)
     const unsetTitle = useEventStore((state) => state.unsetTitle)
     const unsetSummary = useEventStore((state) => state.unsetSummary)
     const unsetContent = useEventStore((state) => state.unsetContent)
+    const unsetPictureUrl = useEventStore((state) => state.unsetPictureUrl)
 
     // 
     const [editEvent] = useMutation(EDIT_EVENT, {
-        variables: { id: eventId, title: eventTitle, summary: eventSummary, content: eventContent },
+        variables: { id: eventId, title: eventTitle, summary: eventSummary, content: eventContent, pictureUrl: eventPicture },
         refetchQueries: [{ query: GET_EVENTS}]
     }) 
 
@@ -47,6 +50,7 @@ export function EditEvent() {
         unsetTitle()
         unsetSummary()
         unsetContent()
+        unsetPictureUrl()
     }
 
     // TODO! Redirect
@@ -58,11 +62,6 @@ export function EditEvent() {
         _clearEventStorage()
     }
 
-    const handleReturn = (e) => {
-        e.preventDefault()
-        _clearEventStorage()
-    }
-
     return (
         <>
             <div id="edit-event-wrapper">
@@ -70,6 +69,7 @@ export function EditEvent() {
                         <h3>Edit event</h3>
                         <form id="edit-event-form" onSubmit={handleSubmit}>
                             <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
+                            <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={eventPicture}/>
                             <textarea type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
                             <textarea type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>
                         <button type="submit">Edit</button>

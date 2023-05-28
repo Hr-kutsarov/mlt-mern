@@ -7,10 +7,12 @@ export const GET_EVENTS = gql`
             title
             summary
             content
+            pictureUrl
         }
     }
 `
 
+// Not used at the moment
 export const GET_EVENT = gql`
     query getEvent($id: ID!) {
         getEvent(id: $id) {
@@ -18,6 +20,7 @@ export const GET_EVENT = gql`
             title
             summary
             content
+            pictureUrl
         }
     }
 `

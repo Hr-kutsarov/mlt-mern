@@ -13,6 +13,7 @@ export function Event({ event }) {
     const setTitle = useEventStore((state) => state.setTitle)
     const setSummary = useEventStore((state) => state.setSummary)
     const setContent = useEventStore((state) => state.setContent)
+    const setPictureUrl = useEventStore((state) => state.setPictureUrl)
 
     const [deleteEvent] = useMutation(DELETE_EVENT, {
         variables: { id: event._id},
@@ -24,6 +25,7 @@ export function Event({ event }) {
         setTitle(event.title)
         setSummary(event.summary)
         setContent(event.content)
+        setPictureUrl(event.pictureUrl)
     }
 
     const handleDelete =() => {
@@ -35,7 +37,7 @@ export function Event({ event }) {
         <>
             <article className='play-hero'>
                 <div className="properties">
-                    <img id={event._id} alt=''></img>
+                    <img src={event.pictureUrl} alt={event._id}></img>
                     <h4>{event.title}</h4>
                     <p>{event.summary}</p>
                 </div>

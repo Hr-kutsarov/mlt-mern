@@ -11,7 +11,8 @@ const EventType = new GraphQLObjectType({
         _id: {type: GraphQLID},
         title: {type: GraphQLString},
         summary: {type: GraphQLString},
-        content: {type: GraphQLString}
+        content: {type: GraphQLString},
+        pictureUrl: {type: GraphQLString}
     })
 })
 
@@ -114,13 +115,15 @@ const mutation = new GraphQLObjectType({
             args: {
                 title: {type: GraphQLString},
                 summary: {type: GraphQLString},
-                content: {type: GraphQLString}
+                content: {type: GraphQLString},
+                pictureUrl: {type: GraphQLString}
             },
             resolve(_, args) {
                 const newEvent = new Event({
                     title: args.title,
                     summary: args.summary,
-                    content: args.content
+                    content: args.content,
+                    pictureUrl: args.pictureUrl
                 });
                 return newEvent.save()
             }
@@ -141,6 +144,7 @@ const mutation = new GraphQLObjectType({
                 title: {type: GraphQLString},
                 summary: {type: GraphQLString},
                 content: {type: GraphQLString},
+                pictureUrl: {type: GraphQLString}
             },
             resolve(_,args) {
                 return Event.findByIdAndUpdate(
@@ -149,7 +153,8 @@ const mutation = new GraphQLObjectType({
                         $set: {
                             title: args.title,
                             summary: args.summary, 
-                            content: args.content
+                            content: args.content,
+                            pictureUrl: args.pictureUrl
                         }
                     }
                 )

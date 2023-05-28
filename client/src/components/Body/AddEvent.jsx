@@ -11,13 +11,14 @@ import { FaHome } from 'react-icons/fa'
 export function AddEvent() {
     const eventId = useEventStore((state) => state.id)
     const [title, setTitle] = useState(`"Which event is it?"`)
+    const [pictureUrl, setPictureUrl] = useState(`"Paste the URL of the picture here"`)
     const [summary, setSummary] = useState(`"How would you describe it?"`)
     const [content, setContent] = useState(`"Paste the content from your text editor."`)
     const [submitted, setSubmitted] = useState(false)
     const imageSource = require('../../static/logo.png')
 
     const [addEvent] = useMutation(ADD_EVENT, {
-        variables: { title, summary, content },
+        variables: { title, summary, content, pictureUrl },
         refetchQueries: [{ query: GET_EVENTS }]
     }) 
 
@@ -26,12 +27,12 @@ export function AddEvent() {
         e.preventDefault()
 
         // validation
-        if(!title || !summary || !content) {
+        if(!title || !summary || !content || !pictureUrl) {
             return alert('There is an empty field')
         }
 
         // Send mutation
-        addEvent(title, summary, content)
+        addEvent()
 
         // set status of the form - submitted, if it is submitted - show the redirect button / message
         setSubmitted(true)
@@ -40,22 +41,19 @@ export function AddEvent() {
         setTitle('')
         setSummary('')
         setContent('')
+        
     }
-
-
-    if (!eventId) {
-        return (
-            <>
+    
+    return (
+        <>
             <div id='add-event-form-wrapper'>
                 <img id="add-form-picture" alt={eventId} src={imageSource}></img>
                 {!submitted && (
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
-                    {/* <label>Title</label> */}
                     <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
-                    {/* <label>Summary</label> */}
+                    <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl}/>
                     <textarea onChange={(e) => setSummary(e.target.value)} value={summary}/>
-                    {/* <label>Content</label> */}
                     <textarea onChange={(e) => setContent(e.target.value)} value={content}/>
                     <button>CREATE</button>
                 </form>)}
@@ -69,7 +67,5 @@ export function AddEvent() {
                 </Link>)}
             </div>
         </>
-        )
-    }
- 
- }
+    )
+}

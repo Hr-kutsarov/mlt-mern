@@ -12,5 +12,8 @@ export const useEventStore = create((set) => ({
   unsetSummary: () => set((state) => ({ summary: (state.summary = '') })),
   content: '',
   setContent: (data) => set((state) => ({ content: (state.content = data) })),
-  unsetContent: () => set((state) => ({ cotent: (state.content = '') })),
+  unsetContent: () => set((state) => ({ content: (state.content = '') })),
+  pictureUrl: '',
+  setPictureUrl: (data) => set((state) => ({ pictureUrl: (state.pictureUrl = data)})),
+  unsetPictureUrl: () => set((state) => ({ pictureUrl: (state.pictureUrl = '')}))
 }))

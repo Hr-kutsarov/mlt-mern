@@ -10,10 +10,7 @@
   height: 220px;
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
-  background-image: -webkit-repeating-linear-gradient(
-    rgb(214, 214, 211),
-    rgba(53, 53, 53, 0.44)
-  );
+  object-fit: cover;
 }
 
 .play-hero > .properties > h4 {
