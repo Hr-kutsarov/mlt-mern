@@ -8,9 +8,6 @@ import { FaFeatherAlt } from "react-icons/fa";
 import { FaEllipsisH } from "react-icons/fa";
 import { FaEraser } from 'react-icons/fa';
 
-
-
-
 export function Event({ event }) {
     const setId = useEventStore((state) => state.setId)
     const setTitle = useEventStore((state) => state.setTitle)
@@ -29,6 +26,11 @@ export function Event({ event }) {
         setContent(event.content)
     }
 
+    const handleDelete =() => {
+        alert('This event will be deleted!')
+        deleteEvent()
+    }
+
     return (
         <>
             <article className='play-hero'>
@@ -40,7 +42,7 @@ export function Event({ event }) {
                 <div className="hero-buttons" >
                     <button className="info-btn"><FaEllipsisH /></button>
                     <button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaFeatherAlt /></Link></button>
-                    <button className="delete-btn" onClick={deleteEvent}><FaEraser /></button>
+                    <button className="delete-btn" onClick={handleDelete}><FaEraser /></button>
                 </div>
             </article>
         </>

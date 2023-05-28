@@ -72,10 +72,25 @@ input:focus {
   outline: unset;
 }
 
+textarea::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* ERROR PAGES */
+
 #error-page {
   display: flex;
   margin-top: 30vh;
   gap: 2rem;
   align-items: center;
   flex-direction: column;
+}
+
+.submitted-form-space > p:nth-child(3) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }

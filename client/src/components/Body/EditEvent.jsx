@@ -4,6 +4,8 @@ import { EDIT_EVENT } from '../mutations/eventMutations'
 import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
+import { useState } from 'react'
+import { FaHome } from 'react-icons/fa'
 
 // When the button that has an attached function to edit the Event
 // will save the parameters of that event in the global state
@@ -15,6 +17,7 @@ import './EditEvent.css'
 // And if there's no stored for that item the form is not displayed.
 
 export function EditEvent() {
+    const [submitted, setSubmitted] = useState(false)
 
     // getters
     const eventId = useEventStore((state) => state.id)
@@ -51,6 +54,7 @@ export function EditEvent() {
     const handleSubmit = (e) => {
         e.preventDefault()
         editEvent()
+        setSubmitted(true)
         _clearEventStorage()
     }
 
@@ -62,22 +66,25 @@ export function EditEvent() {
     return (
         <>
             <div id="edit-event-wrapper">
-                <form id="edit-event-form" onSubmit={handleSubmit}>
-                    <h3>Edit event</h3>
-                    {eventId && (<>
-                        <label>Title</label>
-                        <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
-                        <label>Summary</label>
-                        <input type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
-                        <label>Content</label>
-                        <input type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>
+                    {eventId && !submitted && (<>
+                        <h3>Edit event</h3>
+                        <form id="edit-event-form" onSubmit={handleSubmit}>
+                            <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
+                            <textarea type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
+                            <textarea type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>
                         <button type="submit">Edit</button>
+                        </form>
                     </>)}
-                </form>
-                <span 
-                onClick={handleReturn}>
-                    <Link to="/">Home</Link>
-                </span>
+                
+                    {submitted && (<>
+                    <Link to="/">
+                        <div className="submitted-form-space">
+                            <h1>Your form has been submitted</h1>
+                            <p>Event object edition completed successfully.</p>
+                            <p>Return to homepage. <FaHome /></p>
+                        </div>
+                    </Link>
+                    </>)}
             </div>
         </>
     )
