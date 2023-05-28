@@ -11,8 +11,8 @@ export function AddEvent() {
     const [title, setTitle] = useState('Which play is it?')
     const [summary, setSummary] = useState('How would you describe it?')
     const [content, setContent] = useState('Paste from your text editor.')
-
     const imageSource = require('../../static/logo.png')
+
     const [addEvent] = useMutation(ADD_EVENT, {
         variables: { title, summary, content },
         refetchQueries: [{ query: GET_EVENTS }]
@@ -35,13 +35,13 @@ export function AddEvent() {
     if (!eventId) {
         return (
         <div id='add-event-form-wrapper'>
-            <img id="add-form-picture" src={imageSource}></img>
+            <img id="add-form-picture" alt={eventId} src={imageSource}></img>
             <form id="add-event-form" onSubmit={submitForm}>
                 <h3>CREATE NEW EVENT</h3>
                 {/* <label>Title</label> */}
                 <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
                 {/* <label>Summary</label> */}
-                <input type="text" onChange={(e) => setSummary(e.target.value)} value={summary}/>
+                <textarea onChange={(e) => setSummary(e.target.value)} value={summary}/>
                 {/* <label>Content</label> */}
                 <textarea onChange={(e) => setContent(e.target.value)} value={content}/>
                 <button>CREATE</button>
