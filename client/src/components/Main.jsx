@@ -1,4 +1,3 @@
-import { AddEvent } from './Body/AddEvent.jsx'
 import { EventReel } from './Body/EventReel.jsx'
 import { EditEvent } from './Body/EditEvent.jsx'
 import { useEventStore } from '../store/appStore.js'
@@ -12,7 +11,6 @@ export function Main() {
             <main>
                 {id && <EditEvent />}
                 <EventReel key="event-reel" />
-                <AddEvent />
             </main>
         </>
     )}

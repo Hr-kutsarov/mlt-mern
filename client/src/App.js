@@ -7,6 +7,7 @@ import { Logout } from './components/Logout.jsx'
 import { Login } from './components/Login.jsx'
 import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
+import { AddEvent } from './components/Body/AddEvent';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: "edit-event/",
     element: <EditEvent />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "add-event/",
+    element: <AddEvent />,
     errorElement: <ErrorPage />
   }
 ]);

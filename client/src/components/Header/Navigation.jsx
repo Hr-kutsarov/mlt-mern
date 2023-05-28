@@ -7,7 +7,7 @@ export function Navigation() {
             <nav>
                 <ul>
                     <li><Link to="/" >Home</Link></li>
-                    <li>Newest</li>
+                    <li><Link to="/add-event">Add Event</Link></li>
                     <li>Top-Rated</li>
                     <li>Promo</li>
                     <li>Login/Register</li>
