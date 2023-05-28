@@ -39,7 +39,7 @@ export function EditEvent() {
         refetchQueries: [{ query: GET_EVENTS}]
     }) 
 
-    const clearEventStorage = () => {
+    const _clearEventStorage = () => {
         unsetId()
         unsetTitle()
         unsetSummary()
@@ -47,17 +47,16 @@ export function EditEvent() {
     }
 
     // TODO! Redirect
-
-    // TODO! Form
+    // TODO! Form validation
     const handleSubmit = (e) => {
         e.preventDefault()
         editEvent()
-        clearEventStorage()
+        _clearEventStorage()
     }
 
     const handleReturn = (e) => {
         e.preventDefault()
-        clearEventStorage()
+        _clearEventStorage()
     }
 
     return (
