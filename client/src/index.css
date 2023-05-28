@@ -34,6 +34,7 @@ p {
 
 button,
 li,
+label,
 a {
   font-family: Nunito-Medium;
 }
@@ -47,4 +48,33 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+li {
+  list-style-type: none;
+}
+
+#root {
+  display: grid;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+input:focus {
+  outline: unset;
+}
+
+#error-page {
+  display: flex;
+  margin-top: 30vh;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
 }

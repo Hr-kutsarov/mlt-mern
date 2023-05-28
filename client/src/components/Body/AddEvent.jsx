@@ -8,10 +8,11 @@ import { useEventStore } from '../../store/appStore'
 
 export function AddEvent() {
     const eventId = useEventStore((state) => state.id)
-    const [title, setTitle] = useState('')
-    const [summary, setSummary] = useState('')
-    const [content, setContent] = useState('')
+    const [title, setTitle] = useState('Which play is it?')
+    const [summary, setSummary] = useState('How would you describe it?')
+    const [content, setContent] = useState('Paste from your text editor.')
 
+    const imageSource = require('../../static/logo.png')
     const [addEvent] = useMutation(ADD_EVENT, {
         variables: { title, summary, content },
         refetchQueries: [{ query: GET_EVENTS }]
@@ -30,19 +31,20 @@ export function AddEvent() {
         setContent('')
     }
 
+
     if (!eventId) {
         return (
         <div id='add-event-form-wrapper'>
-            <span id="add-form-picture"></span>
+            <img id="add-form-picture" src={imageSource}></img>
             <form id="add-event-form" onSubmit={submitForm}>
-                <h3>Create new event</h3>
-                <label>Title</label>
+                <h3>CREATE NEW EVENT</h3>
+                {/* <label>Title</label> */}
                 <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
-                <label>Summary</label>
+                {/* <label>Summary</label> */}
                 <input type="text" onChange={(e) => setSummary(e.target.value)} value={summary}/>
-                <label>Content</label>
-                <input type="text" onChange={(e) => setContent(e.target.value)} value={content}/>
-                <button>Create</button>
+                {/* <label>Content</label> */}
+                <textarea onChange={(e) => setContent(e.target.value)} value={content}/>
+                <button>CREATE</button>
             </form>
         </div>
         )

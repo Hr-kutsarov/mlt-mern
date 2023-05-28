@@ -5,7 +5,17 @@ import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
 
+// When the button that has an attached function to edit the Event
+// will save the parameters of that event in the global state
+// then the contents of the edit form is loaded from the global state
+// Retyping the contents of the form sets the state for the object
+// Submitting the form gets the data from the input fields and maps them over the expected keys AND
+//  sends a mutation with the new data. 
+// Then the event form is cleared by unsetting the values of the global state.
+// And if there's no stored for that item the form is not displayed.
+
 export function EditEvent() {
+
     // getters
     const eventId = useEventStore((state) => state.id)
     const eventTitle = useEventStore((state) => state.title)
@@ -65,10 +75,10 @@ export function EditEvent() {
                         <button type="submit">Edit</button>
                     </>)}
                 </form>
-                <button 
+                <span 
                 onClick={handleReturn}>
                     <Link to="/">Home</Link>
-                </button>
+                </span>
             </div>
         </>
     )
