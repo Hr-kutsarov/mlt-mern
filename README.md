@@ -1,3 +1,41 @@
+# Progress:
+
+    [x] Install express, graphql
+    [x] Initialize Express app
+    [x] Configure environmental variables storage
+    [x] Fix CORS issue
+    [x] Connect to Mongo Database
+    [x] Initialize React client and install dependencies
+    [x] Home page "/" contains Header, Main and Footer element
+    [x] Header element contains a logo element and a navigation bar
+    [x] Main element displays all crud pages, collections etc.
+    [ ] Footer element ~contains~ displays navigation links
+    [x] Login page form, navigation and ~functionality~
+    [x] Register page form, navigation and ~functionality~
+    [ ] Logout page
+    [ ] Authentication system
+    [ ] Token, JWT, email validation, hashing?
+    [x] Event mongo schema
+    [x] Event queries and mutations
+    [x] Event create, edit, ~~read~~, delete views
+    [x] Event error pages
+    [x] Artist mongo schema
+    [x] Artist queries and mutations
+    [ ] Artist create, edit, read, delete views
+    [ ] Artist error pages
+    [x] User mongo schema
+    [x] User queries and mutations
+    [ ] profile page and delete functionality
+    [ ] User error pages
+    [x] Ticket mongo schema
+    [x] Ticket queries and mutations
+    [ ] Ticket create, edit, read, delete views
+    [ ] Ticket error pages
+    [ ] Devlog mongo schema - storing milestone data
+    [ ] Devlog queries and mutations
+    [ ] Devlog create, edit, read, delete views
+    [ ] Devlog error pages
+
 #
 
 # FAQ
@@ -49,41 +87,7 @@ No more prop drilling!
 The client (React) sends requests via GraphQL language (gql). Those requests are either queries or mutations and are wrapped in gql tag.
 Those queries are sent with the 'useQuery(gql_code)' hook from Apollo client.
 As a result from the 'useQuery' callback function we can get the loading state of the data, the error object and the data itself that wraps the
-entire json response. The data is also cached in the process. The data is dynamically unpacked in react components and then
-the browser renders everything.
+entire json response. ~The data is also cached in the process.~ The data is dynamically unpacked in react components and then
+the react dom applies changes wherever it has to.
 
 #
-
-# Progress:
-
-    [x] Install express, graphql
-    [x] Initialize Express app
-    [x] Configure environmental variables storage
-    [x] Fix CORS issue
-    [x] Connect to Mongo Database
-    [x] Initialize React client and install dependencies
-    [x] Home page "/" contains Header, Main and Footer element
-    [x] Header element contains a logo element and a navigation bar
-    [x] Main element displays all crud pages, collections etc.
-    [ ] Footer element ~contains~ displays navigation links
-    [x] Login page form, navigation and ~functionality~
-    [x] Register page form, navigation and ~functionality~
-    [ ] Logout page
-    [ ] Authentication system
-    [ ] Token, JWT, email validation, hashing?
-    [x] Event mongo schema
-    [x] Event queries and mutations
-    [x] Event create, edit, ~read~, delete views
-    [x] Event error pages
-    [x] Artist mongo schema
-    [x] Artist queries and mutations
-    [ ] Artist create, edit, ~read~, delete views
-    [ ] Artist error pages
-    [x] User mongo schema
-    [x] User queries and mutations
-    [ ] profile page and delete functionality
-    [ ] User error pages
-    [x] Ticket mongo schema
-    [x] Ticket queries and mutations
-    [ ] Ticket create, edit, ~read~, delete views
-    [ ] Ticket error pages
