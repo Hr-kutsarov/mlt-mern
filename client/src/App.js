@@ -1,4 +1,3 @@
-
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Home } from './components/Home.jsx'
@@ -8,6 +7,10 @@ import { Login } from './components/Login.jsx'
 import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
 import { AddEvent } from './components/Body/AddEvent';
+import { DevlogReel } from './components/Body/DevlogEntries/collectionDevlog';
+import { CreateDevlog } from './components/Body/DevlogEntries/createDevlog';
+import { EditDevlog } from './components/Body/DevlogEntries/editDevlog';
+import { ViewDevlog } from './components/Body/DevlogEntries/viewDevlog'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,26 @@ const router = createBrowserRouter([
   {
     path: "add-event/",
     element: <AddEvent />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "devlog-reel/",
+    element: <DevlogReel />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "add-devlog/",
+    element: <CreateDevlog />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "edit-devlog/",
+    element: <EditDevlog />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "view-devlog/",
+    element: <ViewDevlog />,
     errorElement: <ErrorPage />
   }
 ]);

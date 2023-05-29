@@ -4,7 +4,7 @@ import { EDIT_EVENT } from '../mutations/eventMutations'
 import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaHome } from 'react-icons/fa'
 
 // When the button that has an attached function to edit the Event
@@ -60,6 +60,10 @@ export function EditEvent() {
         editEvent()
         setSubmitted(true)
         _clearEventStorage()
+    }
+
+    if (!eventId) {
+        throw ('Please select an item to edit!')
     }
 
     return (

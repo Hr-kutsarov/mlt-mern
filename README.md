@@ -22,19 +22,20 @@
     [x] Artist mongo schema
     [x] Artist queries and mutations
     [ ] Artist create, edit, read, delete views
-    [ ] Artist error pages
+    [x] Artist error pages
     [x] User mongo schema
     [x] User queries and mutations
     [ ] profile page and delete functionality
-    [ ] User error pages
+    [x] User error pages
     [x] Ticket mongo schema
     [x] Ticket queries and mutations
     [ ] Ticket create, edit, read, delete views
-    [ ] Ticket error pages
-    [ ] Devlog mongo schema - storing milestone data
-    [ ] Devlog queries and mutations
-    [ ] Devlog create, edit, read, delete views
-    [ ] Devlog error pages
+    [x] Ticket error pages
+    [x] Devlog mongo schema - storing milestone data
+    [x] Devlog queries and mutations
+    [->] Devlog create, edit, read, delete views and navigation
+    [x] Devlog error pages
+    [ ] Payment system - Stripe
 
 #
 

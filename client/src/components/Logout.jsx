@@ -3,6 +3,8 @@ import './Logout.css'
 export function Logout() {
     return (
         <>
-            <h1>Logout</h1>
+            <section id="logout-wrapper">
+                <h1>Logout</h1>
+            </section>
         </>
     )}
