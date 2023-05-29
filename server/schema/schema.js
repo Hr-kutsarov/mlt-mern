@@ -4,6 +4,7 @@ const Event = require('../models/Event.js');
 const Artist = require('../models/Artist.js');
 const Ticket = require('../models/Ticket.js');
 const User = require('../models/User.js');
+const DevlogEntry = require('../models/Devlog.js');
 
 const EventType = new GraphQLObjectType({
     name: 'Event',
@@ -19,6 +20,7 @@ const EventType = new GraphQLObjectType({
 const ArtistType = new GraphQLObjectType({
     name: "Artist",
     fields: () => ({
+        _id: {type: GraphQLID},
         name: {type: GraphQLString},
         birthDate: {type: GraphQLString},
         bio: {type: GraphQLString}
@@ -28,6 +30,7 @@ const ArtistType = new GraphQLObjectType({
 const TicketType = new GraphQLObjectType({
     name: "Ticket",
     fields: () => ({
+        _id: {type: GraphQLID},
         title: {type: GraphQLString},
         created: {type: GraphQLString},
         price: {type: GraphQLFloat },
@@ -40,9 +43,20 @@ const TicketType = new GraphQLObjectType({
 const UserType = new GraphQLObjectType({
     name: "User",
     fields: () => ({
+        _id: {type: GraphQLID},
         email: { type: GraphQLString },
         password: { type: GraphQLString },
         role: {type: GraphQLString }
+    })
+})
+
+const DevlogEntryType = new GraphQLObjectType({
+    name: "DevlogEntry",
+    fields: () => ({
+        _id: {type: GraphQLID},
+        title: {type: GraphQLString},
+        created: {type: GraphQLString},
+        entry: {type: GraphQLString}
     })
 })
 
@@ -99,6 +113,19 @@ const query = new GraphQLObjectType({
             type: new GraphQLList(TicketType),
             resolve(_,args) {
                 return User.find()
+            }
+        },
+        getDevlogEntry: {
+            type: DevlogEntryType,
+            args: {id: {type: GraphQLID}},
+            resolve(_, args) {
+                return DevlogEntry.findById(args.id);
+            }
+        },
+        getAllDevlogEntries: {
+            type: new GraphQLList(DevlogEntryType),
+            resolve(_,args) {
+                return DevlogEntry.find()
             }
         }
     }
@@ -309,7 +336,57 @@ const mutation = new GraphQLObjectType({
                     }
                 )
             }
-        }
+        },
+
+        // Mutations for Devlog Entries
+
+        // TODO rename all 'add' keywords to 'create' because they mess up with css search (highlights 'padding')
+
+        addDevlogEntry: {
+            type: DevlogEntryType,
+            args: {
+                title: { type: GraphQLString },
+                created: { type: GraphQLString },
+                entry: { type: GraphQLString }
+            },
+            resolve(_, args) {
+                const newDevlogEntry = new DevlogEntry({
+                    title: args.title,
+                    created: args.created,
+                    entry: args.entry
+                });
+                return newDevlogEntry.save()
+            }
+        },
+        deleteDevlogEntry: {
+            type: DevlogEntryType,
+            args: {
+                id: {type: GraphQLID}
+            },
+            resolve(_, args,) {
+                return DevlogEntry.findByIdAndRemove(args.id)
+            }
+        },
+        editDevlogEntry: {
+            type: DevlogEntryType,
+            args: {
+                id: {type: GraphQLID},
+                title: { type: GraphQLString },
+                entry: { type: GraphQLString }
+            },
+            resolve(_,args) {
+                return DevlogEntry.findByIdAndUpdate(
+                    args.id,
+                    {
+                        $set: {
+                            title: args.title,
+                            entry: args.entry
+                        }
+                    }
+                )
+            }
+        },
+
     }
 })
 
