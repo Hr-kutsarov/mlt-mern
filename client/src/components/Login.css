@@ -1,0 +1,139 @@
+/* Login form color swatches */
+
+:root {
+  --blue-m: #425a7d;
+  --blue-light: #a0c0d6;
+  --blue-lighter: #e5fafc;
+  --contrast-orange: #df7356;
+  --blue-dark: #2a3240;
+}
+
+#login-form-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--blue-lighter);
+}
+
+#login-curtain {
+  display: flex;
+  width: 56vw;
+  margin: 1rem;
+  background-color: var(--blue-dark);
+  transition: 1.4s all ease-out;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+#login-curtain:hover {
+  margin-left: 10vw;
+  width: 70vw;
+}
+
+#login-form-navigation-box {
+  position: fixed;
+  right: 4rem;
+  top: 4rem;
+}
+
+#login-form-navigation-box > ul {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+#login-form-navigation-box > ul > li {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  line-height: 0;
+  border-radius: 50%;
+  transition: 0.3s all ease;
+  color: var(--blue-dark);
+}
+
+#login-form-navigation-box > ul > li:hover {
+  background-color: var(--blue-m);
+  color: var(--blue-lighter);
+}
+
+/* Targetting the form */
+
+#user-login-form {
+  /* GOLDEN RULE */
+  position: fixed;
+  left: 20vw;
+  top: 10vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-input-box {
+  display: grid;
+  margin: auto;
+}
+.login-input-box > label {
+  font-size: 1rem;
+  color: var(--blue-lighter);
+  margin-bottom: 0.5rem;
+}
+
+.login-input-box > input {
+  display: block;
+  border: unset;
+  background: var(--blue-lighter);
+  font-size: 1rem;
+  color: var(--blue-lighter);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--blue-dark);
+}
+
+.login-input-box > input:focus {
+  color: var(--blue-dark);
+}
+/* ERROR MESSAGES STYLING */
+
+.login-error-message {
+  /* the error message stays hidden for now */
+  opacity: 1;
+  /* the error message stays hidden for now */
+  font-size: 1rem;
+  margin: 2rem 0 1rem 0;
+  color: var(--contrast-orange);
+}
+
+.input-fields-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+#user-login-form > h3 {
+  color: var(--blue-light);
+}
+
+#user-login-form > h3:hover {
+  color: var(--blue-m);
+}
+#user-login-form > button {
+  background-color: transparent;
+  border: none;
+  margin-top: 2rem;
+  color: var(--blue-light);
+  display: flex;
+  align-items: end;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#user-login-form > button:hover {
+  font-weight: 600;
+  color: var(--blue-m);
+}
+
+.input-fields-wrapper > button:focus {
+  border: unset;
+}
