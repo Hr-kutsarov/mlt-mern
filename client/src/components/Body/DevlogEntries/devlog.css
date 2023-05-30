@@ -1,0 +1,64 @@
+.devlog {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 1rem 2rem 3rem 2rem;
+  border-radius: 1rem;
+  background-color: whitesmoke;
+  box-shadow: var(--boxShadow);
+  margin-bottom: 1rem;
+}
+
+.devlog > h3 {
+  color: rgb(0, 0, 0);
+  display: block;
+  font-size: 4rem;
+  color: var(--blue-dark);
+  border-bottom: 0.1rem solid var(--blue-dark);
+}
+
+.devlog > p {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+
+.devlog > #devlog-timestamp {
+  color: rgba(0, 0, 0, 0.212);
+}
+
+.devlog > nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.devlog > nav > button {
+  margin-top: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  border: unset;
+  color: var(--blue-m);
+}
+
+.devlog > nav > button:hover {
+  background-color: var(--blue-dark);
+  color: var(--blue-light);
+}
+
+.devlog > nav > button:nth-child(1) {
+  font-size: 1.5rem;
+  line-height: 0;
+  color: var(--blue-light);
+}
+
+.devlog > nav > button:nth-child(2) {
+  font-size: 1.25rem;
+  line-height: 0;
+  color: var(--contrast-orange);
+}

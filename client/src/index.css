@@ -24,7 +24,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span {
   font-family: Nunito-Bold;
 }
 
@@ -93,4 +94,25 @@ textarea::-webkit-scrollbar {
   margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+/* register form color swatches */
+
+:root {
+  --boxShadow: hsl(210, 68%, 58%) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  --textColor: rgb(181, 219, 237);
+  --bg: -webkit-linear-gradient(rgb(42, 42, 42), rgb(0, 0, 0));
+  --blue-m: #425a7d;
+  --blue-light: #a0c0d6;
+  --blue-lighter: #e5fafc;
+  --contrast-orange: #df7356;
+  --blue-dark: #2a3240;
+}
+
+/* this is for components that will have their views extended to full screen */
+
+/* related to devlog component, */
+.extended {
+  min-height: 85vh;
 }

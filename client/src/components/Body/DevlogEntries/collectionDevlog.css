@@ -1,0 +1,68 @@
+#collection-devlog-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-image: linear-gradient(var(--blue-m), var(--blue-dark));
+  opacity: 1;
+  object-fit: cover;
+  color: white;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+#collection-devlog-wrapper > section {
+  padding: unset;
+}
+
+#devlog-left {
+  display: flex;
+  flex-direction: column;
+}
+
+#devlog-left > nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#devlog-left > nav > span {
+  display: flex;
+  min-height: 100px;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: end;
+  padding: 1rem 2rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+#devlog-left > nav > a > span {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: end;
+  padding: 1rem 2rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  border-radius: 0 2rem 2rem 2rem;
+  cursor: pointer;
+  color: var(--blue-lighter);
+  background-image: linear-gradient(var(--blue-m), var(--blue-light));
+}
+
+#devlog-left > nav > span:nth-child(2) {
+  color: var(--blue-lighter);
+  background-image: linear-gradient(var(--blue-light), var(--blue-m));
+}
+#devlog-left > nav > span:nth-child(3) {
+  color: var(--blue-lighter);
+  background-image: linear-gradient(var(--blue-dark), var(--blue-m));
+  border-radius: 1rem 0 0 1rem;
+}
+#devlog-form-wrapper {
+  display: flex;
+}

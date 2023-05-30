@@ -62,10 +62,6 @@ export function EditEvent() {
         _clearEventStorage()
     }
 
-    if (!eventId) {
-        throw ('Please select an item to edit!')
-    }
-
     return (
         <>
             <div id="edit-event-wrapper">

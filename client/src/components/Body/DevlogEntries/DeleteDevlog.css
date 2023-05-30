@@ -1,0 +1,23 @@
+#delete-devlog-wrapper {
+  padding: 2rem 0;
+}
+
+#delete-devlog-wrapper > h3 {
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+#delete-devlog-wrapper > button {
+  border: unset;
+  background-color: var(--blue-m);
+  font-size: 2rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
+  color: var(--blue-light);
+  padding: 1rem;
+}
+
+#delete-devlog-wrapper > button:hover {
+  background-color: var(--blue-dark);
+  color: var(--blue-lighter);
+}

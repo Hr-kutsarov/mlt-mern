@@ -17,3 +17,18 @@ export const useEventStore = create((set) => ({
   setPictureUrl: (data) => set((state) => ({ pictureUrl: (state.pictureUrl = data)})),
   unsetPictureUrl: () => set((state) => ({ pictureUrl: (state.pictureUrl = '')}))
 }))
+
+export const useDevStore = create((set) => ({
+  add: false,
+  toggleCreateOff: () => set((state) => ({ add: (state.add = false)})),
+  toggleCreateOn: () => set((state) => ({ add: (state.add = true)})),
+  edit: false,
+  toggleEditOff: () => set((state) => ({ edit: (state.edit = false)})),
+  toggleEditOn: () => set((state) => ({ edit: (state.edit = true)})),
+  details: false,
+  toggleDetailsOff: () => set((state) => ({ details: (state.details = false)})),
+  toggleDetailsOn: () => set((state) => ({ details: (state.details = true)})),
+  del: false,
+  toggleDeleteOff: () => set((state) => ({ del: (state.del = false)})),
+  toggleDeleteOn: () => set((state) => ({ del: (state.del = true)}))
+}))

@@ -7,7 +7,7 @@ import { Login } from './components/Login.jsx'
 import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
 import { AddEvent } from './components/Body/AddEvent';
-import { DevlogReel } from './components/Body/DevlogEntries/collectionDevlog';
+import { CollectionDevlog } from './components/Body/DevlogEntries/collectionDevlog'
 import { CreateDevlog } from './components/Body/DevlogEntries/createDevlog';
 import { EditDevlog } from './components/Body/DevlogEntries/editDevlog';
 import { ViewDevlog } from './components/Body/DevlogEntries/viewDevlog'
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: "devlog-reel/",
-    element: <DevlogReel />,
+    path: "devlogs/",
+    element: <CollectionDevlog />,
     errorElement: <ErrorPage />
   },
   {

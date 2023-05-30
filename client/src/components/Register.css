@@ -1,13 +1,3 @@
-/* register form color swatches */
-
-:root {
-  --blue-m: #425a7d;
-  --blue-light: #a0c0d6;
-  --blue-lighter: #e5fafc;
-  --contrast-orange: #df7356;
-  --blue-dark: #2a3240;
-}
-
 #register-form-wrapper {
   display: flex;
   width: 100%;
@@ -59,9 +49,8 @@
 /* Targetting the form */
 
 #user-register-form {
-  /* GOLDEN RULE */
   position: fixed;
-  left: 20vw;
+  left: 10vw;
   top: 10vh;
   display: flex;
   justify-content: center;

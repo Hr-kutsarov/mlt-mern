@@ -1,0 +1,60 @@
+#create-devlog-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#create-devlog-form > h2 {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+#create-devlog-form > label {
+  font-size: 1.1rem;
+  margin: 1rem 0 1rem 0.2rem;
+}
+
+#create-devlog-form > input {
+  color: rgba(0, 0, 0, 0.385);
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+#create-devlog-form > input:focus {
+  outline: none;
+  color: black;
+}
+
+#create-devlog-form > textarea {
+  color: rgba(0, 0, 0, 0.385);
+  font-size: 1.5rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  min-height: 190px;
+  min-width: 100%;
+}
+
+#create-devlog-form > textarea:focus {
+  outline: unset;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: flex-end;
+}
+#create-devlog-form > .btn-box > button {
+  margin-top: 1rem;
+  padding: 1rem;
+  line-height: 0;
+  font-size: 2rem;
+  display: flex;
+  width: 33%;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(var(--blue-light), var(--blue-m));
+  color: var(--blue-lighter);
+  border: unset;
+}
