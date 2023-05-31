@@ -72,11 +72,15 @@
 #devlog-wrapper-bg {
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: -80vh;
+  margin-left: 18vw;
   font-family: Nunito-Bold;
-  font-size: 5rem;
-  color: var(--blue-dark);
-  line-height: 5rem;
+  font-size: 4rem;
+  color: var(--blue-lighter);
+  line-height: 2.5rem;
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 0.1;
 }
