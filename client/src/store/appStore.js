@@ -30,5 +30,13 @@ export const useDevStore = create((set) => ({
   toggleDetailsOn: () => set((state) => ({ details: (state.details = true)})),
   del: false,
   toggleDeleteOff: () => set((state) => ({ del: (state.del = false)})),
-  toggleDeleteOn: () => set((state) => ({ del: (state.del = true)}))
+  toggleDeleteOn: () => set((state) => ({ del: (state.del = true)})),
+  id: '',
+  title: '',
+  created: '',
+  content: '',
+  setId: (data) => set((state) => ({id: (state.id = data)})),
+  setCreated: (data) => set((state) => ({created: (state.created = data)})),
+  setTitle: (data) => set((state) => ({title: (state.title = data)})),
+  setEntry: (data) => set((state) => ({entry: (state.entry = data)})),
 }))

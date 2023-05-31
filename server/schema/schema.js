@@ -115,14 +115,14 @@ const query = new GraphQLObjectType({
                 return User.find()
             }
         },
-        getDevlogEntry: {
+        getDevlog: {
             type: DevlogEntryType,
             args: {id: {type: GraphQLID}},
             resolve(_, args) {
                 return DevlogEntry.findById(args.id);
             }
         },
-        getAllDevlogEntries: {
+        getAllDevlogs: {
             type: new GraphQLList(DevlogEntryType),
             resolve(_,args) {
                 return DevlogEntry.find()
@@ -342,7 +342,7 @@ const mutation = new GraphQLObjectType({
 
         // TODO rename all 'add' keywords to 'create' because they mess up with css search (highlights 'padding')
 
-        addDevlogEntry: {
+        addDevlog: {
             type: DevlogEntryType,
             args: {
                 title: { type: GraphQLString },
@@ -358,7 +358,7 @@ const mutation = new GraphQLObjectType({
                 return newDevlogEntry.save()
             }
         },
-        deleteDevlogEntry: {
+        deleteDevlog: {
             type: DevlogEntryType,
             args: {
                 id: {type: GraphQLID}
@@ -367,7 +367,7 @@ const mutation = new GraphQLObjectType({
                 return DevlogEntry.findByIdAndRemove(args.id)
             }
         },
-        editDevlogEntry: {
+        editDevlog: {
             type: DevlogEntryType,
             args: {
                 id: {type: GraphQLID},

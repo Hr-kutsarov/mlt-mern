@@ -41,6 +41,7 @@
 
 #create-devlog-form > textarea:focus {
   outline: unset;
+  color: black;
 }
 
 .btn-box {

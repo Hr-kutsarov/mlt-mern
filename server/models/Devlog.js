@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const DevlogEntrySchema = new mongoose.Schema({
     title: {type: String},
-    created: {type: Date, default: Date.now},
+    created: {type: String},
     entry: {type: String}
 })
 

@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-image: linear-gradient(var(--blue-m), var(--blue-dark));
-
   opacity: 1;
   object-fit: cover;
   color: white;
@@ -72,10 +71,10 @@
 #devlog-wrapper-bg {
   display: flex;
   flex-direction: column;
-  margin-top: -80vh;
+  margin-top: -81vh;
   margin-left: 18vw;
   font-family: Nunito-Bold;
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--blue-lighter);
   line-height: 2.5rem;
   width: 100%;

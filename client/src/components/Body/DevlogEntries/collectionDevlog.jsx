@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './collectionDevlog.css'
 import './devlog.css'
 import { CreateDevlog } from './createDevlog'
@@ -10,7 +9,9 @@ import { FaAngleUp } from 'react-icons/fa'
 import { Devlog } from './devlog'
 import { Link } from 'react-router-dom'
 import { useDevStore } from '../../../store/appStore'
-import { DeleteDevlog } from './DeleteDevlog'
+import { DeleteDevlog } from './DeleteDevlog.jsx'
+import { GET_ALL_DEVLOGS } from '../../queries/devlogQueries.js'
+import { useQuery } from '@apollo/client'
 
 export function CollectionDevlog() {
     const add = useDevStore((state) => state.add)
@@ -19,8 +20,8 @@ export function CollectionDevlog() {
     const del = useDevStore((state) => state.del)
 
     const toggleCreateOn = useDevStore((state) => state.toggleCreateOn)
-    const toggleEditOn = useDevStore((state) => state.toggleEditOn)
-    const toggleDeleteOn = useDevStore((state) => state.toggleDeleteOn)
+    // const toggleEditOn = useDevStore((state) => state.toggleEditOn)
+    // const toggleDeleteOn = useDevStore((state) => state.toggleDeleteOn)
 
     const toggleCreateOff = useDevStore((state) => state.toggleCreateOff)
     const toggleEditOff = useDevStore((state) => state.toggleEditOff)
@@ -52,6 +53,8 @@ export function CollectionDevlog() {
     }
 
     const date = new Date()
+
+    const { loading, error, data } = useQuery(GET_ALL_DEVLOGS)    
     
     const handlerNEW = (e) => {
         e.preventDefault()
@@ -95,9 +98,7 @@ export function CollectionDevlog() {
                         </div>
                     </section>
                     <section id="devlog-mid">
-                        <Devlog />
-                        <Devlog />
-                        <Devlog />
+                        {!loading && !error && (data.getAllDevlogs.map((devlog) => (<Devlog key={devlog._id} devlog={devlog}/>)))}
                     </section>
                     <section id="devlog-right">
                         {details && (<ViewDevlog />)}

@@ -5,18 +5,28 @@ import { FaRecycle } from 'react-icons/fa'
 import { useDevStore } from '../../../store/appStore'
 
 export function ViewDevlog() {
-    const date = new Date().toLocaleDateString()
+
+    // Navigation
     const toggleDeleteOn = useDevStore((state) => state.toggleDeleteOn)
     const toggleEditOn = useDevStore((state) => state.toggleEditOn)
     const toggleCreateOff = useDevStore((state) => state.toggleCreateOff)
     const toggleDeleteOff = useDevStore((state) => state.toggleDeleteOff)
     const toggleEditOff = useDevStore((state) => state.toggleEditOff)
+    const toggleDetailsOff = useDevStore((state) => state.toggleDetailsOff)
+
+    // Data
+
+    const devlogId = useDevStore((state) => state.id)
+    const created = useDevStore((state) => state.created)
+    const title = useDevStore((state) => state.title)
+    const content = useDevStore((state) => state.entry)
 
     const togglerEdit = (e) => {
         e.preventDefault()
         toggleEditOn()
         toggleCreateOff()
         toggleDeleteOff()
+        toggleDetailsOff()
     }
 
     const togglerDelete = (e) => {
@@ -29,9 +39,9 @@ export function ViewDevlog() {
     return (
             <>
                 <article className='devlog extended'>
-                    <h3>Devlog title</h3>
-                    <p id='devlog-timestamp'><FaUserClock /> Added on {date}</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, maiores. Harum magnam dolore, doloribus animi at fugiat eos soluta natus illum laudantium corporis maiores. Modi quidem beatae aspernatur excepturi error?</p>
+                    <h3>{title}</h3>
+                    <p id='devlog-timestamp'><FaUserClock /> {created}</p>
+                    <p>{content}</p>
                     <nav>
                         <button onClick={togglerEdit}><FaEdit /></button>
                         <button onClick={togglerDelete}><FaRecycle /></button>

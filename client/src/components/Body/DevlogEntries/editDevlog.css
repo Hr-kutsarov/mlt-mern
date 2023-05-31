@@ -32,12 +32,13 @@
   font-size: 1.5rem;
   padding: 0.3rem 0.7rem;
   border-radius: 0.5rem;
-  min-height: 190px;
+  min-height: 170px;
   min-width: 100%;
 }
 
 #edit-devlog-form > textarea:focus {
   outline: unset;
+  color: var(--blue-dark);
 }
 
 #edit-devlog-form > button {
