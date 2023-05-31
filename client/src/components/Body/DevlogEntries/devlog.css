@@ -8,6 +8,7 @@
   background-color: whitesmoke;
   box-shadow: var(--boxShadow);
   margin-bottom: 1rem;
+  max-height: 50vh;
 }
 
 .devlog > h3 {
@@ -19,11 +20,11 @@
 }
 
 .devlog > p {
-  margin-top: 0.5rem;
   font-size: 1.5rem;
   line-height: 1.75rem;
   color: var(--blue-dark);
   font-weight: 600;
+  overflow: hidden;
 }
 
 .devlog > #devlog-timestamp {
@@ -39,8 +40,7 @@
 }
 
 .devlog > nav > button {
-  margin-top: 2rem;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.7rem;
   border: unset;
   color: var(--blue-m);
@@ -52,7 +52,7 @@
 }
 
 .devlog > nav > button:nth-child(1) {
-  font-size: 1.5rem;
+  font-size: 1.25em;
   line-height: 0;
   color: var(--blue-light);
 }

@@ -114,5 +114,6 @@ textarea::-webkit-scrollbar {
 
 /* related to devlog component, */
 .extended {
+  max-height: auto;
   min-height: 85vh;
 }

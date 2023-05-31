@@ -16,7 +16,7 @@ export function Devlog() {
         <>
             <article className='devlog'>
                 <h3>Devlog title</h3>
-                <p id='devlog-timestamp'><FaUserClock /> Added on {date}</p>
+                <span id='devlog-timestamp'><FaUserClock /> Added on {date}</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio at ullam obcaecati placeat. Eius repudiandae laborum tenetur, excepturi officiis quasi blanditiis numquam aliquam quibusdam dolores vel consequuntur ipsum! Quibusdam, velit?</p>
                 <nav>
                     <button onClick={togglerDetails}><FaArrowAltCircleRight /></button>
