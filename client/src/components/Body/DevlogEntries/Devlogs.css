@@ -71,7 +71,7 @@
 #devlog-wrapper-bg {
   display: flex;
   flex-direction: column;
-  margin-top: -81vh;
+  margin-top: -70vh;
   margin-left: 18vw;
   font-family: Nunito-Bold;
   font-size: 3rem;
@@ -82,4 +82,12 @@
   position: relative;
   z-index: 1;
   opacity: 0.1;
+}
+
+/* It's a short from devlog-return-back-to-top-smoothly-btn'  */
+#devlog-return-top-btn {
+  display: block;
+  text-align: center;
+  font-size: 4rem;
+  padding: 2rem;
 }

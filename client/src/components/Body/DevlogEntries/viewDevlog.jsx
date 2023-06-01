@@ -15,7 +15,6 @@ export function ViewDevlog() {
     const toggleDetailsOff = useDevStore((state) => state.toggleDetailsOff)
 
     // Data
-    // const devlogId = useDevStore((state) => state.id)
     const created = useDevStore((state) => state.created)
     const title = useDevStore((state) => state.title)
     const content = useDevStore((state) => state.entry)

@@ -1,8 +1,5 @@
 import './Devlogs.css'
 import './Devlog.css'
-// import { CreateDevlog } from './CreateDevlog'
-// import { ViewDevlog } from './ViewDevlog'
-// import { EditDevlog } from './EditDevlog'
 import { CreateDevlog } from './CreateDevlog.jsx'
 import { ViewDevlog } from './ViewDevlog.jsx'
 import { EditDevlog } from './EditDevlog.jsx'
@@ -15,6 +12,7 @@ import { useDevStore } from '../../../store/appStore'
 import { DeleteDevlog } from './DeleteDevlog.jsx'
 import { GET_ALL_DEVLOGS } from '../../queries/devlogQueries.js'
 import { useQuery } from '@apollo/client'
+import { useEffect, useState } from 'react'
 
 export function Devlogs() {
     const add = useDevStore((state) => state.add)
@@ -23,9 +21,6 @@ export function Devlogs() {
     const del = useDevStore((state) => state.del)
 
     const toggleCreateOn = useDevStore((state) => state.toggleCreateOn)
-    // const toggleEditOn = useDevStore((state) => state.toggleEditOn)
-    // const toggleDeleteOn = useDevStore((state) => state.toggleDeleteOn)
-
     const toggleCreateOff = useDevStore((state) => state.toggleCreateOff)
     const toggleEditOff = useDevStore((state) => state.toggleEditOff)
     const toggleDeleteOff = useDevStore((state) => state.toggleDeleteOff)
@@ -71,6 +66,15 @@ export function Devlogs() {
         toggleDeleteOff()
         toggleCreateOff()
     }
+
+    const handlerReturn = (e) => {
+        e.preventDefault()
+        window.scrollTo({top: 0, behavior: 'smooth'})
+
+    }
+
+    // checker if the user is further away from the top of the page
+
     return (
         <>  
                 <div id="collection-devlog-wrapper">
@@ -102,6 +106,7 @@ export function Devlogs() {
                     </section>
                     <section id="devlog-mid">
                         {!loading && !error && (data.getAllDevlogs.map((devlog) => (<Devlog key={devlog._id} devlog={devlog}/>)))}
+                        <span id='devlog-return-top-btn' onClick={handlerReturn}><FaAngleUp /></span>
                     </section>
                     <section id="devlog-right">
                         {details && (<ViewDevlog />)}
