@@ -8,6 +8,7 @@ import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
 import { AddEvent } from './components/Body/AddEvent';
 import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
+import { CalendarView } from './components/Body/CalendarView';
 
 
 const router = createBrowserRouter([
@@ -47,9 +48,10 @@ const router = createBrowserRouter([
     element: <Devlogs />,
     errorElement: <ErrorPage />
   },
-  
   {
-
+    path: "calendar-view/",
+    element: <CalendarView />,
+    errorElement: <ErrorPage />
   }
 ]);
 

@@ -12,7 +12,6 @@ import { useDevStore } from '../../../store/appStore'
 import { DeleteDevlog } from './DeleteDevlog.jsx'
 import { GET_ALL_DEVLOGS } from '../../queries/devlogQueries.js'
 import { useQuery } from '@apollo/client'
-import { useEffect, useState } from 'react'
 
 export function Devlogs() {
     const add = useDevStore((state) => state.add)
@@ -26,6 +25,7 @@ export function Devlogs() {
     const toggleDeleteOff = useDevStore((state) => state.toggleDeleteOff)
 
 
+    // TODO move this to a helper function
     const weekRepr = {
         1: 'Mon',
         2: 'Tue',
@@ -54,26 +54,27 @@ export function Devlogs() {
 
     const { loading, error, data } = useQuery(GET_ALL_DEVLOGS)    
     
+    // shows the create form and hides the edit form
     const handlerNEW = (e) => {
         e.preventDefault()
         toggleCreateOn()
         toggleEditOff()
     }
 
+    // hides the add form, the delete panel and the form
     const handlerHIDE = (e) => {
         e.preventDefault()
         toggleCreateOff()
         toggleDeleteOff()
-        toggleCreateOff()
+        toggleEditOff()
     }
 
+    // returns to the top of the page
     const handlerReturn = (e) => {
         e.preventDefault()
         window.scrollTo({top: 0, behavior: 'smooth'})
 
     }
-
-    // checker if the user is further away from the top of the page
 
     return (
         <>  
