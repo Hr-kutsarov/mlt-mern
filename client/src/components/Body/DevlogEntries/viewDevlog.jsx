@@ -1,4 +1,4 @@
-import './viewDevlog.css'
+import './ViewDevlog.css'
 import { FaUserClock } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 import { FaRecycle } from 'react-icons/fa'
@@ -15,8 +15,7 @@ export function ViewDevlog() {
     const toggleDetailsOff = useDevStore((state) => state.toggleDetailsOff)
 
     // Data
-
-    const devlogId = useDevStore((state) => state.id)
+    // const devlogId = useDevStore((state) => state.id)
     const created = useDevStore((state) => state.created)
     const title = useDevStore((state) => state.title)
     const content = useDevStore((state) => state.entry)
@@ -36,17 +35,18 @@ export function ViewDevlog() {
         toggleCreateOff()
     }
     
+    // so the whole trick here is to render the same component of this class 
     return (
-            <>
-                <article className='devlog extended'>
-                    <h3>{title}</h3>
-                    <p id='devlog-timestamp'><FaUserClock /> {created}</p>
-                    <p>{content}</p>
-                    <nav>
-                        <button onClick={togglerEdit}><FaEdit /></button>
-                        <button onClick={togglerDelete}><FaRecycle /></button>
-                    </nav>
-                </article>
-            </>
+        <>
+            <article className='devlog extended'>
+                <h3>{title}</h3>
+                <p><FaUserClock /> {created}</p>
+                <p>{content}</p>
+                <nav>
+                    <button onClick={togglerEdit}><FaEdit /></button>
+                    <button onClick={togglerDelete}><FaRecycle /></button>
+                </nav>
+            </article>
+        </>
     )
 }

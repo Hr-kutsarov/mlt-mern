@@ -7,10 +7,8 @@ import { Login } from './components/Login.jsx'
 import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
 import { AddEvent } from './components/Body/AddEvent';
-import { CollectionDevlog } from './components/Body/DevlogEntries/collectionDevlog'
-import { CreateDevlog } from './components/Body/DevlogEntries/createDevlog';
-import { EditDevlog } from './components/Body/DevlogEntries/editDevlog';
-import { ViewDevlog } from './components/Body/DevlogEntries/viewDevlog'
+import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
+
 
 const router = createBrowserRouter([
   {
@@ -44,24 +42,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
+    // All views merged in a single one
     path: "devlogs/",
-    element: <CollectionDevlog />,
+    element: <Devlogs />,
     errorElement: <ErrorPage />
   },
+  
   {
-    path: "add-devlog/",
-    element: <CreateDevlog />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "edit-devlog/",
-    element: <EditDevlog />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "view-devlog/",
-    element: <ViewDevlog />,
-    errorElement: <ErrorPage />
+
   }
 ]);
 

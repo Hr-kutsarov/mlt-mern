@@ -1,5 +1,5 @@
-import './editDevlog.css'
-import './createDevlog.css'
+import './EditDevlog.css'
+import './CreateDevlog.css'
 import { FaArrowRight } from 'react-icons/fa'
 import { useDevStore } from '../../../store/appStore.js'
 import { useMutation } from '@apollo/client'

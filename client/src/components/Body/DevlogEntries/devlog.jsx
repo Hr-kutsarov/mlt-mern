@@ -1,4 +1,4 @@
-import './devlog.css'
+import './Devlog.css'
 import { FaArrowAltCircleRight, FaClock } from 'react-icons/fa'
 import { useDevStore } from '../../../store/appStore'
 import { useQuery } from '@apollo/client'

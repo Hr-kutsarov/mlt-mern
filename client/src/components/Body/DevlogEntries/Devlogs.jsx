@@ -1,19 +1,22 @@
-import './collectionDevlog.css'
-import './devlog.css'
-import { CreateDevlog } from './createDevlog'
-import { ViewDevlog } from './viewDevlog'
-import { EditDevlog } from './editDevlog'
+import './Devlogs.css'
+import './Devlog.css'
+// import { CreateDevlog } from './CreateDevlog'
+// import { ViewDevlog } from './ViewDevlog'
+// import { EditDevlog } from './EditDevlog'
+import { CreateDevlog } from './CreateDevlog.jsx'
+import { ViewDevlog } from './ViewDevlog.jsx'
+import { EditDevlog } from './EditDevlog.jsx'
 import { FaHome } from 'react-icons/fa'
 import { FaPlus } from 'react-icons/fa'
 import { FaAngleUp } from 'react-icons/fa'
-import { Devlog } from './devlog'
+import { Devlog } from './Devlog'
 import { Link } from 'react-router-dom'
 import { useDevStore } from '../../../store/appStore'
 import { DeleteDevlog } from './DeleteDevlog.jsx'
 import { GET_ALL_DEVLOGS } from '../../queries/devlogQueries.js'
 import { useQuery } from '@apollo/client'
 
-export function CollectionDevlog() {
+export function Devlogs() {
     const add = useDevStore((state) => state.add)
     const edit = useDevStore((state) => state.edit)
     const details = useDevStore((state) => state.details)
