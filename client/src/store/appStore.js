@@ -34,7 +34,7 @@ export const useDevStore = create((set) => ({
   id: '',
   title: '',
   created: '',
-  content: '',
+  entry: '',
   setId: (data) => set((state) => ({id: (state.id = data)})),
   setCreated: (data) => set((state) => ({created: (state.created = data)})),
   setTitle: (data) => set((state) => ({title: (state.title = data)})),
