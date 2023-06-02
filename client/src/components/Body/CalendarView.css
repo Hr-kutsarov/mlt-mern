@@ -2,12 +2,13 @@
   min-height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 5fr 3fr;
+  /* grid-template-columns: 70% 30%; */
 }
-/* left section */
+/* top section */
 #calendar-view-wrapper > section:nth-child(1) {
-  background-color: rgb(196, 196, 196);
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* right section */
@@ -22,4 +23,115 @@
 #calendar-view-wrapper > section:nth-child(2) > article {
   padding: 2rem 3rem;
   color: white;
+}
+
+/*  */
+
+.fc .fc-button-primary:disabled {
+  opacity: 0;
+}
+
+.fc-daygrid-dot-event {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.fc-daygrid-dot-event {
+  align-items: end !important;
+}
+
+.fc-daygrid-event-dot {
+  height: 0.1rem;
+  width: 80%;
+  border: unset;
+  background-color: var(--contrast-orange);
+}
+
+.fc-event-title {
+  font-size: 1rem;
+}
+
+.fc-header-toolbar {
+  background-color: var(--blue-m);
+  border-radius: 0.5rem;
+}
+.fc-toolbar-chunk {
+  margin-left: 2rem;
+  color: var(--blue-lighter);
+}
+
+.fc .fc-button-primary {
+  background-color: var(--blue-dark);
+  border-color: var(--blue-dark);
+  color: var(--blue-lighter);
+}
+.fc .fc-button {
+  border: unset;
+}
+
+.fc-scrollgrid {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.fc-theme-standard th {
+  background-color: #2c3e50;
+  /* background-color: white; */
+  height: 100%;
+  overflow: hidden;
+  padding: 0.5rem;
+  border: unset;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* shrinks the scrollbar a bit so the letters are readable */
+.fc .fc-scroller-liquid-absolute {
+  inset: -0.2rem;
+}
+
+.fc-direction-ltr .fc-daygrid-event .fc-event-time {
+  font-size: 1.8rem;
+}
+
+.fc-daygrid-dot-event .fc-event-title {
+  font-weight: 600;
+  min-width: 0px;
+  color: var(--blue-m);
+  padding: 0.1rem 0;
+  background-color: transparent;
+}
+
+/* new approach */
+
+#Calendar > div {
+  padding: 3rem;
+}
+
+#Calendar > div > div:nth-child(1) {
+  margin-bottom: 1rem;
+}
+
+.fc .fc-daygrid-day-frame {
+  padding: 0.2rem;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: var(--blue-lighter);
+}
+
+.fc-event:hover {
+  background-color: var(--blue-light);
+}
+
+.fc-event {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.2rem;
+}
+
+.fc-scroller {
+  overflow: hidden unset;
 }
