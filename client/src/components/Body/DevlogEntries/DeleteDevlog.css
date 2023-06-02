@@ -7,7 +7,7 @@
   padding: 1rem;
 }
 
-#delete-devlog-wrapper > button {
+#delete-devlog-btn-box > button {
   border: unset;
   background-color: var(--blue-m);
   font-size: 2rem;
@@ -17,7 +17,15 @@
   padding: 1rem;
 }
 
-#delete-devlog-wrapper > button:hover {
+#delete-devlog-btn-box > button:nth-child(2) {
+  background-color: var(--blue-dark);
+}
+
+#delete-devlog-btn-box > button:nth-child(2):hover {
+  background-color: var(--blue-m);
+}
+
+#delete-devlog-btn-box > button:hover {
   background-color: var(--blue-dark);
   color: var(--blue-lighter);
 }

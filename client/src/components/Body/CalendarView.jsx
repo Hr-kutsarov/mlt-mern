@@ -5,7 +5,6 @@ import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import { useEffect, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_ALL_DEVLOGS } from '../queries/devlogQueries.js'
-import { getFormatedTime } from '../../utils/utils.js'
 
 export function CalendarView() {
     const [arr, setArr] = useState([])
@@ -19,7 +18,6 @@ export function CalendarView() {
         }    
     })    
 
-    const result = getFormatedTime()
     return (
         <>
             <div id='calendar-view-wrapper'>

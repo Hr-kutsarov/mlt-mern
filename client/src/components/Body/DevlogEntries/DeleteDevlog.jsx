@@ -26,11 +26,18 @@ export function DeleteDevlog() {
         toggleDetailsOff()
     }
 
+    const handlerCancelDevlog = () => {
+        toggleDeleteOff()
+    }
+
     return (
         <>
             <div id="delete-devlog-wrapper">
                 <h3>Delete entry?</h3>
-                <button onClick={handlerDeleteDevlog}>Confirm</button>
+                <div id="delete-devlog-btn-box">
+                    <button onClick={handlerDeleteDevlog}>Confirm</button>
+                    <button onClick={handlerCancelDevlog}>Cancel</button>
+                </div>
             </div>
         </>
     )
