@@ -19,6 +19,7 @@
     [x] Event queries and mutations
     [x] Event create, edit, ~~read~~, delete views
     [x] Event error pages
+    [->]Event callendar view
     [x] Artist mongo schema
     [x] Artist queries and mutations
     [ ] Artist create, edit, read, delete views
@@ -33,7 +34,7 @@
     [x] Ticket error pages
     [x] Devlog mongo schema - storing milestone data
     [x] Devlog queries and mutations
-    [->] Devlog create, edit, read, delete views and navigation
+    [x] Devlog create, edit, read, delete views and navigation
     [x] Devlog error pages
     [ ] Payment system - Stripe
 
