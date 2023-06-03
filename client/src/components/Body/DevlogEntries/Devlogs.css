@@ -31,7 +31,7 @@
   min-height: 100px;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: end;
+  align-items: flex-end;
   padding: 1rem 2rem;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -44,7 +44,7 @@
   height: 100%;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: end;
+  align-items: flex-end;
   padding: 1rem 2rem;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -71,7 +71,7 @@
 #devlog-wrapper-bg {
   display: flex;
   flex-direction: column;
-  margin-top: -70vh;
+  margin-top: 1vh;
   margin-left: 18vw;
   font-family: Nunito-Bold;
   font-size: 3rem;

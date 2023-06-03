@@ -111,7 +111,7 @@
   margin-top: 2rem;
   color: var(--blue-dark);
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   padding: 0.5rem;
   font-size: 1.5rem;
   cursor: pointer;
