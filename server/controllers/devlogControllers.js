@@ -16,7 +16,16 @@ const createEntry = async (req, res) => {
 // READ
 
 const getAllEntries = async (req, res) => {
-    const entries = await Devlog.find().sort({createdAt: -1})
+    try {
+        const entries = await Devlog.find().sort({createdAt: -1})
+        res.status(200).json(entries)
+    } catch (err) {
+        res.status(400).json({error: err.message})
+    }
+}
+
+const getLatestEntries = async (req, res) => {
+    const entries = await Devlog.find().sort({createdAt: -1}).limit(3).exec()
     res.status(200).json(entries)
 }
 
@@ -25,7 +34,9 @@ const getEntryById = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Your data is not a valid Mongoose model ID"})
     }
+
     const entry = await Devlog.findById(id)
+
     if (!entry) {
         return res.status(400).json({error: "Devlog entry is not found."})
     } else {
@@ -68,4 +79,4 @@ const deleteEntry = async (req, res) => {
     }
 }
 
-module.exports = { createEntry, getAllEntries, getEntryById , editEntry, deleteEntry }
+module.exports = { createEntry, getAllEntries, getEntryById , editEntry, deleteEntry, getLatestEntries }
