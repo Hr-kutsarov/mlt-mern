@@ -38,7 +38,9 @@
     [x] Devlog error pages
     [ ] Payment system - Stripe
 
-#
+# Testing - using Selenium and Unittest
+    [x] Header - Nav bar links
+    [ ] 
 
 # FAQ
 
