@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 // CREATE
 
 const createEntry = async (req, res) => {
-    const { title, date, entry } = req.params
+    const { title, date, entry } = req.body
     try {
-        const devlog = await Devlog.create(title, date, entry)
-        res.status(200).json(devlog)
+        const devlog = await Devlog.create({title: title, date: date, entry: entry})
+        res.status(201).json(devlog)
     } catch (err) {
         res.status(400).json({error: err.message})
     }
@@ -25,7 +25,7 @@ const getAllEntries = async (req, res) => {
 }
 
 const getLatestEntries = async (req, res) => {
-    const entries = await Devlog.find().sort({createdAt: -1}).limit(3).exec()
+    const entries = await Devlog.find().sort({createdAt: -1}).limit(4).exec()
     res.status(200).json(entries)
 }
 
@@ -47,19 +47,19 @@ const getEntryById = async (req, res) => {
 // EDIT
 
 const editEntry = async (req, res) => {
-    const {id} = req.params
+    const { id } = req.params
+    const { title, date, entry } = req.body
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "This is not a proper ID."})
     }
-
-    const entry = await Devlog.findOneAndUpdate({_id: id}, {
-        ...req.body
+    
+    const result = await Devlog.findOneAndUpdate({_id: id}, {$set: {title: title, date: date, entry: entry}
     })
 
-    if (!entry) {
+    if (!result) {
         return res.status(404).json({error: 'Invalid id or object does not exist.'})
     } else {
-        return res.status(200).json(entry)
+        return res.status(200).json(result)
     }
 }
 
