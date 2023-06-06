@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 
 const TicketSchema = new mongoose.Schema({
     title: {type: String},
-    created: {type: Date, default: Date.now},
+    date: {type: String },
     price: { type: Number },
-    seat: { type: Number, unique: true },
-    owner: { type: String }
-
+    seat: { type: Number },
+    owner: { type: mongoose.Types.ObjectId }
 })
 
 module.exports = mongoose.model('Ticket', TicketSchema)
