@@ -63,8 +63,7 @@ management storage.
 
 ## Why MongoDB and not PostgreSQL for example?
 
-There is no need for relational databases. Quick reminder to use KISS today. And if ever needed
-it can also support object relationships without applying the so necessary algorithms used by relational databases.
+There is no need for relational databases. Event has time and place, User has ID. Ticket is created by combining the time and place with the user's unique identifiers. User can access their profile and extend the ticket so it can be scanned at venues.
 
 ## What do you get from MongoDB?
 
