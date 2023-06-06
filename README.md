@@ -8,37 +8,50 @@
     [x] Initialize React client and install dependencies
     [x] Home page "/" contains Header, Main and Footer element
     [x] Header element contains a logo element and a navigation bar
+    [x] Header navigation uses react-router-dom to render other components
+    [x] Tested navigation links with Selenium
     [x] Main element displays all crud pages, collections etc.
-    [ ] Footer element ~contains~ displays navigation links
-    [x] Login page form, navigation and ~functionality~
-    [x] Register page form, navigation and ~functionality~
-    [ ] Logout page
+    [x] Footer UI
+    [ ] Footer navigation and functionality
+    [x] Login page form UI
+    [ ] Login page form functionality
+    [x] Register page UI
+    [ ] Login page functionality
+    [ ] Logout page UI
+    [ ] Logout page functionality
     [ ] Authentication system
     [ ] Token, JWT, email validation, hashing?
     [x] Event mongo schema
-    [x] Event queries and mutations
-    [x] Event create, edit, ~~read~~, delete views
+    [ ] Event controller
+    [-] Event queries and mutations
+    [ ] Event crud views
     [x] Event error pages
-    [->]Event callendar view
+    [ ] Event callendar view UI
+    [ ] Event callendar functionality
     [x] Artist mongo schema
-    [x] Artist queries and mutations
+    [-] Artist queries and mutations
+    [ ] Artist controller
     [ ] Artist create, edit, read, delete views
     [x] Artist error pages
     [x] User mongo schema
-    [x] User queries and mutations
-    [ ] profile page and delete functionality
-    [x] User error pages
+    [-] User queries and mutations
+    [ ] User controller
+    [ ] Profile page UI
+    [ ] Profile page functionality
+    [ ] User error pages
     [x] Ticket mongo schema
-    [x] Ticket queries and mutations
+    [-] Ticket queries and mutations
+    [ ] Ticket controller
     [ ] Ticket create, edit, read, delete views
-    [x] Ticket error pages
+    [ ] Ticket error pages
     [x] Devlog mongo schema - storing milestone data
-    [x] Devlog queries and mutations
-    [x] Devlog create, edit, read, delete views and navigation
+    [-] Devlog queries and mutations
+    [x] Devlog controller
+    [ ] Devlog create, edit, read, delete views and navigation
     [x] Devlog error pages
     [ ] Payment system - Stripe
+    [ ] Deployment
 
-#
 
 # FAQ
 
@@ -50,8 +63,7 @@ management storage.
 
 ## Why MongoDB and not PostgreSQL for example?
 
-There is no need for relational databases. Quick reminder to use KISS today. And if ever needed
-it can also support object relationships without applying the so necessary algorithms used by relational databases.
+There is no need for relational databases. Event has time and place, User has ID. Ticket is created by combining the time and place with the user's unique identifiers. User can access their profile and extend the ticket so it can be scanned at venues.
 
 ## What do you get from MongoDB?
 
