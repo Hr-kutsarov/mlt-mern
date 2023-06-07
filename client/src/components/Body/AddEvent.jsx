@@ -22,7 +22,8 @@ export function AddEvent() {
     const [submitted, setSubmitted] = useState(false)
     const [err, setErr] = useState('')
     const imageSource = require('../../static/logo.png')
-    const date = new Date()
+    const [date, setDate] = useState('')
+    // const date = new Date()
 
     // const [addEvent] = useMutation(ADD_EVENT, {
     //     variables: { title, summary, content, pictureUrl },
@@ -76,11 +77,12 @@ export function AddEvent() {
                 {!submitted && (
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
-                    <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
-                    <input type="text" onChange={(e) => setPrice(e.target.value)} value={price}/>
-                    <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl}/>
-                    <textarea onChange={(e) => setSummary(e.target.value)} value={summary}/>
-                    <textarea onChange={(e) => setContent(e.target.value)} value={content}/>
+                    <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                    <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl} />
+                    <input type="text" onChange={(e) => {setPrice(e.target.value)}} value={price} />
+                    <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={date} />
+                    <textarea onChange={(e) => setSummary(e.target.value)} value={summary} />
+                    <textarea onChange={(e) => setContent(e.target.value)} value={content} />
                     <button>CREATE</button>
                 </form>)}
                 {submitted && (

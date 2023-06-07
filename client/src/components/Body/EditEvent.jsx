@@ -99,7 +99,7 @@ export function EditEvent() {
                         <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
                         <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={eventPicture}/>
                         <input type="text" onChange={(e) => setPrice(e.target.value)} value={eventPrice}/>
-                        <input type="text" onChange={(e) => setDate(e.target.value)} value={eventDate}/>
+                        <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={eventDate}/>
                         <textarea type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
                         <textarea type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>
                     <button type="submit">Edit</button>
