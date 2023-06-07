@@ -8,8 +8,8 @@ import listPlugin from '@fullcalendar/list'
 import { useEffect, useState, useRef } from 'react'
 import { Header } from '../Header'
 import { FaTimes } from 'react-icons/fa'
-import { FaCheck } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
+import { FaShoppingCart } from 'react-icons/fa';
 
 
 export function CalendarView() {
@@ -76,7 +76,7 @@ export function CalendarView() {
                             <h5>Price: {data.price.toFixed(2)} BGN</h5>
                         </span>
                         <span>
-                            <button><Link id="calendar-view-buy-button" to="/">Buy ticket <FaCheck /></Link></button>
+                            <button><Link id="calendar-view-buy-button" to="/">Buy ticket <FaShoppingCart /></Link></button>
                             <button onClick={handleHideModal}>Cancel <FaTimes /></button>
                         </span>
                     </section>
