@@ -3,10 +3,10 @@ import './AddEvent.css'
 // import { GET_EVENTS } from '../queries/eventQueries.js';
 // import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-import { useEventStore } from '../../store/appStore'
+import { useEventStore } from '../../../store/appStore'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
-import { api } from '../../utils/utils'
+import { api } from '../../../utils/utils'
 
 
 export function AddEvent() {
@@ -18,11 +18,12 @@ export function AddEvent() {
     // const [pictureUrl, setPictureUrl] = useState(`"Paste the URL of the picture here"`)
     const [summary, setSummary] = useState(`"How would you describe it?"`)
     const [content, setContent] = useState(`"Paste the content from your text editor."`)
-    const [price, setPrice] = useState('Set price')
+    const [price, setPrice] = useState('123')
     const [submitted, setSubmitted] = useState(false)
-    const [err, setErr] = useState('')
-    const imageSource = require('../../static/logo.png')
     const [date, setDate] = useState('')
+    const [err, setErr] = useState('')
+    const imageSource = require('../../../static/logo.png')
+
     // const date = new Date()
 
     // const [addEvent] = useMutation(ADD_EVENT, {
@@ -52,7 +53,7 @@ export function AddEvent() {
         e.preventDefault()
 
         // validation
-        if(!title || !summary || !content || !pictureUrl) {
+        if(!title || !summary || !content || !pictureUrl || !price || !date) {
             return alert('There is an empty field')
         }
 
@@ -72,7 +73,7 @@ export function AddEvent() {
     return (
         <>
             <div id='add-event-form-wrapper'>
-                <img id="add-form-picture" alt={eventId} src={imageSource}></img>
+                <Link to="/"><img id="add-form-picture" alt={eventId} src={imageSource}></img></Link>
                 {err && (<h3>{err}</h3>)}
                 {!submitted && (
                 <form id="add-event-form" onSubmit={submitForm}>

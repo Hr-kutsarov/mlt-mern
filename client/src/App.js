@@ -4,12 +4,14 @@ import { Home } from './components/Home.jsx'
 import { Register } from './components/Register.jsx'
 import { Logout } from './components/Logout.jsx'
 import { Login } from './components/Login.jsx'
-import { EditEvent } from './components/Body/EditEvent.jsx'
 import { ErrorPage } from './ErrorPage';
-import { AddEvent } from './components/Body/AddEvent';
-import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
-import { CalendarView } from './components/Body/CalendarView';
 
+import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
+import { CalendarView } from './components/Body/EventReel/CalendarView';
+
+import { AddEvent } from './components/Body/EventReel/AddEvent';
+import { EditEvent } from './components/Body/EventReel/EditEvent';
+import { DeleteEvent } from './components/Body/EventReel/DeleteEvent';
 
 const router = createBrowserRouter([
   {
@@ -43,8 +45,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
+    path: "delete-event/",
+    element: <DeleteEvent />,
+    errorElement: <ErrorPage />
+  },
+  {
     // All views merged in a single one
-    path: "devlogs/",
+    path: "devlog/",
     element: <Devlogs />,
     errorElement: <ErrorPage />
   },

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from './App';
+
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
@@ -10,9 +11,10 @@ const client = new ApolloClient({
 })
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // avoid double fetching
+  // <React.StrictMode>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>  
-  </React.StrictMode>
+  // </React.StrictMode>
 );

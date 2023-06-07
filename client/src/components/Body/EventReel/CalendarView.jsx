@@ -1,12 +1,12 @@
 import './CalendarView.css'
-import { api } from '../../utils/utils.js';
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import { api } from '../../../utils/utils.js';
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import listPlugin from '@fullcalendar/list'
-import { useEffect, useState, useRef } from 'react'
-import { Header } from '../Header'
+import { useEffect, useState } from 'react'
+import { Header } from '../../Header'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa';
@@ -42,7 +42,6 @@ export function CalendarView() {
         try {
             api.get('/plays')
                 .then((res) => {
-                    console.log(res.data)
                     setArr(res.data)
                 })
         } catch (err) {

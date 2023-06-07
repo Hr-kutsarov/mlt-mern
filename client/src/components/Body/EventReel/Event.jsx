@@ -1,6 +1,5 @@
 import './Event.css';
-import { api } from '../../../utils/utils.js';
-import { useEventStore } from '../../../store/appStore'
+import { useEventStore } from '../../../store/appStore';
 import { Link } from 'react-router-dom'
 import { FaWrench } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa";

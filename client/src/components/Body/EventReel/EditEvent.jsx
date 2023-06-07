@@ -1,12 +1,12 @@
-import { useEventStore } from '../../store/appStore'
+import { useEventStore } from '../../../store/appStore'
 // import { useMutation } from '@apollo/client'
 // import { EDIT_EVENT } from '../mutations/eventMutations'
 // import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FaHome } from 'react-icons/fa'
-import { api } from '../../utils/utils.js'
+import { api } from '../../../utils/utils.js'
 
 // When the button that has an attached function to edit the Event
 // will save the parameters of that event in the global state
