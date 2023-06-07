@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 
-.devlog > #devlog-timestamp {
+.devlog > .devlog-timestamp {
   color: rgba(0, 0, 0, 0.212);
 }
 

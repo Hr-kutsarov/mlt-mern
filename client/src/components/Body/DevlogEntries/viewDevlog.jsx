@@ -15,7 +15,7 @@ export function ViewDevlog() {
     const toggleDetailsOff = useDevStore((state) => state.toggleDetailsOff)
 
     // Data
-    const created = useDevStore((state) => state.created)
+    const date = useDevStore((state) => state.date)
     const title = useDevStore((state) => state.title)
     const content = useDevStore((state) => state.entry)
 
@@ -34,18 +34,15 @@ export function ViewDevlog() {
         toggleCreateOff()
     }
     
-    // so the whole trick here is to render the same component of this class 
     return (
-        <>
-            <article className='devlog extended'>
-                <h3>{title}</h3>
-                <p><FaUserClock /> {created}</p>
-                <p>{content}</p>
-                <nav>
-                    <button onClick={togglerEdit}><FaEdit /></button>
-                    <button onClick={togglerDelete}><FaRecycle /></button>
-                </nav>
-            </article>
-        </>
+        <article className='devlog extended'>
+            <h3>{title}</h3>
+            <p><FaUserClock /> {date.slice(0, 10)}</p>
+            <p>{content}</p>
+            <nav>
+                <button onClick={togglerEdit}><FaEdit /></button>
+                <button onClick={togglerDelete}><FaRecycle /></button>
+            </nav>
+        </article>
     )
 }

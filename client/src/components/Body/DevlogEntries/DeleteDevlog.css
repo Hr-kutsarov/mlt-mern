@@ -22,10 +22,11 @@
 }
 
 #delete-devlog-btn-box > button:nth-child(2):hover {
-  background-color: var(--blue-m);
+  background-color: var(--contrast-orange);
+  color: var(--blue-lighter);
 }
 
 #delete-devlog-btn-box > button:hover {
-  background-color: var(--blue-dark);
+  background-color: var(--contrast-orange);
   color: var(--blue-lighter);
 }
