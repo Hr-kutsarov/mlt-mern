@@ -2,9 +2,9 @@ import './Event.css';
 import { api } from '../../../utils/utils.js';
 import { useEventStore } from '../../../store/appStore'
 import { Link } from 'react-router-dom'
-import { FaFeatherAlt } from "react-icons/fa";
-import { FaEllipsisH } from "react-icons/fa";
-import { FaEraser } from 'react-icons/fa';
+import { FaWrench } from "react-icons/fa";
+import { FaQuestion } from "react-icons/fa";
+import { FaTimes } from 'react-icons/fa';
 // import { useMutation } from '@apollo/client';
 // import { DELETE_EVENT } from '../../mutations/eventMutations.js'
 // import { GET_EVENTS } from '../../queries/eventQueries';
@@ -23,14 +23,6 @@ export function Event({ event }) {
     //     refetchQueries: [{ query: GET_EVENTS}]
     // }) 
 
-    const deleteEvent = async () => {
-        try {
-            api.delete(`/plays/${event._id}`)
-        } catch (err) {
-            console.log(err.message)
-        }
-    }
-
     const handleEdit = () => {
         setId(event._id)
         setTitle(event.title)
@@ -42,8 +34,7 @@ export function Event({ event }) {
     }
 
     const handleDelete =() => {
-        alert('This event will be deleted!')
-        deleteEvent()
+        setId(event._id)
     }
 
     return (
@@ -51,14 +42,16 @@ export function Event({ event }) {
             <article className='play-hero'>
                 <div className="properties">
                     <img src={event.pictureUrl} alt={event._id}></img>
+                    <h5 style={{margin: "0 1rem"}}>FROM {event.price.toFixed(2)} BGN</h5>
                     <h4>{event.title}</h4>
-                    <p>{event.date} - {event.price}</p>
+                    {/* <h4>{event.date.slice(0,10)} {event.date.slice(11, 16)}</h4> */}
                     <p>{event.summary}</p>
+
                 </div>
                 <div className="hero-buttons" >
-                    <button className="info-btn"><Link to="devlog"><FaEllipsisH /></Link></button>
-                    <button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaFeatherAlt /></Link></button>
-                    <button className="delete-btn" onClick={handleDelete}><FaEraser /></button>
+                    <button className="info-btn"><Link to="devlog"><FaQuestion /></Link></button>
+                    <button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaWrench /></Link></button>
+                    <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
                 </div>
             </article>
         </>
