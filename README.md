@@ -20,14 +20,15 @@
     [ ] Logout page UI
     [ ] Logout page functionality
     [ ] Authentication system
-    [ ] Token, JWT, email validation, hashing?
+    [x] Password hashing
+    [ ] JWT token validation
     [x] Event mongo schema
-    [ ] Event controller
+    [x] Event controller
     [-] Event queries and mutations
-    [ ] Event crud views
+    [x] Event crud views
     [x] Event error pages
-    [ ] Event callendar view UI
-    [ ] Event callendar functionality
+    [x] Event callendar view UI
+    [x] Event callendar functionality
     [x] Artist mongo schema
     [-] Artist queries and mutations
     [ ] Artist controller
@@ -44,12 +45,12 @@
     [ ] Ticket controller
     [ ] Ticket create, edit, read, delete views
     [ ] Ticket error pages
+    [ ] Payment system - Stripe
     [x] Devlog mongo schema - storing milestone data
     [-] Devlog queries and mutations
     [x] Devlog controller
-    [ ] Devlog create, edit, read, delete views and navigation
+    [x] Devlog create, edit, read, delete views and navigation
     [x] Devlog error pages
-    [ ] Payment system - Stripe
     [ ] Deployment
 
 
