@@ -31,23 +31,33 @@ export function AddEvent() {
     //     refetchQueries: [{ query: GET_EVENTS }]
     // }) 
 
-    const addEvent = async () => {
-        const context = {
-            title: title, 
-            pictureUrl: pictureUrl, 
-            summary: summary,
-            content: content,
-            price: price,
-            date: date
-        }
+    const clearInputData = () => {
+        setTitle('')
+        setSummary('')
+        setContent('')
+        setPrice('')
+    }
 
+    const addEvent = async () => {
         try {
-            api.post('/plays', context)
+            const context = {
+                title: title, 
+                pictureUrl: pictureUrl, 
+                summary: summary,
+                content: content,
+                price: price,
+                date: date
+            }
+            const response = await api.post('/plays', context)
+            if (response.status === 201) {
+                setSubmitted(true)
+                clearInputData()
+            }
+
         } catch (err) {
             setErr(err.message)
         }
     }
-
     // TODO: Improve validation logic for each field
     const submitForm = (e) => {
         e.preventDefault()
@@ -56,28 +66,19 @@ export function AddEvent() {
         if(!title || !summary || !content || !pictureUrl || !price || !date) {
             return alert('There is an empty field')
         }
-
-        // Send mutation
         addEvent()
-
-        // set status of the form - submitted, if it is submitted - show the redirect button / message
-        setSubmitted(true)
-
-        // reset inputs
-        setTitle('')
-        setSummary('')
-        setContent('')
-        setPrice('')
     }
+
     
     return (
         <>
             <div id='add-event-form-wrapper'>
                 <Link to="/"><img id="add-form-picture" alt={eventId} src={imageSource}></img></Link>
-                {err && (<h3>{err}</h3>)}
+
                 {!submitted && (
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
+                    {err && (<h4>{err}</h4>)}
                     <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
                     <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl} />
                     <input type="text" onChange={(e) => {setPrice(e.target.value)}} value={price} />

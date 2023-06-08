@@ -49,3 +49,8 @@ export const useDevStore = create((set) => ({
   setTitle: (data) => set((state) => ({title: (state.title = data)})),
   setEntry: (data) => set((state) => ({entry: (state.entry = data)})),
 }))
+
+export const useAuthStore = create((set) => ({
+  userId: '',
+  setId: (data) => set((state) => ({userId: (state.userId = data)}))
+}))
