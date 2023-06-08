@@ -1,9 +1,10 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Home } from './components/Home.jsx'
-import { Register } from './components/Register.jsx'
-import { Logout } from './components/Logout.jsx'
-import { Login } from './components/Login.jsx'
+import { Register } from './components/Auth/Register.jsx'
+import { Logout } from './components/Auth/Logout.jsx'
+import { Login } from './components/Auth/Login.jsx'
+import { Profile } from './components/Profile/Profile';
 import { ErrorPage } from './ErrorPage';
 
 import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
+    path: "profile/",
+    element: <Profile />,
+    errorElement: <ErrorPage />
+  },
+  {
     path: "edit-event/",
     element: <EditEvent />,
     errorElement: <ErrorPage />
@@ -50,7 +56,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    // All views merged in a single one
+    // SPA within one component
     path: "devlog/",
     element: <Devlogs />,
     errorElement: <ErrorPage />

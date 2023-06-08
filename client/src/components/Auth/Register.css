@@ -1,0 +1,40 @@
+#register-form-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: row;
+  background-color: var(--blue-dark);
+  align-items: center;
+}
+
+#register-form-navigation-box {
+  padding: 0 3rem 0 0;
+}
+
+#register-form-navigation-box > ul {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+#register-form-navigation-box > ul > li {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  line-height: 0;
+  border-radius: 50%;
+  transition: 0.3s all ease;
+  color: var(--blue-light);
+}
+
+#register-form-navigation-box > ul > li:hover {
+  background-color: var(--blue-m);
+  color: var(--blue-lighter);
+}
+
+#registered-confirmation-wrapper {
+  width: 60%;
+  padding: 3rem;
+  display: grid;
+  margin: auto;
+}

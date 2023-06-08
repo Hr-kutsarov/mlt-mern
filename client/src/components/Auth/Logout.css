@@ -1,0 +1,32 @@
+#logout-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(white, var(--blue-light));
+}
+
+#logout-wrapper > h1 {
+  color: var(--blue-dark);
+  padding: 2rem;
+}
+
+#logout-wrapper > span {
+  display: flex;
+  gap: 2rem;
+}
+
+#logout-wrapper > span > button {
+  font-size: 1.25rem;
+  border: 1px solid transparent;
+  background-color: unset;
+  padding: 0.5rem 1rem;
+  margin: 0.1rem;
+}
+
+#logout-wrapper > span > button:hover {
+  color: var(--contrast-orange);
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  background-color: var(--blue-dark);
+}
