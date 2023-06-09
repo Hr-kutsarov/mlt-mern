@@ -144,8 +144,8 @@
   justify-self: center;
   margin-top: 2rem;
   border-radius: 1rem;
-  min-height: 70vh;
-  min-width: 95vw;
+  min-height: 40vh;
+  width: 80vw;
 }
 
 #calendar-view-details-modal > span:nth-child(2) {

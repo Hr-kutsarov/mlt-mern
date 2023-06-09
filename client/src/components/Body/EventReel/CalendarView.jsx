@@ -11,12 +11,22 @@ import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaHandPointRight } from 'react-icons/fa'
+import { useEventStore } from '../../../store/appStore';
 
 export function CalendarView() {
+    // global state
+    const isLoggedIn = window.sessionStorage.getItem('isLoggedIn')
+    const setTitle = useEventStore((state) => state.setTitle)
+    const setContent = useEventStore((state) => state.setContent)
+    const setPic = useEventStore((state) => state.setPictureUrl)
+    const setPrice = useEventStore((state) => state.setPrice)
+    const setDate = useEventStore((state) => state.setDate)
+
+    // local state
     const [arr, setArr] = useState([])
     const [data, setData] = useState([])
     const [toggleModal, setToggleModal] = useState(false)
-    const isLoggedIn = window.sessionStorage.getItem('isLoggedIn')
+    
    
     const handleDateClick = (args) => {
         // alert(args.dateStr)
@@ -30,6 +40,11 @@ export function CalendarView() {
                 .then((res) => {
                     setData(res.data)
                     setToggleModal(!toggleModal)
+                    setTitle(res.data.title)
+                    setContent(res.data.content)
+                    setPrice(res.data.price)
+                    setPic(res.data.pictureUrl)
+                    setDate(res.data.date)
                 })
         } catch(err) {
             console.log(err)
@@ -76,8 +91,11 @@ export function CalendarView() {
                             <h5>Price: {data.price.toFixed(2)} BGN</h5>
                         </span>
                         <span>
-                            {isLoggedIn && (<button><Link id="calendar-view-buy-button" to="/">Buy ticket <FaShoppingCart /></Link></button>)}
-                            {!isLoggedIn && (<button><Link id="calendar-view-details-button" to="/">Detailed view <FaHandPointRight /></Link></button>)}
+                            {isLoggedIn ? 
+                            (<button><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
+                                ) : (
+                            <button><Link id="calendar-view-details-button" to="/">Detailed view <FaHandPointRight /></Link></button>)
+                            }
                             <button onClick={handleHideModal}>Cancel <FaTimes /></button>
                         </span>
                     </section>

@@ -9,6 +9,7 @@ import { ErrorPage } from './ErrorPage';
 
 import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
 import { CalendarView } from './components/Body/EventReel/CalendarView';
+import { DetailsView } from './components/Body/EventReel/DetailsView'
 
 import { AddEvent } from './components/Body/EventReel/AddEvent';
 import { EditEvent } from './components/Body/EventReel/EditEvent';
@@ -65,9 +66,13 @@ const router = createBrowserRouter([
     path: "calendar-view/",
     element: <CalendarView />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: "details-view/",
+    element: <DetailsView />,
+    errorElement: <ErrorPage />
   }
 ]);
-
 
 export function App() {
   return (

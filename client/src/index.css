@@ -97,11 +97,11 @@ textarea::-webkit-scrollbar {
   font-weight: 600;
 }
 
-/* register form color swatches */
+/* color swatches */
 
 :root {
-  --boxShadow: hsl(210, 68%, 58%) 0px 2px 5px 0px,
-    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  --box-shadow: rgba(17, 17, 26, 0.1) 0px 0.1rem 0px,
+    rgba(17, 17, 26, 0.1) 0 0.5rem 1rem, rgba(17, 17, 26, 0.1) 0px 0.75rem 2rem;
   --textColor: rgb(181, 219, 237);
   --bg: -webkit-linear-gradient(rgb(42, 42, 42), rgb(0, 0, 0));
   --blue-m: #425a7d;
@@ -112,7 +112,6 @@ textarea::-webkit-scrollbar {
 }
 
 /* this is for components that will have their views extended to full screen */
-
 /* related to devlog component, */
 .extended {
   max-height: auto;

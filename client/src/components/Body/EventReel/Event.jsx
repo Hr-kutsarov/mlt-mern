@@ -22,7 +22,19 @@ export function Event({ event }) {
     //     refetchQueries: [{ query: GET_EVENTS}]
     // }) 
 
+    const handleDetails = () => {
+        setProps()
+    }
+
     const handleEdit = () => {
+        setProps()
+    }
+
+    const handleDelete = () => {
+        setId(event._id)
+    }
+
+    const setProps = () => {
         setId(event._id)
         setTitle(event.title)
         setSummary(event.summary)
@@ -32,15 +44,11 @@ export function Event({ event }) {
         setDate(event.date)
     }
 
-    const handleDelete =() => {
-        setId(event._id)
-    }
-
     return (
         <>
             <article className='play-hero'>
                 <div className="properties">
-                    <img src={event.pictureUrl} alt={event._id}></img>
+                    <img src={event.pictureUrl} alt={event._id} loading="lazy"></img>
                     <h5 style={{margin: "0 1rem"}}>FROM {event.price.toFixed(2)} BGN</h5>
                     <h4>{event.title}</h4>
                     {/* <h4>{event.date.slice(0,10)} {event.date.slice(11, 16)}</h4> */}
@@ -48,7 +56,7 @@ export function Event({ event }) {
 
                 </div>
                 <div className="hero-buttons" >
-                    <button className="info-btn"><Link to="devlog"><FaQuestion /></Link></button>
+                    <button className="info-btn" onClick={handleDetails}><Link to="details-view"><FaQuestion /></Link></button>
                     <button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaWrench /></Link></button>
                     <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
                 </div>
