@@ -183,3 +183,9 @@
   align-items: center;
   gap: 1rem;
 }
+
+#calendar-view-details-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

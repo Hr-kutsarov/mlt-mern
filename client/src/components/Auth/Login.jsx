@@ -15,8 +15,7 @@ export function Login() {
     return (
         <>
             <span id="login-form-wrapper">
-                {!userLoggedIn && (<LoginForm />)}
-                {userLoggedIn && (<LoginSuccess />)}
+                {!userLoggedIn ? (<LoginForm />) : (<LoginSuccess />)}
                 <nav id="login-form-navigation-box">
                     <ul>
                         <li><Link to="/"><FaHome /></Link></li>

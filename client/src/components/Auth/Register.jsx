@@ -62,8 +62,8 @@ export function Register() {
         <>
             <span id="register-form-wrapper">
             {/* THIS MAY LOOK NASTY, SORRY */}
-            {!registered && (
-                            <Box component="form" onSubmit={handleSubmit} sx={{ 
+            {!registered ? (
+            <Box component="form" onSubmit={handleSubmit} sx={{ 
                 maxWidth: "60vw", 
                 m: "1rem auto", 
                 backgroundColor: "white", 
@@ -146,19 +146,16 @@ export function Register() {
                         Register
                     </Button>
                 </Box>
-            )}
-
-            {registered && (
+            ) : (
                 <span id='registered-confirmation-wrapper'>
                     <h2>You are now registered.</h2>
                     <h3><Link to="/login">Log in <FaUnlockAlt /></Link></h3>
-                    
                 </span>
             )}
+
                 <nav id="register-form-navigation-box">
                     <ul>
                         <li><Link to="/"><FaHome /></Link></li>
-                        {/* <li><FaSignIn /></li> */}
                         <li><Link to="/login"><FaSignInAlt /></Link></li>
                         <li onClick={() => {alert('Assistance')}}><FaPhone /></li>
                         <li onClick={() => {alert('FAQ')}}><FaQuestionCircle /></li>

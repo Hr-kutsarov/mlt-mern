@@ -38,3 +38,16 @@
   display: grid;
   margin: auto;
 }
+
+#registered-confirmation-wrapper > h2 {
+  margin-bottom: 1rem;
+  color: var(--contrast-orange);
+}
+
+#registered-confirmation-wrapper > h3 {
+  color: var(--blue-light);
+}
+
+#registered-confirmation-wrapper > h3:hover {
+  color: white;
+}

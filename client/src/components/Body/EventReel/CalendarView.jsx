@@ -10,12 +10,13 @@ import { Header } from '../../Header'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa';
-
+import { FaHandPointRight } from 'react-icons/fa'
 
 export function CalendarView() {
     const [arr, setArr] = useState([])
     const [data, setData] = useState([])
     const [toggleModal, setToggleModal] = useState(false)
+    const isLoggedIn = window.sessionStorage.getItem('isLoggedIn')
    
     const handleDateClick = (args) => {
         // alert(args.dateStr)
@@ -75,7 +76,8 @@ export function CalendarView() {
                             <h5>Price: {data.price.toFixed(2)} BGN</h5>
                         </span>
                         <span>
-                            <button><Link id="calendar-view-buy-button" to="/">Buy ticket <FaShoppingCart /></Link></button>
+                            {isLoggedIn && (<button><Link id="calendar-view-buy-button" to="/">Buy ticket <FaShoppingCart /></Link></button>)}
+                            {!isLoggedIn && (<button><Link id="calendar-view-details-button" to="/">Detailed view <FaHandPointRight /></Link></button>)}
                             <button onClick={handleHideModal}>Cancel <FaTimes /></button>
                         </span>
                     </section>

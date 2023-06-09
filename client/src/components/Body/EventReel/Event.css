@@ -17,6 +17,10 @@
   padding: 1rem;
 }
 
+.play-hero > .properties > h5 {
+  padding: 1rem 0;
+}
+
 .play-hero > .properties > p {
   /* top right bottom left */
   padding: 0rem 1rem 3rem 1rem;

@@ -21,10 +21,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     const { username, password } = req.body
 
-    if (!username || !password) {
-        res.status(400).json({message: "Please input valid data."})
-    }
-
     try {
         const user = await User.find({username: username})
         const hashedPassword = user[0].password
@@ -37,7 +33,7 @@ const login = async (req, res) => {
         }
 
     } catch (err) {
-        res.status(400).json({message: "Invalid username"})
+        res.status(400).json({message: "Invalid data."})
     }
 }
 
