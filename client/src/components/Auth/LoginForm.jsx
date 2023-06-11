@@ -37,7 +37,6 @@ export function LoginForm() {
     // Saving the userId in the session storage as well, for now
     const setLogIn = () => {
         window.sessionStorage.setItem('isLoggedIn', true)
-        window.sessionStorage.setItem('userId', userId)
     }
 
     const clearInputData = () => {
@@ -51,6 +50,9 @@ export function LoginForm() {
             console.log(response)
             if (response.status === 200) {
                 setId(response.data.message.id)
+                console.log(response.data.message.id)
+                window.sessionStorage.setItem('userId', response.data.message.id)
+                window.sessionStorage.setItem('user', response.data.message.username)
                 setLogIn()
             }
         } catch (err) {

@@ -42,6 +42,7 @@ export function Event({ event }) {
         setPictureUrl(event.pictureUrl)
         setPrice(event.price)
         setDate(event.date)
+        window.sessionStorage.setItem('eventId', event._id)
     }
 
     return (
