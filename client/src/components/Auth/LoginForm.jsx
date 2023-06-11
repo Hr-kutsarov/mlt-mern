@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { api } from '../../utils/utils.js'
 import { useAuthStore } from '../../store/appStore.js'
+import { LoginSuccess } from './LoginSuccess';
 
 export function LoginForm() {
         // global state
@@ -17,20 +18,14 @@ export function LoginForm() {
 
     // component state
     const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [password1, setPassword1] = useState('')
     const [err, setErr] = useState('')
 
     // Submit login 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!username || !password || !password1) {
+        if (!username || !password) {
             alert('Empty fields')
-            return
-        }
-        if (password !== password1) {
-            alert('Passwords do not match')
             return
         }
 
@@ -47,14 +42,12 @@ export function LoginForm() {
 
     const clearInputData = () => {
         setUsername('')
-        setEmail('')
         setPassword('')
-        setPassword1('')
     }
 
     const login = async () => {
         try {
-            const response = await api.post('/login', {username: username, email: email, password: password});
+            const response = await api.post('/login', {username: username, password: password});
             console.log(response)
             if (response.status === 200) {
                 setId(response.data.message.id)
@@ -66,6 +59,8 @@ export function LoginForm() {
     }
 
     return (
+        <>{!userId ? 
+    (
         <>
             <Box component="form" onSubmit={handleSubmit} sx={{ 
                 maxWidth: "60vw", 
@@ -102,7 +97,7 @@ export function LoginForm() {
                     value={username}
                 />
                 </Grid>
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                 <TextField
                     required
                     fullWidth
@@ -113,7 +108,7 @@ export function LoginForm() {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                 />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                 <TextField
                     required
@@ -127,7 +122,7 @@ export function LoginForm() {
                     value={password}
                 />
                 </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
                 <TextField
                     required
                     fullWidth
@@ -139,7 +134,7 @@ export function LoginForm() {
                     onChange={(e) => setPassword1(e.target.value)}
                     value={password1}
                 />
-                </Grid>
+                </Grid> */}
             </Grid>
                 <Button
                     type="submit"
@@ -151,5 +146,9 @@ export function LoginForm() {
                 </Button>
             </Box>
         </>
-    )
+    ) : (
+        <LoginSuccess />
+    )}
+        
+    </>)
 }
