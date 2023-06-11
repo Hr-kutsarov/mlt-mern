@@ -14,18 +14,19 @@
     [x] Footer UI
     [ ] Footer navigation and functionality
     [x] Login page form UI
-    [ ] Login page form functionality
+    [x] Login page form functionality
     [x] Register page UI
-    [ ] Login page functionality
-    [ ] Logout page UI
-    [ ] Logout page functionality
-    [ ] Authentication system
+    [x] Login page functionality
+    [x] Logout page UI
+    [x] Logout page functionality
+    [x] Authentication system
     [x] Password hashing
-    [ ] JWT token validation
+    [-] (JWT) token validation - unneccesary
     [x] Event mongo schema
     [x] Event controller
     [-] Event queries and mutations
     [x] Event crud views
+    [x] Event details and navigation ticket price display
     [x] Event error pages
     [x] Event callendar view UI
     [x] Event callendar functionality
@@ -43,7 +44,7 @@
     [x] Ticket mongo schema
     [-] Ticket queries and mutations
     [ ] Ticket controller
-    [ ] Ticket create, edit, read, delete views
+    [ ] Ticket create and read views - if user is logged in
     [ ] Ticket error pages
     [ ] Payment system - Stripe
     [x] Devlog mongo schema - storing milestone data
@@ -62,6 +63,9 @@ I want to spin this project around the idea of using GraphQL instead of AJAX for
 I only get the data properties that I need hence reducing data size and secondly GraphQL has built-in state
 management storage.
 
+However the FullCalendar view caused problem with rerendering (maybe) and the client broke in a way that it did not display any data fetched from the server. 
+So I switched to Axios. The schemas, queries and mutations remain intact in this project for future reference.
+
 ## Why MongoDB and not PostgreSQL for example?
 
 There is no need for relational databases. Event has time and place, User has ID. Ticket is created by combining the time and place with the user's unique identifiers. User can access their profile and extend the ticket so it can be scanned at venues.
@@ -69,6 +73,7 @@ There is no need for relational databases. Event has time and place, User has ID
 ## What do you get from MongoDB?
 
 Mainly, GraphQL support, instant cloud storage, great free tier (512mb free storage) and lots of upgrade options.
+There's are no files that are not saved in anything else but JSON format. All images are saved as strings and referenced with the href tag.
 
 ## Why Express ?
 
@@ -96,6 +101,9 @@ Under the hood that is a quick shortcut to storing objects, arrays, booleans in 
 Stored variables such as response data, tokens, IS_LOGGED_IN can easily be accessed from a custom "Store" under the "state" property.
 This store can be called between different components.
 No more prop drilling!
+
+## What do you use for validation? 
+TBA
 
 ## How it works?
 
