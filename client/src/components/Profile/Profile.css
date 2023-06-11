@@ -4,9 +4,55 @@
   width: 100%;
   min-height: 100vh;
   align-items: center;
-  justify-content: center;
+  background-image: radial-gradient(var(--blue-light), var(--blue-m));
 }
 
 #profile-wrapper > h3:hover {
   color: var(--contrast-orange);
+}
+
+#profile-wrapper > nav > ul {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 85vw;
+  justify-content: space-evenly;
+  padding: 1.25rem;
+  color: white;
+  align-items: center;
+  border-radius: 1rem;
+  margin: 10vh;
+  box-shadow: var(--box-shadow);
+}
+
+#profile-wrapper > nav > ul > li {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+#profile-wrapper > nav > ul > li:nth-child(2) {
+  margin-right: 5rem;
+}
+
+#profile-wrapper > nav > ul > li:nth-child(4) {
+  margin-left: 5rem;
+}
+
+#profile-wrapper > nav > ul > li:nth-child(3) {
+  width: 10vw;
+  height: 10vw;
+  background-image: linear-gradient(var(--blue-m), var(--blue-dark));
+  position: absolute;
+  border: 0.25rem solid rgb(226, 226, 226);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: default;
+}
+
+#profile-wrapper > nav > ul > li:nth-child(1):hover,
+#profile-wrapper > nav > ul > li:nth-child(2):hover,
+#profile-wrapper > nav > ul > li:nth-child(4):hover,
+#profile-wrapper > nav > ul > li:nth-child(5):hover {
+  color: var(--blue-dark);
+  font-weight: 600;
 }
