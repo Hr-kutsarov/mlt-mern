@@ -79,7 +79,10 @@ export function CalendarView() {
                     initialView="dayGridMonth"
                     events={arr}
                     dateClick={handleDateClick}
+                    firstDay="1"
                     eventClick={handleEventClick}
+                    contentHeight="100vh"
+                    aspectRatio="1,8"
                     />
                 </section>
                 {toggleModal && (
@@ -94,7 +97,7 @@ export function CalendarView() {
                             {isLoggedIn ? 
                             (<button><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
                                 ) : (
-                            <button><Link id="calendar-view-details-button" to="/">Detailed view <FaHandPointRight /></Link></button>)
+                            <button><Link id="calendar-view-details-button" to={'../details-view'}>Detailed view <FaHandPointRight /></Link></button>)
                             }
                             <button onClick={handleHideModal}>Cancel <FaTimes /></button>
                         </span>
