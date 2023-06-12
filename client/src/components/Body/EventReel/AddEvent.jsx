@@ -7,6 +7,11 @@ import { useEventStore } from '../../../store/appStore'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
 import { api } from '../../../utils/utils'
+// icons
+import { FaCalendar } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
+import { FaUserTimes } from 'react-icons/fa';
+
 
 
 export function AddEvent() {
@@ -73,29 +78,44 @@ export function AddEvent() {
     return (
         <>
             <div id='add-event-form-wrapper'>
-                <Link to="/"><img id="add-form-picture" alt={eventId} src={imageSource}></img></Link>
-
-                {!submitted && (
+                {!submitted ? (
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
                     {err && (<h4>{err}</h4>)}
+                    <label>Title</label>
                     <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                    <label>Event Image URL</label>
                     <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl} />
+                    <label>Price</label>
                     <input type="text" onChange={(e) => {setPrice(e.target.value)}} value={price} />
+                    <label>Date</label>
                     <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={date} />
+                    <label>Summary</label>
                     <textarea onChange={(e) => setSummary(e.target.value)} value={summary} />
+                    <label>Content</label>
                     <textarea onChange={(e) => setContent(e.target.value)} value={content} />
                     <button>CREATE</button>
-                </form>)}
-                {submitted && (
+                </form>
+                ) : (
+                    <>
                 <Link to="/">
                     <div className="submitted-form-space">
                         <h1>Your form has been submitted</h1>
                         <p>Event object added successfully.</p>
                         <p>Return to homepage. <FaHome /></p>
                     </div>
-                </Link>)}
+                </Link>
+                </>)}
+
+                <nav id="add-event-form-navigation-box">
+                    <ul>
+                        <li><Link to="/"><FaHome /></Link></li>
+                        <li><Link to="/calendar-view"><FaCalendar /></Link></li>
+                        <li><Link to="/devlog"><FaEdit /></Link></li>
+                        <li><Link to="/logout"><FaUserTimes /></Link></li>
+                    </ul>
+                </nav>
             </div>
-        </>
+            </>
     )
 }
