@@ -6,3 +6,9 @@ main {
   flex-direction: column;
   flex-wrap: nowrap;
 }
+
+main > h2 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: var(--box-shadow);
+}
