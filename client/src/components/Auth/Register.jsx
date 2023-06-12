@@ -25,12 +25,17 @@ export function Register() {
     // Submit login 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!username || !password || !password1) {
+        if (!username || !password || !password1 || !email) {
             alert('Empty fields')
             return
         }
         if (password !== password1) {
             alert('Passwords do not match')
+            return
+        }
+        
+        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+            alert('Please input valid email')
             return
         }
 
