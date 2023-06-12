@@ -45,6 +45,7 @@ export function CalendarView() {
                     setPrice(res.data.price)
                     setPic(res.data.pictureUrl)
                     setDate(res.data.date)
+                    window.sessionStorage.setItem('eventId', data._id)
                 })
         } catch(err) {
             console.log(err)
@@ -95,7 +96,7 @@ export function CalendarView() {
                         </span>
                         <span>
                             {isLoggedIn ? 
-                            (<button><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
+                            (<button onCLick={handleEventClick}><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
                                 ) : (
                             <button><Link id="calendar-view-details-button" to={'../details-view'}>Detailed view <FaHandPointRight /></Link></button>)
                             }

@@ -1,14 +1,16 @@
 import './Event.css';
 import { useEventStore } from '../../../store/appStore';
 import { Link } from 'react-router-dom'
-import { FaWrench } from "react-icons/fa";
-import { FaQuestion } from "react-icons/fa";
+import { FaInfoCircle, FaWrench, FaHandPointer } from "react-icons/fa";
 import { FaTimes } from 'react-icons/fa';
 // import { useMutation } from '@apollo/client';
 // import { DELETE_EVENT } from '../../mutations/eventMutations.js'
 // import { GET_EVENTS } from '../../queries/eventQueries';
 
 export function Event({ event }) {
+    // permissions 
+    const permission = window.sessionStorage.getItem('role')
+
     const setId = useEventStore((state) => state.setId)
     const setTitle = useEventStore((state) => state.setTitle)
     const setSummary = useEventStore((state) => state.setSummary)
@@ -50,16 +52,16 @@ export function Event({ event }) {
             <article className='play-hero'>
                 <div className="properties">
                     <img src={event.pictureUrl} alt={event._id} loading="lazy"></img>
-                    <h5 style={{margin: "0 1rem"}}>FROM {event.price.toFixed(2)} BGN</h5>
+                    <h5 style={{margin: "0 1rem"}}>FROM ${event.price.toFixed(2)}</h5>
                     <h4>{event.title}</h4>
-                    {/* <h4>{event.date.slice(0,10)} {event.date.slice(11, 16)}</h4> */}
                     <p>{event.summary}</p>
-
                 </div>
                 <div className="hero-buttons" >
-                    <button className="info-btn" onClick={handleDetails}><Link to="details-view"><FaQuestion /></Link></button>
-                    <button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaWrench /></Link></button>
-                    <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
+                    <button className="info-btn" onClick={handleDetails}><Link to="details-view"><FaInfoCircle /></Link></button>
+                    {permission === 'moderator' ? (<><button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaHandPointer /></Link></button>
+                        <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
+                    </>) : (<>
+                        </>)}    
                 </div>
             </article>
         </>

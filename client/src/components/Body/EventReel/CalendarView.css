@@ -109,8 +109,7 @@
 }
 
 /* new approach */
-#Calendar {
-}
+
 #Calendar > div {
   padding: 1.5rem;
 }

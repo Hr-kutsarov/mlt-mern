@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5050;
 // import controllers
 const { createEntry, getAllEntries, getEntryById, editEntry, deleteEntry, getLatestEntries  } = require('./controllers/devlogControllers')
 const { createEvent, getAllEvents, getEventById, editEvent, deleteEvent} = require('./controllers/eventControllers')
-const { login, register, deleteUser, updateUsername} = require('./controllers/authControllers')
+const { login, register, deleteUser, updateRole} = require('./controllers/authControllers')
 const { createTicket, getTicketById, getAllTickets, editTicket, deleteTicket, getUserTickets } = require('./controllers/ticketControllers')
 const { createArtist, getArtistById, getAllArtists, editArtist, deleteArtist} = require('./controllers/artistControllers')
 
@@ -34,7 +34,7 @@ app.use(express.json())
 
 app.post('/register', register)
 app.post('/login', login)
-app.put('/edit-username/:id', updateUsername)
+app.put('/switch-role/:id', updateRole)
 app.delete('/delete-user/:id', deleteUser)
 
 // Devlog
@@ -88,7 +88,7 @@ const start = async () => {
         console.error(error)
 
         // terminate the server process
-        process.exit(1)
+        // process.exit(1)
     }
 }
 

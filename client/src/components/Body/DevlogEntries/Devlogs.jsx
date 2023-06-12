@@ -70,7 +70,7 @@ export function Devlogs() {
         getAllDevlogs()
         // passing data as an argument here will track the state
         // and run the function again if state changes
-    },[data])
+    },[])
 
     return ( 
         <span id="collection-devlog-wrapper">

@@ -1,11 +1,27 @@
 import './Ticket.css'
 import QRCode from "react-qr-code";
+import { FaBan } from 'react-icons/fa';
+import { api } from '../../utils/utils';
+import { useState } from 'react';
 
 export function Ticket({ticket}) {
-    
+    const [msg, setMsg] = useState('')
     const value = `${ticket._id} - ${ticket.title} - ${ticket.seat} - ${ticket.seat}`
+    const role = window.sessionStorage.getItem('role')
+
+    const handleDeleteTicket = async () => {
+        api.delete(`/tickets/${ticket._id}`)
+            .then((res) => {
+                setMsg(`${res.data.title} was deleted successfully.`)
+            })
+            .catch((err) => {
+                setMsg(err.message)
+            })
+    }
+
     return (
     <>
+        {msg}
         <span id="ticket-card-wrapper">
             <div id="ticket-info">
                 <h3>{ticket.title}</h3>
@@ -23,7 +39,15 @@ export function Ticket({ticket}) {
                     />
                 </div>
             </div>
-        </span>
+            {role === 'moderator' ? (
+                <div style={{padding: "0.3rem", cursor: "pointer", color: "var(--contrast-orange)"}} onClick={handleDeleteTicket}><FaBan /></div>
+            ) : (
+                <div style={{padding: "0.3rem", cursor: "pointer", color: "var(--blue-m)"}} onClick={() => {
+                    alert('You have no permission to delete tickets!')
+                }}><FaBan /></div>
+            
+            )}
+            </span>
     </>
     )
 }

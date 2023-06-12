@@ -26,7 +26,7 @@ export function DetailsView() {
     const dayShort = weekRepr[dateObj.getDay()]
     const hour = dateObj.getHours()
     const mins = dateObj.getMinutes()
-    const minsFormatted = mins.length < 3 ? `0${mins}` : mins
+    const minsFormatted = mins.toString().length < 2 ? `0${mins}` : mins
     const regularPrice = Math.floor(data.price).toFixed(2)
     const fakePrice = Math.floor(Number(data.price) * 1.1).toFixed(2)
     const seat = Math.floor(Math.random() * 100) + 1
@@ -59,7 +59,7 @@ export function DetailsView() {
     }
 
     const handlePurchase = async () => {
-
+        alert('Payment system is under construction.')
     }
 
     useEffect(() => {
@@ -68,7 +68,7 @@ export function DetailsView() {
             .then((res) => setData(res.data))
             .catch((err) => setErr(err))
         setLoading(false)
-        }, 1500)
+        }, 500)
     }, [])
 
     return (

@@ -27,7 +27,7 @@ const login = async (req, res) => {
         const match = await bcrypt.compare(password, hashedPassword)
 
         if (match) {
-            res.status(200).json({message: {id: user[0]._id, username: user[0].username}})
+            res.status(200).json({message: {id: user[0]._id, username: user[0].username, role: user[0].role}})
         } else {
             res.status(400).json({message: "Incorrect password."})
         }
@@ -39,16 +39,16 @@ const login = async (req, res) => {
 
 // UPDATE 
 
-const updateUsername = async (req, res) => {
+const updateRole = async (req, res) => {
     const { id } = req.params
-    const { username } = req.body 
+    const { role } = req.body 
 
     try {
-        const user = await User.findByIdAndUpdate({_id: id}, {username: username})
+        const user = await User.findByIdAndUpdate({_id: id}, {role: role})
         if (!user) {
             res.status(400).json({message: "User not found."})
         }
-        res.status(200).json({message: `Username changed successfully.`})
+        res.status(200).json({message: role})
 
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -66,4 +66,4 @@ const deleteUser = async (req, res) => {
         res.status(400).json({error: err.message})
     }
 }
-module.exports = { register, login, updateUsername, deleteUser }
+module.exports = { register, login, updateRole, deleteUser }

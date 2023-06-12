@@ -99,7 +99,7 @@ export function AddEvent() {
                 ) : (
                     <>
                 <Link to="/">
-                    <div className="submitted-form-space">
+                    <div id="submitted-event-wrapper">
                         <h1>Your form has been submitted</h1>
                         <p>Event object added successfully.</p>
                         <p>Return to homepage. <FaHome /></p>

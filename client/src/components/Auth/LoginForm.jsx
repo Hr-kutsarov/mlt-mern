@@ -53,6 +53,7 @@ export function LoginForm() {
                 console.log(response.data.message.id)
                 window.sessionStorage.setItem('userId', response.data.message.id)
                 window.sessionStorage.setItem('user', response.data.message.username)
+                window.sessionStorage.setItem('role', response.data.message.role)
                 setLogIn()
             }
         } catch (err) {
@@ -150,7 +151,6 @@ export function LoginForm() {
         </>
     ) : (
         <LoginSuccess />
-    )}
-        
+    )}  
     </>)
 }

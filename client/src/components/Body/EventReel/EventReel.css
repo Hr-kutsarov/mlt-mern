@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem;
-  padding: 2rem 4rem;
+  padding: 0 2rem 4rem 2rem;
 }
 
 #event-reel article {

@@ -1,6 +1,6 @@
 #ticket-card-wrapper {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1fr 0.1fr;
   background-color: white;
   width: 80vw;
   border-radius: 1rem;

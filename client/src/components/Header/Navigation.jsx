@@ -3,15 +3,20 @@ import { Link } from 'react-router-dom'
 import { useAuthStore } from '../../store/appStore.js'
 
 export function Navigation() {
-    const userId = useAuthStore((state) => state.userId)
     const userLoggedIn = window.sessionStorage.getItem('isLoggedIn')
+    const role = window.sessionStorage.getItem('role')
+
     return (
         <nav>
             <ul>
                 <li id='homepage-nav-link-home'><Link to="/" >Home</Link></li>
                 <li id='homepage-nav-link-calendar'><Link to="/calendar-view">Calendar</Link></li>
-                <li id='homepage-nav-link-add-event'><Link to="/add-event">Add Event</Link></li>
-                <li id='homepage-nav-link-devlogs'><Link to="/devlog">Devlogs</Link></li>
+                {role === 'moderator' && (
+                <>
+                    <li id='homepage-nav-link-add-event'><Link to="/add-event">Add Event</Link></li>
+                    <li id='homepage-nav-link-devlogs'><Link to="/devlog">Announcements</Link></li>
+                </>    
+                )}
 
                 {!userLoggedIn && (
                     <>

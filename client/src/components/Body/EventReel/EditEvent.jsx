@@ -4,7 +4,7 @@ import { useEventStore } from '../../../store/appStore'
 // import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaHome } from 'react-icons/fa'
 import { api } from '../../../utils/utils.js'
 
@@ -53,6 +53,8 @@ export function EditEvent() {
     //     refetchQueries: [{ query: GET_EVENTS}]
     // }) 
 
+    // reset state
+
     const editEvent = async () => {
         const context = {
             title: eventTitle,
@@ -89,16 +91,24 @@ export function EditEvent() {
         _clearEventStorage()
     }
 
+
     return (
         <>
             <div id="edit-event-wrapper">
                 {!eventId && !submitted && (<Link to="/">Return to homepage.</Link>)}
-                {eventId && !submitted && (<>
+                {eventId && (<>
                     <h3>Edit event</h3>
                     <form id="edit-event-form" onSubmit={handleSubmit}>
                         <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
                         <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={eventPicture}/>
-                        <input type="text" onChange={(e) => setPrice(e.target.value)} value={eventPrice}/>
+                        <input type="text" onChange={(e) => 
+                            {
+                                if (isNaN(e.target.value)) {
+                                    alert('Input value is not a number')
+                                    return
+                                }
+                                setPrice(e.target.value)
+                            }} value={eventPrice}/>
                         <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={eventDate}/>
                         <textarea type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
                         <textarea type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>

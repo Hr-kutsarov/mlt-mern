@@ -73,7 +73,7 @@
   flex-direction: column;
   position: fixed;
   top: 30vh;
-  left: 5vw;
+  left: 2vw;
   z-index: 3;
 }
 
@@ -97,4 +97,29 @@
   transition: all 0.2s ease-in-out;
   background-color: var(--blue-lighter);
   color: var(--blue-dark);
+}
+
+#submitted-event-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30vh;
+}
+
+#submitted-event-wrapper > h1 {
+  font-size: 3rem;
+  color: var(--blue-dark);
+}
+
+#submitted-event-wrapper > p {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+#submitted-event-wrapper > p:nth-child(3) {
+  color: var(--blue-m);
+  line-height: 0;
+}
+
+#submitted-event-wrapper > p:nth-child(3):hover {
+  color: white;
 }
