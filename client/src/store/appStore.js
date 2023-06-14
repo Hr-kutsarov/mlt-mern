@@ -50,7 +50,13 @@ export const useDevStore = create((set) => ({
   setEntry: (data) => set((state) => ({entry: (state.entry = data)})),
 }))
 
-export const useAuthStore = create((set) => ({
-  userId: '',
-  setId: (data) => set((state) => ({userId: (state.userId = data)}))
+export const useArtistStore = create((set) => ({
+  artistId: '',
+  setId: (data) => set((state) => ({artistId: (state.artistId = data)})),
+  name: '',
+  setName: (data) => set((state) => ({name: (state.name = data)})),
+  bio: '',
+  setBio: (data) => set((state) => ({bio: (state.bio = data)})),
+  photo: '',
+  setPhoto: (data) => set((state) => ({photo: (state.photo = data)}))
 }))
