@@ -3,6 +3,7 @@ import { useEventStore } from '../../../store/appStore';
 import { Link } from 'react-router-dom'
 import { FaInfoCircle, FaWrench, FaHandPointer } from "react-icons/fa";
 import { FaTimes } from 'react-icons/fa';
+import { weekReprExtended } from '../../../utils/dateRepr';
 // import { useMutation } from '@apollo/client';
 // import { DELETE_EVENT } from '../../mutations/eventMutations.js'
 // import { GET_EVENTS } from '../../queries/eventQueries';
@@ -23,6 +24,14 @@ export function Event({ event }) {
     //     variables: { id: event._id},
     //     refetchQueries: [{ query: GET_EVENTS}]
     // }) 
+
+    const formatDate = () => {
+        const obj = new Date(event.date)
+        const weekday = weekReprExtended[obj.getDay()]
+        const day = obj.getDate()
+        return `${weekday} ${day}`
+    }
+    const formattedDate = formatDate()
 
     const handleDetails = () => {
         setProps()
@@ -52,8 +61,9 @@ export function Event({ event }) {
             <article className='play-hero'>
                 <div className="properties">
                     <img src={event.pictureUrl} alt={event._id} loading="lazy"></img>
-                    <h5 style={{margin: "0 1rem"}}>FROM ${event.price.toFixed(2)}</h5>
-                    <h4>{event.title}</h4>
+                    <h3>{event.title}</h3>
+                    <h5>${event.price.toFixed(2)}</h5>
+                    <h5>{formattedDate}</h5>
                     <p>{event.summary}</p>
                 </div>
                 <div className="hero-buttons" >

@@ -28,7 +28,7 @@
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid black;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: var(--box-shadow2);
   border: unset;
 }
 #add-event-form > input:focus {
@@ -48,7 +48,7 @@
   padding: 0.5rem;
   min-height: 3rem;
   border: unset;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: var(--box-shadow2);
   border-radius: 0.5rem;
 }
 
@@ -65,7 +65,7 @@
   padding: 0.75rem 3rem;
   border-radius: 1rem;
   color: white;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: var(--box-shadow2);
 }
 
 #add-event-form-navigation-box {

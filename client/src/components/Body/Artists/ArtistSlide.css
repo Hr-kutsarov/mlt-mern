@@ -26,15 +26,16 @@
 }
 
 .artist-card button {
+  background-color: white;
   position: absolute;
-  color: rgba(0, 0, 0, 0.549);
+  color: rgba(0, 0, 0, 0.5);
   padding: 0.3rem;
   border-radius: 50%;
   line-height: 0;
   border: unset;
   font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: var(--box-shadow);
-  right: 2rem;
-  top: -2.5rem;
+  box-shadow: var(--box-shadow2);
+  right: 3rem;
+  top: 1rem;
 }
