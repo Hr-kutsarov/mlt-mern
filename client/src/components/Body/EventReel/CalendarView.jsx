@@ -96,7 +96,7 @@ export function CalendarView() {
                         </span>
                         <span>
                             {isLoggedIn ? 
-                            (<button onCLick={handleEventClick}><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
+                            (<button onClick={handleEventClick}><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
                                 ) : (
                             <button><Link id="calendar-view-details-button" to={'../details-view'}>Detailed view <FaHandPointRight /></Link></button>)
                             }
