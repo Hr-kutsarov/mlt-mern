@@ -12,3 +12,7 @@ header > #logo-box {
   background-size: cover;
   margin: 1rem 0;
 }
+
+#logo-box > h2 {
+  font-family: "Caladea";
+}
