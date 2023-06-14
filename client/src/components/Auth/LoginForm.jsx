@@ -8,18 +8,15 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { api } from '../../utils/utils.js'
-import { useAuthStore } from '../../store/appStore.js'
 import { LoginSuccess } from './LoginSuccess';
 
 export function LoginForm() {
-        // global state
-    const userId = useAuthStore((state) => state.userId)
-    const setId = useAuthStore((state) => state.setId)
-
+    const userId = window.sessionStorage.getItem('userId')
     // component state
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [err, setErr] = useState('')
+    const [loggedIn, setLoggedIn] = useState(false)
 
     // Submit login 
     const handleSubmit = (e) => {
@@ -37,6 +34,7 @@ export function LoginForm() {
     // Saving the userId in the session storage as well, for now
     const setLogIn = () => {
         window.sessionStorage.setItem('isLoggedIn', true)
+        setLoggedIn(true)
     }
 
     const clearInputData = () => {
@@ -47,10 +45,9 @@ export function LoginForm() {
     const login = async () => {
         try {
             const response = await api.post('/login', {username: username, password: password});
-            console.log(response)
+            // console.log(response)
             if (response.status === 200) {
-                setId(response.data.message.id)
-                console.log(response.data.message.id)
+                // console.log(response.data.message.id)
                 window.sessionStorage.setItem('userId', response.data.message.id)
                 window.sessionStorage.setItem('user', response.data.message.username)
                 window.sessionStorage.setItem('role', response.data.message.role)
@@ -62,7 +59,7 @@ export function LoginForm() {
     }
 
     return (
-        <>{!userId ? 
+        <>{!loggedIn ? 
     (
         <>
             <Box component="form" onSubmit={handleSubmit} sx={{ 

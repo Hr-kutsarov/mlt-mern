@@ -1,14 +1,10 @@
 import './Logout.css'
-import { useAuthStore } from '../../store/appStore.js'
 import { Link } from 'react-router-dom'
 
 export function Logout() {
-    const setId = useAuthStore((state) => state.setId)
 
     const handleLogout = () => {
         window.sessionStorage.clear()
-        // not using unset function this time
-        setId('')
     }
 
     return (
