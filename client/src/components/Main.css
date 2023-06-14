@@ -1,10 +1,11 @@
 main {
-  width: 100%;
-  height: 100%;
-  gap: 3rem;
+  max-width: 100vw;
+  min-height: 100vh;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 main > h2 {

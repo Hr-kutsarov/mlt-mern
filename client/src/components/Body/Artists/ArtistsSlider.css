@@ -1,0 +1,10 @@
+.inner-carousel {
+  display: flex;
+}
+
+.carousel {
+  cursor: grab;
+  /*  */
+  margin: 0 5vw;
+  padding: 2rem 0;
+}
