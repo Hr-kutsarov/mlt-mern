@@ -1,32 +1,35 @@
 #announcement-wrapper {
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
 
 #announcement-wrapper > span {
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
+  flex-direction: row;
   margin-top: 2rem;
   gap: 0.5rem;
-  justify-content: center;
-  /* background-color: var(--blue-m); */
+  flex-wrap: wrap;
+  justify-content: flex-start;
   max-width: 80vw;
   padding: 1.25rem 2rem;
   border-radius: 1rem;
-  border: 0.3rem dotted var(--blue-light);
+  /* border: solid var(--blue-dark); */
+  box-shadow: var(--box-shadow2);
 }
 
 #announcement-wrapper > span > h4 {
   display: inline;
   font-size: 1.75rem;
   color: var(--contrast-orange);
+  width: 80%;
 }
 
 #announcement-wrapper > span > h5 {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  width: 17%;
+  color: var(--contrast-orange);
+  align-self: flex-end;
 }
 
 #announcement-wrapper > span > p {
