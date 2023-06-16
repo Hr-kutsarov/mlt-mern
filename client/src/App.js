@@ -15,6 +15,11 @@ import { AddEvent } from './components/Body/EventReel/AddEvent';
 import { EditEvent } from './components/Body/EventReel/EditEvent';
 import { DeleteEvent } from './components/Body/EventReel/DeleteEvent';
 
+import { ArtistDetails } from './components/Body/Artists/ArtistDetails';
+import { ArtistDelete } from './components/Body/Artists/ArtistDelete'
+import { ArtistCreate } from './components/Body/Artists/ArtistCreate';
+import { ArtistEdit } from './components/Body/Artists/ArtistEdit';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,6 +75,26 @@ const router = createBrowserRouter([
   {
     path: "details-view/",
     element: <DetailsView />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "details-artist/",
+    element: <ArtistDetails />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "delete-artist/",
+    element: <ArtistDelete />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "add-artist/",
+    element: <ArtistCreate />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "edit-artist/",
+    element: <ArtistEdit />,
     errorElement: <ErrorPage />
   }
 ]);
