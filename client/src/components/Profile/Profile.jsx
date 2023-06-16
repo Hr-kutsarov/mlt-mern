@@ -45,7 +45,8 @@ export function Profile() {
     }, [])
     return (
         <span id='profile-wrapper'>
-            <nav>
+            {userId ? (<>
+                     <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/">Events</Link></li>
@@ -65,6 +66,16 @@ export function Profile() {
             <section id="tickets-list">
                 {tickets ? (tickets.map((ticket) => (<Ticket key={ticket._id} ticket={ticket}/>))) : (<h1>You have not purchased any tickets yet.</h1>)}
             </section>
+            </>) : (
+                <>
+                    <section id='profile-error'>
+                        <h1>You must be logged in to visit this page.</h1>
+                        <h3><Link to='/'>Navigate to homepage.</Link></h3>
+                        <h4><Link to='/login'>Proceed to login.</Link></h4>
+                        <h5><Link to='/register'>New around here? You can register at this page.</Link></h5>
+                    </section>
+                </>
+            )}
         </span>
     )
 }

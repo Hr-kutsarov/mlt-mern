@@ -93,3 +93,12 @@
   color: white;
   background-color: var(--blue-m);
 }
+
+#profile-error {
+  display: grid;
+  margin: auto;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  background-color: white;
+}
