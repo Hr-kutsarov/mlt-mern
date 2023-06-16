@@ -21,7 +21,7 @@ export function Ticket({ticket}) {
 
     return (
     <>
-        {msg}
+        <span style={{color: "white"}}>{msg}</span>
         <span id="ticket-card-wrapper">
             <div id="ticket-info">
                 <h3>{ticket.title}</h3>

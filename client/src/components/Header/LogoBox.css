@@ -6,8 +6,8 @@ header > #logo-box {
 }
 
 #company-logo-image {
-  height: 100px;
-  width: 120px;
+  height: 80px;
+  width: 100px;
   background-image: url("../../static/logo.png");
   background-size: cover;
   margin: 1rem 0;

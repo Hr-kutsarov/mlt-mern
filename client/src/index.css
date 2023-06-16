@@ -19,6 +19,11 @@
   src: url("./fonts/NunitoSans/NunitoSans_10pt-Medium.ttf");
 }
 
+@font-face {
+  font-family: Caladea;
+  src: url("./fonts/Caladea/Caladea-Regular.ttf");
+}
+
 h1,
 h2,
 h3,
@@ -102,6 +107,7 @@ textarea::-webkit-scrollbar {
 :root {
   --box-shadow: rgba(17, 17, 26, 0.1) 0px 0.1rem 0px,
     rgba(17, 17, 26, 0.1) 0 0.5rem 1rem, rgba(17, 17, 26, 0.1) 0px 0.75rem 2rem;
+  --box-shadow2: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   --textColor: rgb(181, 219, 237);
   --bg: -webkit-linear-gradient(rgb(42, 42, 42), rgb(0, 0, 0));
   --blue-m: #425a7d;
