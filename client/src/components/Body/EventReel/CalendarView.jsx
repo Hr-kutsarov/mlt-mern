@@ -88,20 +88,22 @@ export function CalendarView() {
                 </section>
                 {toggleModal && (
                     <section id="calendar-view-details-modal">
+                        <img src={data.pictureUrl} alt={data.title} />
                         <span>
                             <h1>{data.title}</h1>
                             <p>{data.summary}</p>
-                            <p>{data.content}</p>
-                            <h5>Price: {data.price.toFixed(2)} BGN</h5>
+                            {/* <p>{data.content}</p> */}
+                            <h4>Price: {data.price.toFixed(2)} BGN</h4>
+                                <span>
+                                {isLoggedIn ? 
+                                (<button><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
+                                    ) : (
+                                <button><Link id="calendar-view-details-button" to={'../details-view'}>Detailed view <FaHandPointRight /></Link></button>)
+                                }
+                                <button onClick={handleHideModal}>Cancel <FaTimes /></button>
+                                </span>
                         </span>
-                        <span>
-                            {isLoggedIn ? 
-                            (<button><Link id="calendar-view-buy-button" to={'../details-view'}>Buy ticket <FaShoppingCart /></Link></button>
-                                ) : (
-                            <button><Link id="calendar-view-details-button" to={'../details-view'}>Detailed view <FaHandPointRight /></Link></button>)
-                            }
-                            <button onClick={handleHideModal}>Cancel <FaTimes /></button>
-                        </span>
+
                     </section>
                 )}
             </div>
