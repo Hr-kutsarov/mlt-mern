@@ -5,8 +5,9 @@ export function LogoBox() {
         <>
             
                 <div id='logo-box'>
+                    <h2>My Local</h2>
                     <span id='company-logo-image'></span>
-                    <h2>My Local Theatre</h2>
+                    <h2>Theatre</h2>
                 </div>
             
         </>

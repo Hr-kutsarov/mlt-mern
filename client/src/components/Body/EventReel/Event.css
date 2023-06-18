@@ -7,7 +7,7 @@
 }
 
 .play-hero > .properties > img {
-  height: 180px;
+  height: 210px;
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
   object-fit: cover;
@@ -15,16 +15,19 @@
 
 .play-hero > .properties > h3 {
   padding: 0 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-family: "Oswald";
 }
 
-.play-hero > .properties > h5 {
-  padding: 0.3rem 1rem;
+.play-hero > .properties > h4,
+h5 {
+  padding: 0.1rem 1rem;
+  color: var(--blue-m);
 }
 
 .play-hero > .properties > p {
   /* top right bottom left */
-  padding: 0rem 1rem 2rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
 }
 

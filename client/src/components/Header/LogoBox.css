@@ -1,8 +1,7 @@
-header > #logo-box {
+#logo-box {
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-left: 4rem;
 }
 
 #company-logo-image {
@@ -14,5 +13,6 @@ header > #logo-box {
 }
 
 #logo-box > h2 {
-  font-family: "Caladea";
+  font-family: "Oswald";
+  color: var(--blue-dark);
 }

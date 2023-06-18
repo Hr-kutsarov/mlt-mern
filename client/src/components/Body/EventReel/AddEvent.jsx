@@ -12,8 +12,6 @@ import { FaCalendar } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { FaUserTimes } from 'react-icons/fa';
 
-
-
 export function AddEvent() {
     const eventId = useEventStore((state) => state.id)
     const pictureUrl = useEventStore((state) => state.pictureUrl)
@@ -87,7 +85,12 @@ export function AddEvent() {
                     <label>Event Image URL</label>
                     <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={pictureUrl} />
                     <label>Price</label>
-                    <input type="text" onChange={(e) => {setPrice(e.target.value)}} value={price} />
+                    <input type="text" onChange={(e) => {
+                        if (isNaN(e.target.value)) {
+                            alert('Input value is not a number')
+                            return
+                        }
+                        setPrice(e.target.value)}} value={price} />
                     <label>Date</label>
                     <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={date} />
                     <label>Summary</label>

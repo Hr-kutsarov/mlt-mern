@@ -5,13 +5,14 @@
   flex-direction: column;
   background-color: var(--blue-light);
   align-items: center;
+  justify-content: center;
   padding-bottom: 3rem;
 }
 
 #add-event-form {
   display: flex;
-  margin-right: 20vw;
-  margin-left: 5vw;
+  /* margin-right: 20vw;
+  margin-left: 5vw; */
   flex-direction: column;
   background-color: white;
   padding: 2rem;
@@ -73,7 +74,7 @@
   flex-direction: column;
   position: fixed;
   top: 30vh;
-  left: 2vw;
+  left: 5vw;
   z-index: 3;
 }
 

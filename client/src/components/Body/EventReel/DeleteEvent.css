@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--blue-light);
+  min-height: 100vh;
 }
 
 #delete-event-wrapper > span:nth-child(1) {

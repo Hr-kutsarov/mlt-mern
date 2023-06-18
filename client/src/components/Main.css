@@ -1,15 +1,25 @@
 main {
-  max-width: 100vw;
-  min-height: 100vh;
-  gap: 2rem;
+  /* max-width: 100vw; */
+
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100vw;
+
+  /* overflow: hidden; */
 }
 
 main > h2 {
   text-align: center;
   color: rgba(0, 0, 0, 0.4);
   text-shadow: var(--box-shadow);
+  margin-top: 2rem;
+}
+
+main > h3 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.3);
+  text-shadow: var(--box-shadow2);
+  margin-bottom: 2rem;
 }

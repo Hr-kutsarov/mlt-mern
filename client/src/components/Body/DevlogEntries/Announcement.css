@@ -11,7 +11,7 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-start;
-  max-width: 80vw;
+  max-width: 70vw;
   padding: 1.25rem 2rem;
   border-radius: 1rem;
   /* border: solid var(--blue-dark); */
@@ -28,10 +28,10 @@
 #announcement-wrapper > span > h5 {
   font-size: 1.5rem;
   width: 17%;
-  color: var(--contrast-orange);
-  align-self: flex-end;
+  color: rgba(0, 0, 0, 0.329);
+  /* align-self: flex-end; */
 }
 
 #announcement-wrapper > span > p {
-  font-weight: 600;
+  font-size: 1.25rem;
 }
