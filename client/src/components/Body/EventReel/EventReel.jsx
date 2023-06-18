@@ -26,7 +26,7 @@ export function EventReel() {
   }
     
     const getEvents = async () => {
-        api.get('/plays')
+        api.get('/plays-upcoming')
             .then((res) => {
                 setData(res.data)
             })
@@ -57,7 +57,7 @@ export function EventReel() {
                 </section>
                 {!isCompleted ? (
                     <span id='load-more-events'>
-                        <button onClick={loadMore}>Load more</button>
+                        <button onClick={loadMore}>LOAD MORE</button>
                     </span>
                 ) : (
                     <span id='load-more-events'>

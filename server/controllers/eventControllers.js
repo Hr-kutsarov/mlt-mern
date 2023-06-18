@@ -17,7 +17,19 @@ const createEvent = async (req, res) => {
 
 const getAllEvents = async (req, res) => {
     try {
+        const now = new Date()
+        // const events = await Event.find({ date: {$gte: now}}).sort({date: 1})
         const events = await Event.find().sort({createdAt: -1})
+        res.status(200).json(events)
+    } catch (err) {
+        res.status(400).json({error: err.message})
+    }
+}
+
+const getUpcomingEvents = async (req, res) => {
+    try {
+        const now = new Date()
+        const events = await Event.find({ date: {$gte: now}}).sort({date: 1})
         res.status(200).json(events)
     } catch (err) {
         res.status(400).json({error: err.message})
@@ -74,4 +86,4 @@ const deleteEvent = async (req, res) => {
 
 }
 
-module.exports = { createEvent, getAllEvents, getEventById, editEvent, deleteEvent }
+module.exports = { createEvent, getAllEvents, getUpcomingEvents, getEventById, editEvent, deleteEvent }
