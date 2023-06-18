@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useArtistStore } from "../../../store/appStore"
 import { api } from "../../../utils/utils"
 import './ArtistEdit.css'
+import { FaReply } from 'react-icons/fa'
+import { Link } from "react-router-dom"
 
 export function ArtistEdit() {
     const [submitted, setSubmitted] = useState(false)
@@ -45,23 +47,23 @@ export function ArtistEdit() {
             })
     }, [])
     return (
-        <section id='edit-artist-wrapper'>
+        <section id='artist-edit-wrapper'>
             <h1>{err}</h1>
-            <h2>{artistId}</h2>
         {!submitted ? (
-            <form id="edit-artist-form" onSubmit={submitForm}>
+            <form id="artist-edit-form" onSubmit={submitForm}>
+                <h3>EDIT ARTIST FORM</h3>
                 <label>Name</label>
                 <input type='text' value={name} onChange={(e) => setName(e.target.value)}></input>
                 <label>Photo URL</label>
                 <input type='text' value={photo} onChange={(e) => setPhoto(e.target.value)}></input>
                 <label>Short biography</label>
-                <input type='text' value={bio} onChange={(e) => setBio(e.target.value)}></input>
+                <textarea value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
                 <button>Submit</button>
             </form>
         ) : (
             <h1>Edited successfully</h1>
         )}
-        
+        <Link to='/'><button id='artist-edit-return'><FaReply /></button></Link>
         </section>
     )
 }

@@ -1,0 +1,84 @@
+#artist-details-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: white;
+  overflow: hidden;
+}
+
+#artist-details-section {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 30vw;
+  min-height: 60vh;
+  margin-top: 2rem;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow2);
+  margin-bottom: 3rem;
+}
+
+#artist-details-section > span {
+  height: 20vh;
+  width: 100%;
+  background-image: linear-gradient(90deg, var(--blue-m), var(--blue-dark));
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: var(--box-shadow2);
+  overflow: hidden;
+}
+
+#artist-details-section > img {
+  display: flex;
+  aspect-ratio: 1/1;
+  max-width: 12vw;
+  max-height: 12vw;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  top: -3rem;
+  border: unset;
+  box-shadow: var(--box-shadow2);
+  border: 0.3rem solid white;
+}
+
+#artist-details-section > nav {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: -6rem;
+}
+
+#artist-details-section > h3 {
+  position: relative;
+  top: -2rem;
+}
+
+#artist-details-section > p {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+#artist-details-section > nav > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#artist-details-section > nav > ul > li {
+  font-size: 1.5rem;
+  line-height: 0;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--blue-dark);
+  color: white;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--box-shadow);
+}
+
+#artist-details-section > nav > ul > li:hover {
+  background-color: var(--blue-light);
+  border-radius: 50%;
+}

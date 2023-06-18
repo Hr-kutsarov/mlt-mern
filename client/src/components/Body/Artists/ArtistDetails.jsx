@@ -3,6 +3,7 @@ import { useArtistStore } from "../../../store/appStore"
 import { api } from "../../../utils/utils"
 import './ArtistDetails.css'
 import { Link } from 'react-router-dom'
+import { FaPlusCircle, FaMinusCircle, FaWrench, FaReply } from "react-icons/fa"
 
 export function ArtistDetails() {
     const permission = window.sessionStorage.getItem('role')
@@ -36,12 +37,12 @@ export function ArtistDetails() {
                     <ul>
                         {permission === 'moderator' && (
                             <>
-                            <li><Link to="/add-artist">New</Link></li>
-                            <li><Link to="/edit-artist">Edit</Link></li>
-                            <li><Link to="/delete-artist">Delete</Link></li>
+                            <li><Link to="/add-artist"><FaPlusCircle /></Link></li>
+                            <li><Link to="/edit-artist"><FaWrench /></Link></li>
+                            <li><Link to="/delete-artist"><FaMinusCircle /></Link></li>
                             </>
                         )}
-                        <li><Link to="/">Return</Link></li>
+                        <li><Link to="/"><FaReply /></Link></li>
                     </ul>
                 </nav>
                     <span></span>

@@ -1,0 +1,28 @@
+#delete-artist-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-light);
+  min-height: 100vh;
+}
+
+#delete-artist-wrapper > span:nth-child(1) {
+  padding: 2rem;
+  color: var(--blue-dark);
+}
+
+#delete-artist-wrapper > span:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+#delete-artist-wrapper > span:nth-child(2) > button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: unset;
+  font-size: 1.25rem;
+  background-color: var(--blue-dark);
+  color: var(--blue-lighter);
+}

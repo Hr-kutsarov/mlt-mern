@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { api } from "../../../utils/utils"
+import './ArtistCreate.css'
+import { Link } from "react-router-dom"
+import { FaReply } from 'react-icons/fa'
 
 export function ArtistCreate() {
     const [name, setName] = useState('')
@@ -8,7 +11,14 @@ export function ArtistCreate() {
     const [submitted, setSubmitted] = useState(false)
     const [err, setErr] = useState('')
 
-    const handlerCreateArtist = async () => {
+    const handlerCreateArtist = async (e) => {
+        e.preventDefault()
+
+        if (!name || !photo || !bio) {
+            alert('Empty fields')
+            return
+        }
+        
         const context = {
             name: name,
             photo: photo,
@@ -21,7 +31,7 @@ export function ArtistCreate() {
                     setErr(res.data)
                     
                 }
-                if (res.status === 200) {
+                if (res.status === 201) {
                     setSubmitted(true)
                 }
             })
@@ -31,21 +41,27 @@ export function ArtistCreate() {
     }
 
     return (
-        <>
+        <section id="artist-create-wrapper">
             <h5>{err}</h5>
-        {!submitted ?  (
+        {!submitted && (
             <form id="artist-create-form" onSubmit={handlerCreateArtist}>
+            <h3>CREATE ARTIST</h3>
             <label>Name</label>
             <input type="text" onChange={(e) => setName(e.target.value)} value={name}></input>
             <label>Photo</label>
             <input type="text" onChange={(e) => setPhoto(e.target.value)} value={photo}></input>
             <label>Biography</label>
-            <input type="text" onChange={(e) => setBio(e.target.value)} value={bio}></input>
+            <textarea onChange={(e) => setBio(e.target.value)} value={bio}></textarea>
             <button>Add Artist</button>
         </form>
-        ) : (
-            <h1>Artist created</h1>
         )}
-        </>
+        {submitted && (
+            <>
+                <h1>Created Successfully</h1>
+                <h2><Link to="/">Navigate to homepage.</Link></h2>
+            </>
+        )}
+        <Link to='/'><button id='artist-create-return'><FaReply /></button></Link>
+        </section>
     )
 }

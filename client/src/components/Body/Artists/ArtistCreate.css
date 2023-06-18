@@ -1,0 +1,102 @@
+#artist-create-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--blue-light);
+}
+
+#artist-create-form {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 5rem;
+  border-radius: 1rem;
+  gap: 0.3rem;
+  width: 60vw;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+#artist-create-form > h3 {
+  color: var(--blue-dark);
+  margin-bottom: 2rem;
+}
+
+#artist-create-form > label {
+  color: var(--blue-m);
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
+#artist-create-form > input {
+  border: unset;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  color: rgba(0, 0, 0, 0.468);
+  box-shadow: var(--box-shadow2);
+}
+#artist-create-form > input:focus {
+  outline: unset;
+  color: black;
+}
+
+#artist-create-form > textarea {
+  border: unset;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  color: rgba(0, 0, 0, 0.468);
+  box-shadow: var(--box-shadow2);
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 10rem;
+}
+
+#artist-create-form > textarea:focus {
+  outline: unset;
+  color: black;
+}
+
+#artist-create-form > button {
+  margin-top: 2rem;
+  text-align: center;
+  max-width: 40%;
+  border-radius: 0.5rem;
+  background-color: var(--blue-m);
+  color: var(--blue-lighter);
+  padding: 0.5rem 1rem;
+  border: unset;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#artist-create-form > button:hover {
+  color: white;
+  background-color: var(--contrast-orange);
+}
+
+#artist-create-wrapper > h2:hover {
+  color: white;
+}
+
+#artist-create-return {
+  position: fixed;
+  top: 50%;
+  left: 5vw;
+  line-height: 0;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  border: unset;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#artist-create-return:hover {
+  border-radius: 50%;
+  color: white;
+  background-color: var(--blue-dark);
+}
