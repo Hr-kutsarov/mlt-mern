@@ -1,8 +1,7 @@
 import './DetailsView.css'
 import { Link } from 'react-router-dom'
 import { useAuthStore, useEventStore } from '../../../store/appStore'
-import { FaHome } from 'react-icons/fa'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { FaHome, FaKey, FaWrench } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { weekReprExtended, weekRepr } from '../../../utils/dateRepr'
 import { api } from '../../../utils/utils'
@@ -13,13 +12,19 @@ import { Loading } from './Loading'
 export function DetailsView() {
     const userId = window.sessionStorage.getItem('userId')
     const eventId = window.sessionStorage.getItem('eventId')
+    const permission = window.sessionStorage.getItem('role')
+
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    // const title = useEventStore((state) => state.title)
-    // const content = useEventStore((state) => state.content)
-    // const pictureUrl = useEventStore((state) => state.pictureUrl)
-    // const price = useEventStore((state) => state.price)
-    // const date = useEventStore((state) => state.date)
+    const [frozen, setFrozen] = useState(false)
+
+    const setId = useEventStore((state) => state.setId)
+    const setTitle = useEventStore((state) => state.setTitle)
+    const setContent = useEventStore((state) => state.setContent)
+    const setPictureUrl = useEventStore((state) => state.setPictureUrl)
+    const setPrice = useEventStore((state) => state.setPrice)
+    const setDate = useEventStore((state) => state.setDate)
+    const setSummary = useEventStore((state) => state.setSummary)
 
     const dateObj = new Date(data.date)
     const day = weekReprExtended[dateObj.getDay()]
@@ -33,6 +38,17 @@ export function DetailsView() {
 
     const [err, setErr] = useState('')
     const [won, setWon] = useState(false)
+
+    const handleEdit = () => {
+        setId(data._id)
+        setTitle(data.title)
+        setSummary(data.summary)
+        setContent(data.content)
+        setPictureUrl(data.pictureUrl)
+        setPrice(data.price)
+        setDate(data.date)
+        window.sessionStorage.setItem('eventId', data._id)
+    }
     
     const handleFreeTicket = async () => {
         // title, date, price, seat owner
@@ -42,13 +58,10 @@ export function DetailsView() {
             price: data.price,
             seat: seat,
             owner: userId
-            
         }
-        console.log(context)
+
         try {
             const response = await api.post('/tickets', context);
-            console.log(response)
-
             if (response.status === 201) {
                 setWon(true)
             }
@@ -65,7 +78,14 @@ export function DetailsView() {
     useEffect(() => {
         setTimeout(() => {
         api.get(`plays/${eventId}`)
-            .then((res) => setData(res.data))
+            .then((res) => {
+                setData(res.data)
+                const now = new Date()
+                const fetched = new Date(res.data.date)
+                if (now > fetched) {
+                    setFrozen(true)
+                } 
+            })
             .catch((err) => setErr(err))
         setLoading(false)
         }, 500)
@@ -77,8 +97,12 @@ export function DetailsView() {
             <nav id="event-details-nav">
                 <ul>
                     <li><Link to="/"><FaHome /></Link></li>
-                    <li><Link to="/profile"><FaUser /></Link></li>
-                    <li><FaQuestionCircle /></li>
+                    <li>
+                        {userId ? 
+                        (<Link to="/profile"><FaUser /></Link>) :
+                        (<Link to="/login"><FaKey /></Link>)}
+                    </li>
+                    {permission === 'moderator' && (<li onClick={handleEdit}><Link to="/edit-event"><FaWrench /></Link></li>)}
                 </ul>
             </nav>
             {loading ? (<Loading />) : (
@@ -94,14 +118,24 @@ export function DetailsView() {
                     <img src={data.pictureUrl} alt="asd"></img>    
                 </span>
                 </section>
+            {userId && (
             <section id="event-details-tickets">
-                <span>
+                {!frozen ? (
+                    <>
+                    <span>
                     <h3>Tickets</h3>
                     {won? <button disabled={true} style={{background: "transparent", border: "unset", color: "var(--contrast-orange)", fontSize: "1.5rem"}}>You won!</button> : <button onClick={handleFreeTicket}>Win free ticket</button>}
-                    <h5>Price: ${regularPrice} <s>${fakePrice}</s></h5>
+                    <h5 style={{padding: '0'}}>Price: ${regularPrice} <s>${fakePrice}</s></h5>
                     <button onClick={handlePurchase}>Buy</button>
                 </span>
+                    </>
+                ) : (
+                <span>
+                    <h3>This event is expired.</h3>
+                </span>
+                )}
             </section>
+            )}
             </>)}
             <section id="event-details-artists-reel">
                 <h1>Meet us</h1>
