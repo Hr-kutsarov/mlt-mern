@@ -1,11 +1,8 @@
 import { useEventStore } from '../../../store/appStore'
-// import { useMutation } from '@apollo/client'
-// import { EDIT_EVENT } from '../mutations/eventMutations'
-// import { GET_EVENTS } from '../queries/eventQueries'
 import { Link } from 'react-router-dom'
 import './EditEvent.css'
 import { useState, useEffect } from 'react'
-import { FaHome } from 'react-icons/fa'
+import { FaHome, FaReply } from 'react-icons/fa'
 import { api } from '../../../utils/utils.js'
 
 // When the button that has an attached function to edit the Event
@@ -47,13 +44,6 @@ export function EditEvent() {
     const unsetPrice = useEventStore((state) => state.unsetPrice)
     const unsetDate = useEventStore((state) => state.unsetDate)
 
-    // 
-    // const [editEvent] = useMutation(EDIT_EVENT, {
-    //     variables: { id: eventId, title: eventTitle, summary: eventSummary, content: eventContent, pictureUrl: eventPicture },
-    //     refetchQueries: [{ query: GET_EVENTS}]
-    // }) 
-
-    // reset state
 
     const editEvent = async () => {
         const context = {
@@ -97,10 +87,14 @@ export function EditEvent() {
             <div id="edit-event-wrapper">
                 {!eventId && !submitted && (<Link to="/">Return to homepage.</Link>)}
                 {eventId && (<>
-                    <h3>Edit event</h3>
+                    
                     <form id="edit-event-form" onSubmit={handleSubmit}>
+                        <h3>Edit event</h3>
+                        <label>Title</label>
                         <input type="text" onChange={(e) => setTitle(e.target.value)} value={eventTitle}/>
+                        <label>Picture URL</label>
                         <input type="text" onChange={(e) => setPictureUrl(e.target.value)} value={eventPicture}/>
+                        <label>Price</label>
                         <input type="text" onChange={(e) => 
                             {
                                 if (isNaN(e.target.value)) {
@@ -109,8 +103,11 @@ export function EditEvent() {
                                 }
                                 setPrice(e.target.value)
                             }} value={eventPrice}/>
+                        <label>Date</label>
                         <input type="datetime-local" onChange={(e) => setDate(e.target.value)} value={eventDate}/>
+                        <label>Summary</label>
                         <textarea type="text" onChange={(e) => setSummary(e.target.value)} value={eventSummary}/>
+                        <label>Content</label>
                         <textarea type="text" onChange={(e) => setContent(e.target.value)} value={eventContent}/>
                     <button type="submit">Edit</button>
                     </form>
@@ -125,6 +122,8 @@ export function EditEvent() {
                         </div>
                     </Link>
                     </>)}
+
+                    <Link to='/'><button id='artist-create-return'><FaReply /></button></Link>
             </div>
         </>
     )

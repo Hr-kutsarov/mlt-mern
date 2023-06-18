@@ -1,84 +1,76 @@
 #edit-event-wrapper {
-  /* component height - might cause trouble if paired with other components */
-  min-height: 100vh;
-
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: white;
 }
+
 #edit-event-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: center;
+  box-shadow: var(--box-shadow2);
+  padding: 3rem 5rem;
+  margin: 2rem 0;
+  border-radius: 1rem;
 }
 
-/* all items within the form have (x) max-width */
-#edit-event-form > * {
-  width: 33vw;
+#edit-event-form > h3 {
+  font-size: 2rem;
+  color: var(--blue-m);
 }
 
-#edit-event-wrapper > h3 {
-  font-size: 1.5rem;
-  display: block;
-  text-align: center;
+#edit-event-form > label {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  color: var(--contrast-orange);
+  margin: 1.25rem 0 0.5rem 0.3rem;
 }
 
 #edit-event-form > input {
-  text-align: center;
-  height: 3rem;
-  border-radius: 1rem;
-  border: unset;
-  border-left: 0.1rem solid black;
-  border-right: 0.1rem solid black;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 1.2rem;
-  padding: 1rem 1rem 1.1rem 1rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid var(--blue-light);
+  /* box-shadow: var(--box-shadow2); */
+  width: 65vw;
+  color: rgba(0, 0, 0, 0.626);
 }
 
-#add-event-form > input:focus {
+#edit-event-form > input:focus {
+  border: 1px solid var(--blue-m);
   color: black;
 }
 
 #edit-event-form > textarea {
-  /* Linked with form width */
-  min-width: 33vw;
-  max-width: 33vw;
-  min-height: 6rem;
-  max-height: 600px;
-  text-align: center;
-  border-radius: 1rem;
-  border: unset;
-  border-left: 0.1rem solid black;
-  border-right: 0.1rem solid black;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 1.2rem;
-  padding: 1rem 1rem 1.1rem 1rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 0.075rem solid var(--blue-light);
+  /* box-shadow: var(--box-shadow2); */
+  min-width: 65vw;
+  max-width: 65vw;
+  min-height: 15vh;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 #edit-event-form > textarea:focus {
+  border: 1px solid var(--blue-m);
   color: black;
-  outline: unset;
 }
 
 #edit-event-form > button {
-  width: 20vw;
-  padding: 0.7rem 0;
-  font-size: 1rem;
-  border-radius: 1rem;
-  border: unset;
-  background-color: rgba(0, 0, 0, 0.478);
+  margin: 3rem 0;
+  width: 6rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue-m);
   color: white;
-  margin-top: 3rem;
+  border: unset;
 }
 
-#add-form-picture {
-  margin: 2rem 0;
-  width: 120px;
-  height: 120px;
+#edit-event-form > button:hover {
+  background-color: var(--contrast-orange);
 }
