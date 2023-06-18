@@ -62,13 +62,13 @@ export function Event({ event }) {
                 <div className="properties">
                     <img src={event.pictureUrl} alt={event._id} loading="lazy"></img>
                     <h3>{event.title}</h3>
+                    <h4>{formattedDate}</h4>
                     <h5>${event.price.toFixed(2)}</h5>
-                    <h5>{formattedDate}</h5>
                     <p>{event.summary}</p>
                 </div>
                 <div className="hero-buttons" >
                     <button className="info-btn" onClick={handleDetails}><Link to="details-view"><FaInfoCircle /></Link></button>
-                    {permission === 'moderator' ? (<><button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaHandPointer /></Link></button>
+                    {permission === 'moderator' ? (<><button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaWrench /></Link></button>
                         <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
                     </>) : (<>
                         </>)}    

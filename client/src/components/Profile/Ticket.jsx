@@ -26,8 +26,8 @@ export function Ticket({ticket}) {
             <div id="ticket-info">
                 <h3>{ticket.title}</h3>
                 <h6>{ticket._id}</h6>
-                <h5>{ticket.date}</h5>
-                <h5>Seat: {ticket.seat}</h5>
+                <h4>{ticket.date}</h4>
+                <h4>Seat: {ticket.seat}</h4>
             </div>
             <div id="qr-code-wrapper">
                 <div>
