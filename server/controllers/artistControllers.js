@@ -9,9 +9,9 @@ const Artist = require('../models/Artist')
 // CREATE
 
 const createArtist = async (req, res) => {
-    const { name, birthDate, bio, photo } = req.body
+    const { name, bio, photo } = req.body
     try {
-        const context = {name: name, birthDate: birthDate, bio: bio, photo: photo}
+        const context = {name: name, bio: bio, photo: photo}
         const artist = await Artist.create(context)
         res.status(201).json(artist)
     } catch (err) {
