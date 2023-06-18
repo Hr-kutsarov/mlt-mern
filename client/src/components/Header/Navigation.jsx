@@ -8,26 +8,26 @@ export function Navigation() {
 
     return (
         <nav>
-            <ul>
-                <li id='homepage-nav-link-home'><Link to="/" >Home</Link></li>
-                <li id='homepage-nav-link-calendar'><Link to="/calendar-view">Calendar</Link></li>
+            <ul id='header-navigation'>
+                <li><Link to="/" >Home</Link></li>
+                <li><Link to="/calendar-view">Calendar</Link></li>
                 {role === 'moderator' && (
                 <>
-                    <li id='homepage-nav-link-add-event'><Link to="/add-event">Add Event</Link></li>
-                    <li id='homepage-nav-link-devlogs'><Link to="/devlog">Announcements</Link></li>
+                    <li><Link to="/add-event">Add Event</Link></li>
+                    <li><Link to="/devlog">Announcements</Link></li>
                 </>    
                 )}
 
                 {!userLoggedIn && (
                     <>
-                        <li id='homepage-nav-link-login'><Link to="/login">Login</Link></li>
-                        <li id='homepage-nav-link-register'><Link to="/register">Register</Link></li>
+                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/register">Register</Link></li>
                     </>
                 )}
                 {userLoggedIn && (
                     <>
-                        <li id='homepage-nav-link-profile'><Link to="/profile">Profile</Link></li>
-                        <li id='homepage-nav-link-logout'><Link to="/logout">Logout</Link></li>
+                        <li><Link to="/profile">Profile</Link></li>
+                        <li><Link to="/logout">Logout</Link></li>
                     </>
                 )}
             </ul>

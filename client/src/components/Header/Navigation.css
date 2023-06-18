@@ -1,15 +1,14 @@
-header > nav > ul {
+#header-navigation {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-right: 4rem;
 }
 
-header > nav > ul > li {
-  color: rgb(43, 13, 13);
+#header-navigation > li {
+  color: var(--blue-dark);
   font-size: 1.5rem;
 }
 
-header > nav > ul > li:hover {
-  border-bottom: 2px solid black 0.5;
+#header-navigation > li:hover {
+  color: var(--blue-light);
 }
