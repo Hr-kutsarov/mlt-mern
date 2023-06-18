@@ -8,13 +8,10 @@ export function Announcement() {
     const [data, setData] = useState([])
     const [err, setErr] = useState('')
 
-    
-
     const formatDate = () => {
-        const dateObj = new Date(data.date)
-        const dayShort = weekRepr[dateObj.getDay()]
-        const day = dateObj.getDate()
-        return `${dayShort} ${day}`
+        const options = {month: 'short', day: 'numeric'}
+        const x = new Date(data.date)
+        return `${x.toLocaleDateString('en-GB', options)}`
     }
 
     const date = formatDate()
