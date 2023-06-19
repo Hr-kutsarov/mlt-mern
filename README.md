@@ -32,27 +32,27 @@
     [x] Event callendar functionality
     [x] Artist mongo schema
     [-] Artist queries and mutations
-    [ ] Artist controller
-    [ ] Artist create, edit, read, delete views
+    [x] Artist controller
+    [x] Artist create, edit, read, delete views
     [x] Artist error pages
     [x] User mongo schema
     [-] User queries and mutations
-    [ ] User controller
-    [ ] Profile page UI
-    [ ] Profile page functionality
-    [ ] User error pages
+    [-] User controller
+    [x] Profile page UI
+    [x] Profile page functionality
+    [x] User error pages
     [x] Ticket mongo schema
     [-] Ticket queries and mutations
-    [ ] Ticket controller
-    [ ] Ticket create and read views - if user is logged in
-    [ ] Ticket error pages
-    [ ] Payment system - Stripe
+    [x] Ticket controller
+    [x] Ticket create and delete
+    [-] Ticket error pages
+    [maybe] Payment system - Stripe
     [x] Devlog mongo schema - storing milestone data
     [-] Devlog queries and mutations
     [x] Devlog controller
     [x] Devlog create, edit, read, delete views and navigation
     [x] Devlog error pages
-    [ ] Deployment
+    [x] Deployment - live at https://my-local-theatre-app.onrender.com/
 
 
 # FAQ
@@ -101,9 +101,6 @@ Under the hood that is a quick shortcut to storing objects, arrays, booleans in 
 Stored variables such as response data, tokens, IS_LOGGED_IN can easily be accessed from a custom "Store" under the "state" property.
 This store can be called between different components.
 No more prop drilling!
-
-## What do you use for validation? 
-TBA
 
 ## How it works?
 
