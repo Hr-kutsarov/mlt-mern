@@ -53,7 +53,9 @@
     [x] Devlog create, edit, read, delete views and navigation
     [x] Devlog error pages
     [x] Deployment - live at https://my-local-theatre-app.onrender.com/
+    [ ] Responsive
 
+# Now live at https://my-local-theatre-app.onrender.com/
 
 # FAQ
 
