@@ -45,4 +45,8 @@
   #login-form-navigation-box > ul {
     flex-direction: row;
   }
+
+  #login-success-wrapper {
+    padding: 0 2rem;
+  }
 }

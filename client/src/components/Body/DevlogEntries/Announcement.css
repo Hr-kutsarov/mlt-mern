@@ -47,4 +47,8 @@
     font-size: 1rem;
     padding: unset;
   }
+
+  #announcement-wrapper > span > h4 {
+    width: 100%;
+  }
 }

@@ -95,15 +95,30 @@
 
 @media screen and (width < 800px) {
   #artist-details-section {
-    width: 65vw;
+    width: 75vw;
   }
   #artist-details-section > nav {
-    right: -4rem;
+    position: relative;
   }
 }
 
 @media screen and (width < 700px) {
   #artist-details-section > p {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (width < 600px) {
+  #artist-details-section > nav > ul {
+    flex-direction: row;
+  }
+
+  #artist-details-section > nav {
+    right: 0;
+    margin-bottom: 3rem;
+  }
+
+  #artist-details-section {
+    margin-top: unset;
   }
 }

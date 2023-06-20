@@ -26,3 +26,9 @@
   background-color: var(--blue-dark);
   color: var(--blue-lighter);
 }
+
+@media screen and (width < 600px) {
+  #delete-artist-wrapper {
+    padding: 0 1rem;
+  }
+}

@@ -23,3 +23,9 @@ main > h3 {
   text-shadow: var(--box-shadow2);
   margin-bottom: 2rem;
 }
+
+@media screen and (width < 600px) {
+  main > h2 {
+    font-size: 1.5rem;
+  }
+}
