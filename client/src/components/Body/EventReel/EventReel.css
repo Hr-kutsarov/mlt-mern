@@ -33,3 +33,19 @@
   background-color: var(--blue-m);
   color: var(--blue-lighter);
 }
+
+@media screen and (width < 880px) {
+  #event-reel {
+    padding: 0 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  #load-more-events {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (width < 660px) {
+  #event-reel {
+    grid-template-columns: 1fr;
+  }
+}

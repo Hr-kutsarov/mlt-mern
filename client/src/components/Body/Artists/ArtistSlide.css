@@ -39,3 +39,14 @@
   right: 3rem;
   top: 1rem;
 }
+
+@media screen and (width < 880px) {
+  .artist-card {
+    height: 65vh;
+  }
+
+  .artist-card button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+}

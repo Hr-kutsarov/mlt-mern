@@ -86,3 +86,9 @@
   font-size: 4rem;
   padding: 2rem;
 }
+
+@media screen and (width < 900px) {
+  #collection-devlog-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

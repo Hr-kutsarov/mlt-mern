@@ -31,3 +31,18 @@
   background-color: var(--blue-m);
   color: var(--blue-lighter);
 }
+
+@media screen and (width < 670px) {
+  #login-form-wrapper {
+    flex-direction: column;
+  }
+
+  #login-form-navigation-box {
+    padding: unset;
+    margin-top: 1rem;
+  }
+
+  #login-form-navigation-box > ul {
+    flex-direction: row;
+  }
+}

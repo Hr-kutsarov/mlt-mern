@@ -69,7 +69,7 @@ export function Register() {
             {/* THIS MAY LOOK NASTY, SORRY */}
             {!registered ? (
             <Box component="form" onSubmit={handleSubmit} sx={{ 
-                maxWidth: "60vw", 
+                maxWidth: "80vw", 
                 m: "1rem auto", 
                 backgroundColor: "white", 
                 p: "3rem 2rem", 

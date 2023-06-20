@@ -16,3 +16,17 @@
   font-family: "Oswald";
   color: var(--blue-dark);
 }
+
+@media screen and (width < 1100px) {
+  #logo-box {
+    gap: 0.1rem;
+  }
+  #logo-box > h2 {
+    font-size: 2rem;
+  }
+
+  #company-logo-image {
+    height: 50px;
+    width: 70px;
+  }
+}

@@ -66,3 +66,9 @@
   line-height: 0;
   color: var(--contrast-orange);
 }
+
+@media screen and (width < 880px) {
+  .devlog {
+    min-height: 65vh;
+  }
+}

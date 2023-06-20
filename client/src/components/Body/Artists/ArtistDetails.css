@@ -82,3 +82,28 @@
   background-color: var(--blue-light);
   border-radius: 50%;
 }
+
+@media screen and (width < 1100px) {
+  #artist-details-section {
+    width: 50vw;
+  }
+  #artist-details-section > img {
+    max-height: 170px;
+    max-width: 170px;
+  }
+}
+
+@media screen and (width < 800px) {
+  #artist-details-section {
+    width: 65vw;
+  }
+  #artist-details-section > nav {
+    right: -4rem;
+  }
+}
+
+@media screen and (width < 700px) {
+  #artist-details-section > p {
+    font-size: 1.25rem;
+  }
+}

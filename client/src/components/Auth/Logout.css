@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(white, var(--blue-light));
+  min-height: 100vh;
 }
 
 #logout-wrapper > h1 {

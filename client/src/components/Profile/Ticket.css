@@ -31,3 +31,16 @@
 #ticket-info > span > h4 {
   margin-bottom: 1.5rem;
 }
+
+@media screen and (width < 860px) {
+  #ticket-card-wrapper {
+    width: 90vw;
+    grid-template-columns: 2fr 1fr 0.2fr;
+  }
+}
+
+@media screen and (width < 750px) {
+  #ticket-info {
+    grid-template-columns: 1fr;
+  }
+}

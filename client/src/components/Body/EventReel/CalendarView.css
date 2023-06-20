@@ -220,3 +220,14 @@
   background-color: var(--contrast-orange);
   color: black;
 }
+
+@media screen and (width < 880px) {
+  #calendar-view-details-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  #calendar-view-details-modal > img {
+    height: 50vh;
+  }
+}

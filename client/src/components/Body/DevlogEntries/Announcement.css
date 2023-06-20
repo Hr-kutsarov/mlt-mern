@@ -35,3 +35,16 @@
 #announcement-wrapper > span > p {
   font-size: 1.25rem;
 }
+
+@media screen and (width < 1100px) {
+  #announcement-wrapper > span {
+    max-width: 90vw;
+    flex-direction: column;
+  }
+
+  #announcement-wrapper > span > h5 {
+    width: 100%;
+    font-size: 1rem;
+    padding: unset;
+  }
+}

@@ -100,3 +100,13 @@
   color: white;
   background-color: var(--blue-dark);
 }
+
+@media screen and (width < 900px) {
+  #artist-create-form {
+    width: 80vw;
+  }
+
+  #artist-create-return {
+    left: 2vw;
+  }
+}

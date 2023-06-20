@@ -12,3 +12,19 @@
 #header-navigation > li:hover {
   color: var(--blue-light);
 }
+
+@media screen and (width < 1100px) {
+  #header-navigation {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (width < 750px) {
+  #header-navigation {
+    gap: 0.5rem;
+  }
+
+  #header-navigation > li {
+    font-size: 1.25rem;
+  }
+}

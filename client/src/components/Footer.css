@@ -66,3 +66,17 @@ footer {
 #social-media > li {
   font-size: 2rem;
 }
+
+@media screen and (width < 880px) {
+  #footer-helpful-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #navigate-to-top > span {
+    font-size: 1.25rem;
+  }
+
+  #social-media {
+    gap: unset;
+  }
+}

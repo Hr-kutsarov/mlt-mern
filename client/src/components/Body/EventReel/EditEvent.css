@@ -74,3 +74,12 @@
 #edit-event-form > button:hover {
   background-color: var(--contrast-orange);
 }
+
+@media screen and (width < 900px) {
+  #edit-event-form > textarea {
+    min-height: 40vw;
+  }
+  #edit-event-form {
+    padding: 2rem 4rem;
+  }
+}

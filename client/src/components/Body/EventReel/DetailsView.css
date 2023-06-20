@@ -101,3 +101,27 @@
   margin: 2rem 0;
   color: transparent;
 }
+
+@media screen and (width < 1200px) {
+  #event-details-card {
+    grid-template-columns: 1fr;
+  }
+
+  #event-details-card > article > h1 {
+    font-size: 2rem;
+  }
+
+  #event-details-card > span > img {
+    top: 0rem;
+    max-height: 65vh;
+  }
+
+  #event-details-card > span {
+    padding: unset;
+    margin-top: 2rem;
+  }
+
+  #event-details-tickets > span {
+    grid-template-columns: 2fr 1fr;
+  }
+}

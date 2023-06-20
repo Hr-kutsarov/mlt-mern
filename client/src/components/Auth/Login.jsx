@@ -13,7 +13,6 @@ export function Login() {
     return (
         <>
             <span id="login-form-wrapper">
-                {!userLoggedIn ? (<LoginForm />) : (<LoginSuccess />)}
                 <nav id="login-form-navigation-box">
                     <ul>
                         <li><Link to="/"><FaHome /></Link></li>
@@ -26,6 +25,7 @@ export function Login() {
                         }}><FaQuestionCircle /></li>
                     </ul>
                 </nav>
+                {!userLoggedIn ? (<LoginForm />) : (<LoginSuccess />)}
             </span> 
         </>
     )}

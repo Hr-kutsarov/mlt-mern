@@ -11,8 +11,6 @@
 
 #add-event-form {
   display: flex;
-  /* margin-right: 20vw;
-  margin-left: 5vw; */
   flex-direction: column;
   background-color: white;
   padding: 2rem;
@@ -123,4 +121,19 @@
 
 #submitted-event-wrapper > p:nth-child(3):hover {
   color: white;
+}
+
+@media screen and (width < 760px) {
+  #add-event-form {
+    margin-left: 4rem;
+  }
+
+  #add-event-form > textarea {
+    min-width: 70vw;
+    min-height: 40vh;
+  }
+
+  #add-event-form-navigation-box {
+    left: 2vw;
+  }
 }

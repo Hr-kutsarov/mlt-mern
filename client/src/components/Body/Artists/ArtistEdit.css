@@ -100,3 +100,10 @@
   color: white;
   background-color: var(--blue-dark);
 }
+
+@media screen and (width < 900px) {
+  #artist-edit-form {
+    width: 80vw;
+    padding: 2rem 3rem;
+  }
+}
