@@ -124,3 +124,13 @@
     width: 90vw;
   }
 }
+
+@media screen and (width < 660px) {
+  #profile-wrapper > nav > ul {
+    margin: 2rem;
+  }
+
+  #permissions-info {
+    gap: 1rem;
+  }
+}
