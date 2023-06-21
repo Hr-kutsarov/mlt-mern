@@ -1,6 +1,9 @@
 #loading-wrapper {
-  display: grid;
-  margin: auto;
-  min-height: 40vh;
-  margin-top: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 40vh;
+  margin-top: 30vh; */
+  min-width: 80vw;
+  min-height: 25vh;
 }

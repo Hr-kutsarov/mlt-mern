@@ -3,10 +3,12 @@ import { api } from "../../../utils/utils";
 import './Announcement.css'
 import { weekReprExtended, weekRepr } from "../../../utils/dateRepr";
 import {FaCalendarAlt} from 'react-icons/fa'
+import { Loading } from '../EventReel/Loading'
 
 export function Announcement() {
     const [data, setData] = useState([])
     const [err, setErr] = useState('')
+    const [loading, setLoading] = useState(true)
 
     const formatDate = () => {
         const options = {month: 'short', day: 'numeric'}
@@ -18,25 +20,29 @@ export function Announcement() {
 
     useEffect(() => {
         api.get('/devlog')
-            .then((res) => {
-                setData(res.data[0])
-            })
-            .catch((err) => {
-                setErr(err.message)
-            })
+        .then((res) => {
+            setData(res.data[0])
+            setLoading(false)
+        })
+        .catch((err) => {
+            setErr(err.message)
+            setLoading(false)
+        })
     }, [])
 
     return (
         <>
             <span id="announcement-wrapper">
-                {err && (<h2>{err}</h2>)}
-                {data ? (<span>
+                {loading && (<Loading />)}
+                {!loading && err && (<h2>{err}</h2>)}
+                {!loading && data && !err && (
+                    <span>
                     <h4>{data.title}</h4>
                     <h5><FaCalendarAlt /> {date}</h5>
                     <p>{data.entry}</p>
-                </span>) : (<h3>No data.</h3>)}
+                    </span>
+                )}
             </span>
-
         </>
     )
 }

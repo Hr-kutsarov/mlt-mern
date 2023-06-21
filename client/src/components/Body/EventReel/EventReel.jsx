@@ -4,11 +4,9 @@ import { Event } from './Event.jsx'
 import { api } from '../../../utils/utils.js'
 import { Loading } from './Loading'
 import { slice } from 'lodash'
-// import { useQuery } from '@apollo/client'
-// import { GET_EVENTS } from '../queries/eventQueries.js'
+import { FaStar } from 'react-icons/fa'
 
 export function EventReel() {
-    // const { loading, error, data } = useQuery(GET_EVENTS)
     const [data, setData] = useState([])
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(true)
@@ -29,43 +27,39 @@ export function EventReel() {
         api.get('/plays-upcoming')
             .then((res) => {
                 setData(res.data)
+                setLoading(false)
             })
             .catch((err) => {
                 setErr(err.message)
+                setLoading(false)
             })
-        setLoading(false)
     }
 
     useEffect(() => {
-        // just to test the loading component
-        const timeoutTimer = 0
-        setTimeout(() => {
-            getEvents()
-            
-        }, timeoutTimer)
+        getEvents()
     }, [])
 
-    return (<>
-        {loading ? (
-            <Loading />
-            ) : (
+    return (
+        <>
+        {loading && <Loading />}
+        {!loading && err && (<h1>{err}</h1>)}
+        {!loading && !err && data && (
             <>
-                <section id='event-reel'>
-                    {err && (<h1>{err}</h1>)}
-                    {data && (initialEvents.map((event) => (<Event key={event._id} event={event}/>)))}
-                    
-                </section>
-                {!isCompleted ? (
-                    <span id='load-more-events'>
-                        <button onClick={loadMore}>LOAD MORE</button>
-                    </span>
-                ) : (
-                    <span id='load-more-events'>
-                        <button disabled>There are no more events to display</button>
-                    </span>
-                )}
-            </>
-            )
-        }
+            <h2>UPCOMING EVENTS</h2>
+            <h3><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h3>
+            <section id='event-reel'>
+                {data && (initialEvents.map((event) => (<Event key={event._id} event={event}/>)))}
+            </section>
+            {!isCompleted ? (
+                <span id='load-more-events'>
+                    <button onClick={loadMore}>LOAD MORE</button>
+                </span>
+            ) : (
+                <span id='load-more-events'>
+                    <button disabled>There are no more events to display</button>
+                </span>
+            )}
+        </>
+        )}
     </>)
 }
