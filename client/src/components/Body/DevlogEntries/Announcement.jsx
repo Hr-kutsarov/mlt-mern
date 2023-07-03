@@ -4,11 +4,13 @@ import './Announcement.css'
 import { weekReprExtended, weekRepr } from "../../../utils/dateRepr";
 import {FaCalendarAlt} from 'react-icons/fa'
 import { Loading } from '../EventReel/Loading'
+import { Link } from "react-router-dom";
 
 export function Announcement() {
     const [data, setData] = useState([])
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(true)
+    const userLoggedIn = window.sessionStorage.getItem('isLoggedIn')
 
     const formatDate = () => {
         const options = {month: 'short', day: 'numeric'}
@@ -37,9 +39,10 @@ export function Announcement() {
                 {!loading && err && (<h2>{err}</h2>)}
                 {!loading && data && !err && (
                     <span>
-                    <h4>{data.title}</h4>
-                    <h5><FaCalendarAlt /> {date}</h5>
-                    <p>{data.entry}</p>
+                        <h4>{data.title}</h4>
+                        <p><FaCalendarAlt /> {date}</p>
+                        <p>{data.entry}</p>
+                        {userLoggedIn && (<Link to="/profile">View profile</Link>)}
                     </span>
                 )}
             </span>
