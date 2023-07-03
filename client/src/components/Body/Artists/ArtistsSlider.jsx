@@ -40,7 +40,7 @@ export function ArtistsSlider() {
             <h2>MEET US</h2>
             <h3><FaStar /><FaStar /><FaStar /></h3>
             <motion.div id="carousel">
-                <motion.div drag="x" dragConstraints={{right: -100, left: -maxLeftValue}} id="inner-carousel">
+                <motion.div drag="x" dragConstraints={{right: -20, left: -maxLeftValue}} id="inner-carousel">
                     {data && (data.map((artist) => (<ArtistSlide key={artist._id} artist={artist}/>)))}
                 </motion.div>
             </motion.div>
