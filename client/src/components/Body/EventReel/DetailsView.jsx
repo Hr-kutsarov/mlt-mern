@@ -32,8 +32,8 @@ export function DetailsView() {
     const hour = dateObj.getHours()
     const mins = dateObj.getMinutes()
     const minsFormatted = mins.toString().length < 2 ? `0${mins}` : mins
-    const regularPrice = Math.floor(data.price).toFixed(2)
-    const fakePrice = Math.floor(Number(data.price) * 1.1).toFixed(2)
+    const regularPrice = Math.floor(data.price * 0.9).toFixed(2)
+    const fakePrice = Math.floor(Number(data.price)).toFixed(2)
     const seat = Math.floor(Math.random() * 100) + 1
 
     const [err, setErr] = useState('')
@@ -118,6 +118,13 @@ export function DetailsView() {
                     <img src={data.pictureUrl} alt="asd"></img>    
                 </span>
                 </section>
+            {!userId && (
+                <section id="event-details-tickets">
+                    <span>
+                        <h3>You must be logged in to view ticket options.</h3>
+                    </span>
+                </section>
+            )}
             {userId && (
             <section id="event-details-tickets">
                 {!frozen ? (
@@ -136,6 +143,7 @@ export function DetailsView() {
                 )}
             </section>
             )}
+            
             </>)}
             <section id="event-details-artists-reel">
                 <h1>Meet us</h1>
