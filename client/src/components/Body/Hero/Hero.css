@@ -3,6 +3,7 @@
   grid-template-columns: 60% 40%;
   min-height: 40vh;
   padding: 0 3rem;
+  background-color: rgba(96, 96, 96, 0.1);
 }
 
 #hero-section > span {

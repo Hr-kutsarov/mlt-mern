@@ -15,10 +15,10 @@ export function HeroSection() {
             <span>
                 <h1>Dear guests,</h1>
                 <p>We are happy to announce our first anniversary!</p>
-                <p>For this reason all tickets are 10% off!</p>
+                <p>All tickets are now 10% off!</p>
                 <span id="hero-box-buttons">
-                    <button onClick={handleScrollToEvents}>View events</button>
-                    <Link to="/calendar-view">View Calendar</Link>
+                    <button onClick={handleScrollToEvents}>UPCOMING</button>
+                    <Link to="/calendar-view">CALENDAR</Link>
                 </span>
             </span>
             <img src={Image} alt="storytel-image-happy-hour" />
