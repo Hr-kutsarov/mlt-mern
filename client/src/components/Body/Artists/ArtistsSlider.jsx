@@ -15,10 +15,11 @@ export function ArtistsSlider() {
         api.get('/artists')
             .then((res) => {
                 setData(res.data)
-                setLoading(false)
             })
             .catch((err) => {
                 setErr(err.message)
+            })
+            .finally(() => {
                 setLoading(false)
             })
     }

@@ -27,10 +27,11 @@ export function EventReel() {
         api.get('/plays-upcoming')
             .then((res) => {
                 setData(res.data)
-                setLoading(false)
             })
             .catch((err) => {
                 setErr(err.message)
+            })
+            .finally(() => {
                 setLoading(false)
             })
     }

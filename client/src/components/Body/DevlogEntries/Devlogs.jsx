@@ -58,11 +58,13 @@ export function Devlogs() {
     // data fetching
     const getAllDevlogs = async () => {
         api.get('/devlog')
-        .then((response) => {
-                setLoading(false)
+            .then((response) => {
                 setData(response.data)
             }).catch((error) => {
                 setError(error.message)
+            })
+            .finally(() => {
+                setLoading(false)
             })
         }
 
