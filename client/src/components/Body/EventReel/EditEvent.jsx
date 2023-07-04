@@ -87,7 +87,6 @@ export function EditEvent() {
             <div id="edit-event-wrapper">
                 {!eventId && !submitted && (<Link to="/">Return to homepage.</Link>)}
                 {eventId && (<>
-                    
                     <form id="edit-event-form" onSubmit={handleSubmit}>
                         <h3>Edit event</h3>
                         <label>Title</label>

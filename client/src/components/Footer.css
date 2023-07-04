@@ -4,6 +4,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--blue-dark);
+  background-image: linear-gradient(var(--blue-dark), var(--blue-m));
   padding-bottom: 3rem;
 }
 

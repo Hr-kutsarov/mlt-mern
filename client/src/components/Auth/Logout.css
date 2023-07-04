@@ -18,16 +18,17 @@
 }
 
 #logout-wrapper > span > button {
+  box-shadow: var(--box-shadow2);
   font-size: 1.25rem;
-  border: 1px solid transparent;
-  background-color: unset;
-  padding: 0.5rem 1rem;
-  margin: 0.1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--blue-dark);
+  color: white;
+  border: unset;
+  cursor: pointer;
 }
 
 #logout-wrapper > span > button:hover {
-  color: var(--contrast-orange);
-  border: 1px solid black;
-  border-radius: 0.25rem;
-  background-color: var(--blue-dark);
+  color: var(--blue-lighter);
+  background-color: var(--blue-m);
 }

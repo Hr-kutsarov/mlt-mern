@@ -38,15 +38,34 @@ h5 {
   margin: 0 1rem 0.5rem 0;
 }
 
-.hero-buttons > button {
+.hero-buttons > a {
+  color: var(--blue-dark);
+  cursor: pointer;
+}
+
+.hero-buttons > a > button {
   display: flex;
   flex-direction: row;
   font-size: 1.5rem;
   background-color: transparent;
-  border: unset;
-  color: rgba(39, 27, 27, 0.632);
+  border: 0.1rem solid transparent;
+  border-radius: 50%;
+  padding: 0.5rem;
+  color: var(--blue-light);
+  margin: 0.5rem 0;
+  cursor: pointer;
 }
 
-.hero-buttons > button > a {
+.hero-buttons > a > button:hover {
+  border: 0.1rem solid var(--blue-m);
+  color: var(--blue-m);
+}
+
+/* .hero-buttons > a > button {
   color: inherit;
+  line-height: 0;
+} */
+
+.info-btn {
+  line-height: 0;
 }

@@ -42,7 +42,7 @@ export function Announcement() {
                         <h4>{data.title}</h4>
                         <p><FaCalendarAlt /> {date}</p>
                         <p>{data.entry}</p>
-                        {userLoggedIn && (<Link to="/profile">View profile</Link>)}
+                        {userLoggedIn && (<Link to="/profile">VIEW PROFILE</Link>)}
                     </span>
                 )}
             </span>

@@ -27,6 +27,7 @@
   color: white;
   border: unset;
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 #load-more-events > button:hover {

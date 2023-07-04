@@ -66,10 +66,10 @@ export function Event({ event }) {
                     <h5>${event.price.toFixed(2)}</h5>
                     <p>{event.summary}</p>
                 </div>
-                <div className="hero-buttons" >
-                    <button className="info-btn" onClick={handleDetails}><Link to="details-view"><FaInfoCircle /></Link></button>
-                    {permission === 'moderator' ? (<><button className="edit-btn" onClick={handleEdit}><Link to="edit-event"><FaWrench /></Link></button>
-                        <button className="delete-btn" onClick={handleDelete}><Link to="/delete-event"><FaTimes /></Link></button>
+                <div className="hero-buttons">
+                    <Link to="details-view"><button className="info-btn" onClick={handleDetails}><FaInfoCircle /></button></Link>
+                    {permission === 'moderator' ? (<><Link to="edit-event"><button className="edit-btn" onClick={handleEdit}><FaWrench /></button></Link>
+                        <Link to="/delete-event"><button className="delete-btn" onClick={handleDelete}><FaTimes /></button></Link>
                     </>) : (<>
                         </>)}    
                 </div>
