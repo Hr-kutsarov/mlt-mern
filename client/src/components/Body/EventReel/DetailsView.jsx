@@ -7,6 +7,7 @@ import { weekReprExtended, weekRepr } from '../../../utils/dateRepr'
 import { api } from '../../../utils/utils'
 import { useEffect, useState } from 'react'
 import { Loading } from './Loading'
+import { ArtistMinimal } from '../Artists/ArtistMinimal'
 
 
 export function DetailsView() {
@@ -68,7 +69,6 @@ export function DetailsView() {
         } catch (err) {
             setErr(err.message)
         }
-
     }
 
     const handlePurchase = async () => {
@@ -145,8 +145,11 @@ export function DetailsView() {
             )}
             
             </>)}
-            <section id="event-details-artists-reel">
-                <h1>Meet us</h1>
+            <span id="artist-minireel-title">
+                <h3>Starring in this play</h3>
+            </span>
+            <section id="artists-minireel">
+                {data.artists && (data.artists.map((a) => <ArtistMinimal key={a._id} data={a} />))}
             </section>
         </span>
         </>

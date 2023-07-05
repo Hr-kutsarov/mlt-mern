@@ -76,7 +76,7 @@
 #event-details-tickets > span {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  width: 80%;
+  width: 80vw;
   border-radius: 1rem;
   padding: 2rem 3rem;
   box-shadow: var(--box-shadow);
@@ -100,6 +100,25 @@
   justify-content: center;
   margin: 2rem 0;
   color: transparent;
+}
+
+#artist-minireel-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#artist-minireel-title > h3 {
+  margin: 1rem 0;
+  color: rgba(0, 0, 0, 0.4);
+}
+#artists-minireel {
+  display: flex;
+  min-height: 30vh;
+  min-width: 90vw;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 @media screen and (width < 1200px) {
