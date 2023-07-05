@@ -83,7 +83,7 @@
 }
 
 #event-details-tickets > span > button {
-  height: 3rem;
+  min-height: 3rem;
   margin-bottom: 0.5rem;
   background-image: linear-gradient(#425a7db0, var(--blue-m));
   color: white;
@@ -93,13 +93,6 @@
 
 #event-details-tickets > span > button:hover {
   background-image: linear-gradient(#2a3240bc, var(--blue-dark));
-}
-
-#event-details-artists-reel {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-  color: transparent;
 }
 
 #artist-minireel-title {
@@ -115,6 +108,7 @@
 #artists-minireel {
   display: flex;
   min-height: 30vh;
+  flex-wrap: wrap;
   min-width: 90vw;
   justify-content: center;
   gap: 1rem;
@@ -142,5 +136,15 @@
 
   #event-details-tickets > span {
     grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media screen and (width < 600px) {
+  #event-details-card {
+    padding: 1rem;
+  }
+
+  #artist-minireel-title > h3 {
+    margin: 3rem 0 0 0;
   }
 }
