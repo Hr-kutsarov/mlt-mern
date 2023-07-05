@@ -58,6 +58,7 @@
 #artist-details-section > p {
   padding: 0 2rem;
   margin-bottom: 2rem;
+  font-size: 1.25rem;
 }
 
 #artist-details-section > nav > ul {
