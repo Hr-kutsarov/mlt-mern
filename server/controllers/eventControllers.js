@@ -4,9 +4,9 @@ const Event = require('../models/Event')
 // CREATE
 
 const createEvent = async (req, res) => {
-    const { title, summary, content, pictureUrl, date, price } = req.body
+    const { title, summary, content, pictureUrl, date, price, artists } = req.body
     try {
-        const event = await Event.create({title: title, summary: summary, content: content, pictureUrl: pictureUrl, date: date, price: price})
+        const event = await Event.create({title: title, summary: summary, content: content, pictureUrl: pictureUrl, date: date, price: price, artists: artists})
         res.status(201).json(event)
     } catch (err) {
         res.status(400).json({error: err.message})
