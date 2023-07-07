@@ -60,5 +60,8 @@ export const useArtistStore = create((set) => ({
   photo: '',
   setPhoto: (data) => set((state) => ({photo: (state.photo = data)})),
   artistsArray: [],
-  setArtists: (data) => set((state) => ({artists: (state.artistsArray = data)}))
+  setArtists: (data) => set((state) => ({artistsArray: (state.artistsArray = data)})),
+  selectedArtists: [],
+  setSelectedArtists: (data) => set((state) => ({selectedArtists: (state.selectedArtists = data)})),
+
 }))
