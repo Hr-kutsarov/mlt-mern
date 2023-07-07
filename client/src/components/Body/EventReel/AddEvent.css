@@ -123,6 +123,53 @@
   color: white;
 }
 
+#artists-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+}
+
+#artists-modal > span {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  min-height: 60%;
+  position: relative;
+  background-color: white;
+  padding: 5rem 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#artists-modal > h4 {
+  position: relative;
+}
+
+#artists-modal > button {
+  position: absolute;
+  top: 15vh;
+  right: 10vw;
+  box-shadow: var(--box-shadow2);
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: white;
+  color: var(--blue-m);
+  border: unset;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+/* RESPONSIVE  */
 @media screen and (width < 760px) {
   #add-event-form {
     margin-left: 4rem;

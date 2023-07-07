@@ -2,20 +2,26 @@ import './AddEvent.css'
 // import { ADD_EVENT } from '../mutations/eventMutations.js'
 // import { GET_EVENTS } from '../queries/eventQueries.js';
 // import { useMutation } from '@apollo/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useEventStore } from '../../../store/appStore'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
 import { api } from '../../../utils/utils'
+import { useArtistStore } from '../../../store/appStore';
+import { SelectedArtist } from './SelectedArtist';
 // icons
 import { FaCalendar } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { FaUserTimes } from 'react-icons/fa';
+import { IoIosCloseCircle } from 'react-icons/io'
 
 export function AddEvent() {
-    const eventId = useEventStore((state) => state.id)
+    // const eventId = useEventStore((state) => state.id)
     const pictureUrl = useEventStore((state) => state.pictureUrl)
     const setPictureUrl = useEventStore((state) => state.setPictureUrl)
+
+    // global state
+    const artists = useArtistStore((state) => state.artistsArray)
 
     const [title, setTitle] = useState(`"Which event is it?"`)
     // const [pictureUrl, setPictureUrl] = useState(`"Paste the URL of the picture here"`)
@@ -26,6 +32,7 @@ export function AddEvent() {
     const [date, setDate] = useState('')
     const [err, setErr] = useState('')
     const imageSource = require('../../../static/logo.png')
+    const [toggleArtistsModal, setToggleArtistsModal] = useState(false)
 
     // const date = new Date()
 
@@ -41,6 +48,10 @@ export function AddEvent() {
         setPrice('')
     }
 
+    const toggleModal = () => {
+        setToggleArtistsModal(!toggleArtistsModal)
+    }
+
     const addEvent = async () => {
         try {
             const context = {
@@ -49,7 +60,8 @@ export function AddEvent() {
                 summary: summary,
                 content: content,
                 price: price,
-                date: date
+                date: date,
+                artists: artists
             }
             const response = await api.post('/plays', context)
             if (response.status === 201) {
@@ -72,11 +84,16 @@ export function AddEvent() {
         addEvent()
     }
 
+    useEffect(() => {
+        console.log(artists)
+    })
+
     
     return (
         <>
             <div id='add-event-form-wrapper'>
                 {!submitted ? (
+                    <>
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
                     {err && (<h4>{err}</h4>)}
@@ -99,6 +116,18 @@ export function AddEvent() {
                     <textarea onChange={(e) => setContent(e.target.value)} value={content} />
                     <button>CREATE</button>
                 </form>
+                    <button onClick={toggleModal}>
+                        Select artists
+                    </button>
+                    {toggleArtistsModal && (                        
+                        <span id="artists-modal">
+                            <h4>Artists</h4>
+                            <span>
+                                {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist}/>)}
+                            </span>
+                            <button onClick={toggleModal}><IoIosCloseCircle /></button>
+                        </span>)}
+                    </>
                 ) : (
                     <>
                 <Link to="/">

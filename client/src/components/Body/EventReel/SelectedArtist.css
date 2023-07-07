@@ -1,0 +1,11 @@
+#selected-artist-wrapper {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+#selected-artist-wrapper > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
