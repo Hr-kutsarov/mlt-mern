@@ -22,6 +22,8 @@ export function AddEvent() {
 
     // global state
     const artists = useArtistStore((state) => state.artistsArray)
+    const selectedArtists = useArtistStore((state) => state.selectedArtists)
+    const setSelectedArtists = useArtistStore((state) => state.setSelectedArtists)
 
     const [title, setTitle] = useState(`"Which event is it?"`)
     // const [pictureUrl, setPictureUrl] = useState(`"Paste the URL of the picture here"`)
@@ -31,7 +33,6 @@ export function AddEvent() {
     const [submitted, setSubmitted] = useState(false)
     const [date, setDate] = useState('')
     const [err, setErr] = useState('')
-    const imageSource = require('../../../static/logo.png')
     const [toggleArtistsModal, setToggleArtistsModal] = useState(false)
 
     // const date = new Date()
@@ -50,6 +51,11 @@ export function AddEvent() {
 
     const toggleModal = () => {
         setToggleArtistsModal(!toggleArtistsModal)
+        setSelectedArtists([])
+    }
+
+    const confirmSelected = () => {
+        setToggleArtistsModal(!toggleArtistsModal)
     }
 
     const addEvent = async () => {
@@ -61,7 +67,7 @@ export function AddEvent() {
                 content: content,
                 price: price,
                 date: date,
-                artists: artists
+                artists: selectedArtists
             }
             const response = await api.post('/plays', context)
             if (response.status === 201) {
@@ -81,17 +87,24 @@ export function AddEvent() {
         if(!title || !summary || !content || !pictureUrl || !price || !date) {
             return alert('There is an empty field')
         }
+
+        if(!selectedArtists) {
+            return alert('You did not select any artists!')
+        }
         addEvent()
     }
 
-    useEffect(() => {
-        console.log(artists)
-    })
+    // useEffect(() => {
+    //     console.log(artists)
+    // })
 
     
     return (
         <>
             <div id='add-event-form-wrapper'>
+                <button id="select-cast-button" onClick={toggleModal}>
+                    Select Cast -  [ {selectedArtists.length} ] selected
+                </button>
                 {!submitted ? (
                     <>
                 <form id="add-event-form" onSubmit={submitForm}>
@@ -116,16 +129,15 @@ export function AddEvent() {
                     <textarea onChange={(e) => setContent(e.target.value)} value={content} />
                     <button>CREATE</button>
                 </form>
-                    <button onClick={toggleModal}>
-                        Select artists
-                    </button>
                     {toggleArtistsModal && (                        
                         <span id="artists-modal">
                             <h4>Artists</h4>
                             <span>
-                                {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist}/>)}
+                                <button onClick={toggleModal}><IoIosCloseCircle /></button>
+                                {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist} />)}
+                                
                             </span>
-                            <button onClick={toggleModal}><IoIosCloseCircle /></button>
+                            <button onClick={confirmSelected}>DONE</button>
                         </span>)}
                     </>
                 ) : (
