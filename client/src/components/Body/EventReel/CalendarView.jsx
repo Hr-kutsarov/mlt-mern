@@ -103,7 +103,6 @@ export function CalendarView() {
                                 <button onClick={handleHideModal}>Cancel <FaTimes /></button>
                                 </span>
                         </span>
-
                     </section>
                 )}
             </div>
