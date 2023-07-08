@@ -8,13 +8,15 @@ import { FaInfoCircle } from 'react-icons/fa'
 export function ArtistSlide({artist}) {
 
     const setId = useArtistStore((state) => state.setId)
+    const setName = useArtistStore((state) => state.setName)
     // useEffect(() => {
     //     console.log(artist)
     // })
 
     const infoHandler = () => {
         setId(artist._id)
-    }
+        setName(artist.name)
+    } 
     return (
         //  item in the tutorial
         <motion.div className="artist-card">

@@ -15,16 +15,26 @@ const createEvent = async (req, res) => {
 
 // READ
 
+const getRelatedEvents = async (req, res) => {
+    const { name } = req.body
+
+    try {
+        const events = await Event.find({ "artists.name": name })
+        res.status(200).json(events)
+    } catch (err) {
+        res.status(400).json({error: err.message})
+    }
+}
+
 const getAllEvents = async (req, res) => {
     try {
-        const now = new Date()
-        // const events = await Event.find({ date: {$gte: now}}).sort({date: 1})
         const events = await Event.find().sort({createdAt: -1})
         res.status(200).json(events)
     } catch (err) {
         res.status(400).json({error: err.message})
     }
 }
+
 
 const getUpcomingEvents = async (req, res) => {
     try {
@@ -35,8 +45,6 @@ const getUpcomingEvents = async (req, res) => {
         res.status(400).json({error: err.message})
     }
 }
-
-// TODO pagination by 10 vs fetch get:limit(10)
 
 const getEventById = async (req, res) => {
     const { id } = req.params
@@ -86,4 +94,4 @@ const deleteEvent = async (req, res) => {
 
 }
 
-module.exports = { createEvent, getAllEvents, getUpcomingEvents, getEventById, editEvent, deleteEvent }
+module.exports = { createEvent, getAllEvents, getRelatedEvents, getUpcomingEvents, getEventById, editEvent, deleteEvent }
