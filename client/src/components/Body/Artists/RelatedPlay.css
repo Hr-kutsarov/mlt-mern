@@ -1,0 +1,36 @@
+#related-plays-unit {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: var(--box-shadow2);
+}
+
+#related-plays-unit:hover {
+  opacity: 0.8;
+}
+
+#related-plays-unit > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  background-image: linear-gradient(var(--blue-lighter), var(--blue-m));
+}
+
+#related-plays-unit > a > img {
+  height: 9rem;
+  width: 12rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+#related-plays-unit > p {
+  font-size: 1rem;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
