@@ -102,11 +102,11 @@ export function AddEvent() {
     return (
         <>
             <div id='add-event-form-wrapper'>
+                {!submitted ? (
+                <>
                 <button id="select-cast-button" onClick={toggleModal}>
                     Select Cast -  [ {selectedArtists.length} ] selected
                 </button>
-                {!submitted ? (
-                    <>
                 <form id="add-event-form" onSubmit={submitForm}>
                     <h3>CREATE NEW EVENT</h3>
                     {err && (<h4>{err}</h4>)}
