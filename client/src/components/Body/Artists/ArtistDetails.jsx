@@ -4,28 +4,49 @@ import { api } from "../../../utils/utils"
 import './ArtistDetails.css'
 import { Link } from 'react-router-dom'
 import { FaPlusCircle, FaMinusCircle, FaWrench, FaReply } from "react-icons/fa"
+import { RelatedPlay } from "./RelatedPlay"
 
 export function ArtistDetails() {
     const permission = window.sessionStorage.getItem('role')
 
+    const setId = useArtistStore((state) => state.setId)
     const artistId = useArtistStore((state) => state.artistId)
-    const setId = useArtistStore((state) => state.artistId)
+    const artistName = useArtistStore((state) => state.name)
 
     // const artistId = window.sessionStorage.getItem('artistId')
+    const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])
+    const [relatedPlays, setRelatedPlays] = useState([])
     const [err, setErr] = useState('')
     
-    useEffect(() => {
+    const fetchArtistById = async () => {
         api.get(`/artists/${artistId}`)
             .then((res) => {
                 setData(res.data)
                 setId(res.data._id)
-
-
-            })
+                console.log(artistName)
+            }) 
             .catch((err) => {
                 setErr(err.message)
             })
+    }
+
+    const getRelatedPlays = async () => {
+        api.post('/plays-related', { name: artistName })
+            .then((res) => {
+                console.log(res.data)
+                setRelatedPlays(res.data)
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }
+    useEffect(() => {
+        fetchArtistById()
+        getRelatedPlays()
     }, [])
     return (
         <>
@@ -51,7 +72,16 @@ export function ArtistDetails() {
                     <p>{data.bio}</p>
                     </>
                 )}
+
             </section>
+        {!loading && relatedPlays && (
+            <>
+            <h2>Related Content</h2>
+            <section id="related-plays-wrapper">
+                {relatedPlays.map((play) => (<RelatedPlay key={play._id} play={play}/>))}
+            </section>
+            </>
+        )}
         </span>
         </>
     )
