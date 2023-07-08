@@ -7,7 +7,6 @@ export function ArtistMinimal({data}) {
     const setId = useArtistStore((state) => state.setId)
 
     const handleClick = () => {
-        console.log(data._id)
         setId(data._id)
     }
 

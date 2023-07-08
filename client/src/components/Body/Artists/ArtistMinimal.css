@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  min-width: 9rem;
+  /* min-width: 9rem; */
 }
 
 #artist-minimal > p:hover {
@@ -14,7 +14,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  outline: 0.3rem solid var(--blue-lighter);
+  height: 9rem;
+  width: 9rem;
+  background-image: linear-gradient(90deg, var(--blue-m), var(--blue-dark));
 }
 
 #artist-minimal > a > img {
@@ -23,6 +25,7 @@
   border-radius: 50%;
   box-shadow: var(--box-shadow);
   object-fit: contain cover;
+  outline: 0.2rem solid var(--blue-dark);
 }
 
 #artist-minimal > p {
@@ -32,6 +35,6 @@
   justify-content: center;
   text-align: center;
   color: var(--blue-m);
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 }
