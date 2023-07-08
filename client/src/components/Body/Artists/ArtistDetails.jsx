@@ -19,6 +19,12 @@ export function ArtistDetails() {
     const [relatedPlays, setRelatedPlays] = useState([])
     const [err, setErr] = useState('')
     
+
+    // Filters only the plays with unique titles
+
+    const unique = relatedPlays.filter((value, index, self) =>
+        index === self.findIndex((item) => (item.title === value.title)))
+
     const fetchArtistById = async () => {
         api.get(`/artists/${artistId}`)
             .then((res) => {
@@ -44,10 +50,12 @@ export function ArtistDetails() {
                 setLoading(false)
             })
     }
+
     useEffect(() => {
         fetchArtistById()
         getRelatedPlays()
     }, [])
+
     return (
         <>
         <span id="artist-details-wrapper">
@@ -56,14 +64,14 @@ export function ArtistDetails() {
                     <>
                 <nav>
                     <ul>
-                        {permission === 'moderator' && (
-                            <>
-                            <li><Link to="/add-artist"><FaPlusCircle /></Link></li>
-                            <li><Link to="/edit-artist"><FaWrench /></Link></li>
-                            <li><Link to="/delete-artist"><FaMinusCircle /></Link></li>
-                            </>
-                        )}
-                        <li><Link to="/"><FaReply /></Link></li>
+                    {permission === 'moderator' && (
+                        <>
+                        <li><Link to="/add-artist"><FaPlusCircle /></Link></li>
+                        <li><Link to="/edit-artist"><FaWrench /></Link></li>
+                        <li><Link to="/delete-artist"><FaMinusCircle /></Link></li>
+                        </>
+                    )}
+                    <li><Link to="/"><FaReply /></Link></li>
                     </ul>
                 </nav>
                     <span></span>
@@ -78,7 +86,7 @@ export function ArtistDetails() {
             <>
             <h2>Related Content</h2>
             <section id="related-plays-wrapper">
-                {relatedPlays.map((play) => (<RelatedPlay key={play._id} play={play}/>))}
+                {unique.map((play) => (<RelatedPlay key={play._id} play={play}/>))}
             </section>
             </>
         )}
