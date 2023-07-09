@@ -30,7 +30,6 @@
 
 #related-plays-unit > p {
   font-size: 1rem;
-  height: 100%;
-  width: 100%;
+  width: 12rem;
   text-align: center;
 }
