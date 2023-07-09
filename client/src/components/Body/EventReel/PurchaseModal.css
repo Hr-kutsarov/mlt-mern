@@ -1,0 +1,108 @@
+#purchase-modal-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
+#purchase-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: var(--blue-light);
+  z-index: 50;
+  padding: 10rem;
+  border-radius: 1rem;
+}
+
+/* CLOSE MODAL BUTTON */
+#purchase-modal > button {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  line-height: 0;
+  background-color: white;
+  border: unset;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--blue-dark);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+#purchase-modal > button:hover {
+  color: var(--contrast-orange);
+}
+
+#purchase-modal-grid {
+  background-color: white;
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow2);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.5rem;
+}
+
+#purchase-modal-grid > label {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+#purchase-modal-button-box {
+  /* background-color: bisque; */
+  display: grid;
+  margin: 1rem auto;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+#purchase-modal-button-box > button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  border: unset;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: white;
+}
+
+#purchase-modal-button-box > a {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  border: unset;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: white;
+}
+
+#purchase-modal-button-box > a:hover {
+  background-color: white;
+  outline: 0.1rem solid var(--blue-m);
+  color: var(--blue-m);
+}
+
+#purchase-modal-button-box > button:nth-child(1) {
+  background-color: var(--blue-light);
+}
+
+#purchase-modal-button-box > button:nth-child(1):hover {
+  background-color: white;
+  outline: 0.1rem solid var(--blue-m);
+  color: var(--blue-m);
+}
+
+#purchase-modal-button-box > button:nth-child(2) {
+  background-color: var(--blue-dark);
+}
+
+#purchase-modal-button-box > button:nth-child(2):hover {
+  background-color: var(--contrast-orange);
+}
