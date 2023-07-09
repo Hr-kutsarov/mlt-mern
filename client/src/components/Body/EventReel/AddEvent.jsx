@@ -25,11 +25,11 @@ export function AddEvent() {
     const selectedArtists = useArtistStore((state) => state.selectedArtists)
     const setSelectedArtists = useArtistStore((state) => state.setSelectedArtists)
 
-    const [title, setTitle] = useState(`"Which event is it?"`)
+    const [title, setTitle] = useState(`Event Title`)
     // const [pictureUrl, setPictureUrl] = useState(`"Paste the URL of the picture here"`)
-    const [summary, setSummary] = useState(`"How would you describe it?"`)
-    const [content, setContent] = useState(`"Paste the content from your text editor."`)
-    const [price, setPrice] = useState('123')
+    const [summary, setSummary] = useState(`Summary of the event`)
+    const [content, setContent] = useState(`Event content`)
+    const [price, setPrice] = useState('Please input a number here.')
     const [submitted, setSubmitted] = useState(false)
     const [date, setDate] = useState('')
     const [err, setErr] = useState('')
@@ -92,12 +92,8 @@ export function AddEvent() {
             return alert('You did not select any artists!')
         }
         addEvent()
+        setSelectedArtists([])
     }
-
-    // useEffect(() => {
-    //     console.log(artists)
-    // })
-
     
     return (
         <>
@@ -135,7 +131,6 @@ export function AddEvent() {
                             <span>
                                 <button onClick={toggleModal}><IoIosCloseCircle /></button>
                                 {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist} />)}
-                                
                             </span>
                             <button onClick={confirmSelected}>DONE</button>
                         </span>)}
