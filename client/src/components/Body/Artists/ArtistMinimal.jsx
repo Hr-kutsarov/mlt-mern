@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 export function ArtistMinimal({data}) {
 
     const setId = useArtistStore((state) => state.setId)
+    const setName = useArtistStore((state) => state.setName)
 
     const handleClick = () => {
         setId(data._id)
+        setName(data.name)
     }
 
     return (
