@@ -16,7 +16,7 @@ export function Footer() {
                 <ul>
                     <li>Development</li>
                     <li>How to use this site</li>
-                    <li>Github repo</li>
+                    <li><a href="https://github.com/Hr-kutsarov/mlt-mern">Github Repo</a></li>
                 </ul>
                 <ul>
                     <li>Example links</li>
