@@ -15,16 +15,27 @@ const createEvent = async (req, res) => {
 
 // READ
 
-const getRelatedEvents = async (req, res) => {
-    const { name } = req.body
+const getRelatedEventsById = async (req, res) => {
+    const { id } = req.params
 
     try {
-        const events = await Event.find({ "artists.name": name })
+        const events = await Event.find({ "artists._id": id })
         res.status(200).json(events)
     } catch (err) {
         res.status(400).json({error: err.message})
     }
 }
+
+// const getRelatedEvents = async (req, res) => {
+//     const { name } = req.body
+
+//     try {
+//         const events = await Event.find({ "artists.name": name })
+//         res.status(200).json(events)
+//     } catch (err) {
+//         res.status(400).json({error: err.message})
+//     }
+// }
 
 const getAllEvents = async (req, res) => {
     try {
@@ -94,4 +105,4 @@ const deleteEvent = async (req, res) => {
 
 }
 
-module.exports = { createEvent, getAllEvents, getRelatedEvents, getUpcomingEvents, getEventById, editEvent, deleteEvent }
+module.exports = { createEvent, getAllEvents, getRelatedEventsById, getUpcomingEvents, getEventById, editEvent, deleteEvent }
