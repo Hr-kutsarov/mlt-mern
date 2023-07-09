@@ -37,8 +37,22 @@ export function ArtistDetails() {
             })
     }
 
-    const getRelatedPlays = async () => {
-        api.post('/plays-related', { name: artistName })
+    // const getRelatedPlays = async () => {
+    //     api.post('/plays-related', { name: artistName })
+    //         .then((res) => {
+    //             console.log(res.data)
+    //             setRelatedPlays(res.data)
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.message)
+    //         })
+    //         .finally(() => {
+    //             setLoading(false)
+    //         })
+    // }
+
+    const getRelatedPlaysById = async () => {
+        api.get(`/events-related/${artistId}`)
             .then((res) => {
                 console.log(res.data)
                 setRelatedPlays(res.data)
@@ -53,7 +67,8 @@ export function ArtistDetails() {
 
     useEffect(() => {
         fetchArtistById()
-        getRelatedPlays()
+        // getRelatedPlays()
+        getRelatedPlaysById()
     }, [])
 
     return (
@@ -61,7 +76,7 @@ export function ArtistDetails() {
         <span id="artist-details-wrapper">
             <section id="artist-details-section">
                 {data && (
-                    <>
+                <>
                 <nav>
                     <ul>
                     {permission === 'moderator' && (
@@ -78,7 +93,7 @@ export function ArtistDetails() {
                     <img src={data.photo}></img>
                     <h3>{data.name}</h3>
                     <p>{data.bio}</p>
-                    </>
+                </>
                 )}
 
             </section>
