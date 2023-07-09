@@ -8,17 +8,26 @@ import { api } from '../../../utils/utils'
 import { useEffect, useState } from 'react'
 import { Loading } from './Loading'
 import { ArtistMinimal } from '../Artists/ArtistMinimal'
+import { PurchaseModal } from './PurchaseModal'
 
 
 export function DetailsView() {
+    // tickets are linked to the user 
     const userId = window.sessionStorage.getItem('userId')
+    // using this just so refresh won't clear the page
     const eventId = window.sessionStorage.getItem('eventId')
+    // if permission = moderator -> display certain stuff, else -> display default
     const permission = window.sessionStorage.getItem('role')
 
+    // where the data fetched data about the event is stored
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
+    // frozen means -> if the Event date is in the past => the purchase options will be disabled
     const [frozen, setFrozen] = useState(false)
+    // quick and effective way (logically) to add a ticket with random seat to the user profile
+    const [won, setWon] = useState(false)
 
+    // global state setters -> used in Edit view
     const setId = useEventStore((state) => state.setId)
     const setTitle = useEventStore((state) => state.setTitle)
     const setContent = useEventStore((state) => state.setContent)
@@ -27,6 +36,7 @@ export function DetailsView() {
     const setDate = useEventStore((state) => state.setDate)
     const setSummary = useEventStore((state) => state.setSummary)
 
+    // formatted layout text
     const dateObj = new Date(data.date)
     const day = weekReprExtended[dateObj.getDay()]
     const dayShort = weekRepr[dateObj.getDay()]
@@ -34,11 +44,15 @@ export function DetailsView() {
     const mins = dateObj.getMinutes()
     const minsFormatted = mins.toString().length < 2 ? `0${mins}` : mins
     const regularPrice = Math.floor(data.price * 0.9).toFixed(2)
-    const fakePrice = Math.floor(Number(data.price)).toFixed(2)
+    const finalPrice = Math.floor(Number(data.price)).toFixed(2)
     const seat = Math.floor(Math.random() * 100) + 1
+    const formattedDate = `${dayShort} ${hour}:${minsFormatted}`
 
     const [err, setErr] = useState('')
-    const [won, setWon] = useState(false)
+    
+    // toggle modal -> purchase logic
+
+    const [toggleModal, setToggleModal] = useState(false)
 
     const handleEdit = () => {
         setId(data._id)
@@ -52,10 +66,9 @@ export function DetailsView() {
     }
     
     const handleFreeTicket = async () => {
-        // title, date, price, seat owner
         const context = {
             title: data.title,
-            date: `${dayShort} ${hour}:${minsFormatted}`,
+            date: formattedDate,
             price: data.price,
             seat: seat,
             owner: userId
@@ -72,7 +85,8 @@ export function DetailsView() {
     }
 
     const handlePurchase = async () => {
-        alert('Payment system is under construction.')
+        // alert('Payment system is under construction.')
+        setToggleModal(true)
     }
 
     useEffect(() => {
@@ -88,7 +102,7 @@ export function DetailsView() {
             })
             .catch((err) => setErr(err))
         setLoading(false)
-        }, 500)
+        }, 0)
     }, [])
 
     return (
@@ -106,10 +120,13 @@ export function DetailsView() {
                 </ul>
             </nav>
             {loading ? (<Loading />) : (
-                <>
+            <>
+            {/* PURCHASE MODAL */}
+            {toggleModal && (<PurchaseModal setToggleModal={setToggleModal} data={data} user={userId} price={finalPrice} formattedDate={formattedDate}/>)}
+            {/* PURCHASE MODAL */}
             <section id="event-details-card">
                 <article>
-                    <h1>{data.title}</h1>
+                    <h1>"{data.title}"</h1>
                     <h2>{day}</h2>
                     <h2>{hour}:{minsFormatted}</h2>
                     <p>{data.content}</p>
@@ -131,8 +148,8 @@ export function DetailsView() {
                     <>
                     <span>
                     <h3>Tickets</h3>
-                    {won? <button disabled={true} style={{background: "transparent", border: "unset", color: "var(--contrast-orange)", fontSize: "1.5rem"}}>You won!</button> : <button onClick={handleFreeTicket}>Win free ticket</button>}
-                    <h5 style={{padding: '0'}}>Price: ${regularPrice} <s>${fakePrice}</s></h5>
+                    {won? <button disabled={true} style={{background: "transparent", border: "unset", color: "var(--contrast-orange)", fontSize: "1.5rem"}}>You won!</button> : <button id="winfree-button" onClick={handleFreeTicket}>Win free ticket</button>}
+                    <h5 style={{padding: '0'}}>Price: ${regularPrice} <s>${finalPrice}</s></h5>
                     <button onClick={handlePurchase}>Buy</button>
                 </span>
                     </>
@@ -146,7 +163,7 @@ export function DetailsView() {
             
             </>)}
             <span id="artist-minireel-title">
-                <h3>Starring in this play</h3>
+                {!loading && (<h3>Starring in this play</h3>)}
             </span>
             <section id="artists-minireel">
                 {data.artists && (data.artists.map((a) => <ArtistMinimal key={a._id} data={a} />))}
