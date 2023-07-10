@@ -1,0 +1,47 @@
+#seats-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 99;
+  width: 90vw;
+  height: 90vh;
+  background-color: white;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#seats-layout-wrapper > button {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  line-height: 0;
+  background-color: white;
+  border: unset;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--blue-dark);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+#seats-layout-wrapper > h3 {
+  font-size: 2rem;
+  margin: 0 0 3rem 0;
+}
+
+#seats-layout-wrapper > span {
+  text-align: center;
+  padding: 1rem 5rem;
+  min-width: 60%;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+#seats-grid {
+  max-width: 80%;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(10, 1fr);
+  margin: 2rem 0 0 0;
+}
