@@ -4,20 +4,32 @@ import { useState } from 'react'
 import { api } from '../../../utils/utils'
 import { Loading } from './Loading'
 import { Link } from 'react-router-dom'
+import { SeatsLayout } from '../SeatSchema/SeatsLayout'
+
 export function PurchaseModal({setToggleModal, data, user, price, formattedDate}) {
 
     const [err, setErr ] = useState('')
     const [loading, setLoading] = useState(false)
     const [completed, completePurchase] = useState(false)
     // hardcoded seat number until the seat schema is complete
-    const [seat, setSeat] = useState('10')
+    const [seat, setSeat] = useState('unset')
+
+    const [toggleSeatsLayout, setToggleSeatsLayout] = useState(false)
+
     const closeModal = (e) => {
         e.preventDefault()
         setToggleModal(false)
     }
 
+    const toggleSeatsModal = () => {
+        setToggleSeatsLayout(!toggleSeatsLayout)
+    }
 
     const handlePurchase = async () => {
+        if (isNaN(seat)) {
+            alert('Invalid seat number')
+            return
+        }
 
         setLoading(true)
 
@@ -36,10 +48,10 @@ export function PurchaseModal({setToggleModal, data, user, price, formattedDate}
                     console.log('Ticket purchased')
                     completePurchase(true)
                 }
-                console.log(res.data)
+                // console.log(res.data)
             })
             .catch((err) => {
-                console.log(err.message)
+                setErr(err.message)
             })
             .finally(() => {
                 setLoading(false)
@@ -49,6 +61,7 @@ export function PurchaseModal({setToggleModal, data, user, price, formattedDate}
 
     return (
         <span id="purchase-modal-wrapper">
+            {toggleSeatsLayout && (<SeatsLayout toggle={toggleSeatsModal} setSeat={setSeat}/>)}
             <section id="purchase-modal">
                 <button onClick={closeModal}><IoIosCloseCircle /></button>
             {!loading && !completed && !err && (
@@ -63,10 +76,10 @@ export function PurchaseModal({setToggleModal, data, user, price, formattedDate}
                         <label>User ID:</label>
                         <p>{user}</p>
                         <label>Selected seat:</label>
-                        <h4>24</h4>
+                        <h4>{seat}</h4>
                     </span>
                     <span id="purchase-modal-button-box">
-                        <button>SELECT SEAT</button>
+                        <button onClick={toggleSeatsModal}>SELECT SEAT</button>
                         <button onClick={handlePurchase}>CONFIRM</button>
                     </span>
                 </>
