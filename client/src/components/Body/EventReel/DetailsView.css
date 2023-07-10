@@ -60,6 +60,7 @@
 }
 
 #event-details-card > span > img {
+  min-height: 40vh;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -129,6 +130,7 @@
   #event-details-card > span > img {
     top: 0rem;
     max-height: 65vh;
+    margin-top: 1rem;
   }
 
   #event-details-card > span {
