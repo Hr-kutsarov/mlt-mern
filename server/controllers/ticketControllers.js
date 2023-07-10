@@ -24,6 +24,17 @@ const getAllTickets = async (req, res) => {
     }
 }
 
+const getTicketsByName = async (req, res) => {
+    const { title } = req.body
+
+    try {
+        const tickets = await Ticket.find({ title: title })
+        res.status(200).json(tickets)
+    } catch (err) {
+        res.status(400).json({error: err.message})
+    }
+}
+
 const getUserTickets = async (req, res) => {
     const { id } = req.params
     try {
@@ -86,4 +97,4 @@ const deleteTicket = async (req, res) => {
     }
 }
 
-module.exports = { createTicket, getUserTickets, getTicketById, getAllTickets, editTicket, deleteTicket}
+module.exports = { createTicket, getUserTickets, getTicketById, getTicketsByName, getAllTickets, editTicket, deleteTicket}

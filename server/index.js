@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5050;
 const { createEntry, getAllEntries, getEntryById, editEntry, deleteEntry, getLatestEntries  } = require('./controllers/devlogControllers')
 const { createEvent, getAllEvents, getRelatedEventsById, getUpcomingEvents, getEventById, editEvent, deleteEvent} = require('./controllers/eventControllers')
 const { login, register, deleteUser, updateRole} = require('./controllers/authControllers')
-const { createTicket, getTicketById, getAllTickets, editTicket, deleteTicket, getUserTickets } = require('./controllers/ticketControllers')
+const { createTicket, getTicketById, getAllTickets, getTicketsByName, editTicket, deleteTicket, getUserTickets } = require('./controllers/ticketControllers')
 const { createArtist, getArtistById, getAllArtists, editArtist, deleteArtist} = require('./controllers/artistControllers')
 
 // __INIT__
@@ -62,6 +62,7 @@ app.delete('/plays/:id', deleteEvent)
 app.get('/tickets', getAllTickets)
 app.get('/my-tickets/:id', getUserTickets)
 app.post('/tickets', createTicket)
+app.post('/tickets-byname', getTicketsByName)
 app.get('/tickets/:id', getTicketById)
 app.put('/tickets/:id', editTicket)
 app.delete('/tickets/:id', deleteTicket)
