@@ -53,9 +53,8 @@ export function Register() {
     const register = async () => {
         try {
             const response = await api.post('/register', {username: username, email: email, password: password});
-            console.log(response)
+            // console.log(response)
             if (response.status === 201) {
-                console.log('registered successfully')
                 setRegistered(true)
             }
         } catch (err) {
