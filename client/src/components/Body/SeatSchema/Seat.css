@@ -28,3 +28,19 @@
   height: 100%;
   font-size: 1.25rem;
 }
+
+@media screen and (width < 660px) {
+  #seat-wrapper {
+    padding: 0.4rem;
+  }
+
+  #seat-wrapper > span > button {
+    padding: 0.2rem;
+  }
+}
+
+@media screen and (width < 580px) {
+  #seat-wrapper > span > button {
+    padding: 0.1rem;
+  }
+}

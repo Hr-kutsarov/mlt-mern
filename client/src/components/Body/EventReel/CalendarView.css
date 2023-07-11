@@ -11,12 +11,12 @@
   min-height: 100vh;
 }
 
-#calendar-view-wrapper > section:nth-child(2) {
+/* #calendar-view-wrapper > section:nth-child(2) {
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 #calendar-view-wrapper > section:nth-child(2) > article {
   padding: 2rem 3rem;
@@ -159,8 +159,9 @@
   position: absolute;
   grid-template-columns: 1fr 1.5fr;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   justify-self: center;
+  align-items: center;
   gap: 2rem;
   border-radius: 1rem;
   background-color: var(--blue-dark);
@@ -236,5 +237,29 @@
 
   #calendar-view-details-modal > img {
     height: 50vh;
+  }
+}
+
+@media screen and (width < 660px) {
+  #calendar-view-details-modal {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    height: auto;
+    gap: 0;
+  }
+
+  #calendar-view-details-modal > img {
+    width: 100%;
+    margin-left: unset;
+  }
+
+  #calendar-view-details-modal > span {
+    position: relative;
+    margin-right: unset;
+  }
+
+  #calendar-view-details-modal > span > span > button {
+    padding: 0.5rem 1.25rem;
+    font-size: 1.2rem;
   }
 }
