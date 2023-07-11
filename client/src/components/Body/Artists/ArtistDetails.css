@@ -29,7 +29,7 @@
 #artist-details-section > span {
   height: 15vh;
   width: 100%;
-  background-image: linear-gradient(90deg, var(--blue-m), var(--blue-dark));
+  background-image: linear-gradient(0deg, var(--blue-m), var(--blue-dark));
   border-radius: 1rem 1rem 0 0;
   box-shadow: var(--box-shadow2);
   overflow: hidden;
@@ -83,6 +83,7 @@
   border: unset;
   transition: all 0.3s ease-in-out;
   box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 
 #artist-details-section > nav > ul > li:hover {
@@ -98,10 +99,14 @@
   min-width: 50vw;
   justify-content: center;
   gap: 1rem;
-  /* background-image: linear-gradient(90deg, var(--blue-m), var(--blue-dark)); */
+
   border-radius: 1rem;
   padding: 1rem;
   margin-bottom: 3rem;
+}
+
+#artist-details-scroll-up {
+  background-image: linear-gradient(0deg, var(--blue-m), var(--blue-dark));
 }
 
 @media screen and (width < 1100px) {
@@ -119,7 +124,7 @@
     width: 75vw;
   }
   #artist-details-section > nav {
-    position: relative;
+    margin-right: 2rem;
   }
 }
 
@@ -134,11 +139,24 @@
     flex-direction: row;
   }
 
+  #artist-details-section > nav > ul > li {
+    background-color: white;
+    color: var(--blue-dark);
+  }
+
+  #artist-details-section > nav > ul > li:hover {
+    background-color: var(--blue-lighter);
+  }
+
   #artist-details-section > nav {
-    right: 0;
+    top: 2rem;
+    right: 10%;
     margin-bottom: 3rem;
   }
 
+  #artist-details-section > span {
+    height: 25vh;
+  }
   #artist-details-section {
     margin-top: unset;
   }

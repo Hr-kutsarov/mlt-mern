@@ -1,8 +1,17 @@
 #header-navigation {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
   flex-wrap: wrap;
+  position: absolute;
+  top: 10vh;
+  right: 2rem;
+  min-width: 25vw;
+  z-index: 99;
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow2);
 }
 
 #header-navigation > li {
@@ -12,20 +21,26 @@
 
 #header-navigation > li:hover {
   color: var(--blue-light);
+  /* text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 0.125rem; */
 }
 
 @media screen and (width < 1100px) {
   #header-navigation {
-    margin-bottom: 1rem;
+    top: 15vh;
+    right: 3rem;
   }
 }
 
 @media screen and (width < 750px) {
   #header-navigation {
     gap: 0.5rem;
+    top: 17vh;
+    right: 2rem;
   }
 
   #header-navigation > li {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 }

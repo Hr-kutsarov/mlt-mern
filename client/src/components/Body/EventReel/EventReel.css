@@ -34,6 +34,11 @@
   color: var(--blue-lighter);
 }
 
+@media screen and (width < 1100px) {
+  #event-reel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 @media screen and (width < 880px) {
   #event-reel {
     padding: 0 1rem;
