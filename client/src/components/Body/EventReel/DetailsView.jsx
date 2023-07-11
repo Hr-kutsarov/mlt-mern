@@ -10,7 +10,6 @@ import { Loading } from './Loading'
 import { ArtistMinimal } from '../Artists/ArtistMinimal'
 import { PurchaseModal } from './PurchaseModal'
 
-
 export function DetailsView() {
     // tickets are linked to the user 
     const userId = window.sessionStorage.getItem('userId')
@@ -22,10 +21,11 @@ export function DetailsView() {
     // where the data fetched data about the event is stored
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    // frozen means -> if the Event date is in the past => the purchase options will be disabled
-    const [frozen, setFrozen] = useState(false)
+    // expired means -> if the Event date is in the past => the purchase options will be disabled
+    const [expired, setExpired] = useState(false)
     // quick and effective way (logically) to add a ticket with random seat to the user profile
     const [won, setWon] = useState(false)
+    const [tryAgain, setTryAgain] = useState(false)
 
     // global state setters -> used in Edit view
     const setId = useEventStore((state) => state.setId)
@@ -45,7 +45,6 @@ export function DetailsView() {
     const minsFormatted = mins.toString().length < 2 ? `0${mins}` : mins
     const regularPrice = Math.floor(data.price * 0.9).toFixed(2)
     const finalPrice = Math.floor(Number(data.price)).toFixed(2)
-    const seat = Math.floor(Math.random() * 100) + 1
     const formattedDate = `${dayShort} ${hour}:${minsFormatted}`
 
     const [err, setErr] = useState('')
@@ -65,25 +64,6 @@ export function DetailsView() {
         window.sessionStorage.setItem('eventId', data._id)
     }
     
-    const handleFreeTicket = async () => {
-        const context = {
-            title: data.title,
-            date: formattedDate,
-            price: data.price,
-            seat: seat,
-            owner: userId
-        }
-
-        try {
-            const response = await api.post('/tickets', context);
-            if (response.status === 201) {
-                setWon(true)
-            }
-        } catch (err) {
-            setErr(err.message)
-        }
-    }
-
     const handlePurchase = async () => {
         // alert('Payment system is under construction.')
         setToggleModal(true)
@@ -97,7 +77,7 @@ export function DetailsView() {
                 const now = new Date()
                 const fetched = new Date(res.data.date)
                 if (now > fetched) {
-                    setFrozen(true)
+                    setExpired(true)
                 } 
             })
             .catch((err) => setErr(err))
@@ -121,9 +101,6 @@ export function DetailsView() {
             </nav>
             {loading ? (<Loading />) : (
             <>
-            {/* PURCHASE MODAL */}
-            {toggleModal && (<PurchaseModal setToggleModal={setToggleModal} data={data} user={userId} price={finalPrice} formattedDate={formattedDate}/>)}
-            {/* PURCHASE MODAL */}
             <section id="event-details-card">
                 <article>
                     <h1>"{data.title}"</h1>
@@ -132,7 +109,7 @@ export function DetailsView() {
                     <p>{data.content}</p>
                 </article>
                 <span>
-                    <img src={data.pictureUrl} alt="asd"></img>    
+                    <img src={data.pictureUrl} alt={data.title}></img>    
                 </span>
                 </section>
             {!userId && (
@@ -144,13 +121,17 @@ export function DetailsView() {
             )}
             {userId && (
             <section id="event-details-tickets">
-                {!frozen ? (
+            {/* PURCHASE MODAL */}
+            {toggleModal && (<PurchaseModal setToggleModal={setToggleModal} data={data} user={userId} price={finalPrice} formattedDate={formattedDate}/>)}
+            {/* PURCHASE MODAL */}
+                {!expired ? (
                     <>
-                    <span>
-                    <h3>Tickets</h3>
-                    {won? <button disabled={true} style={{background: "transparent", border: "unset", color: "var(--contrast-orange)", fontSize: "1.5rem"}}>You won!</button> : <button id="winfree-button" onClick={handleFreeTicket}>Win free ticket</button>}
-                    <h5 style={{padding: '0'}}>Price: ${regularPrice} <s>${finalPrice}</s></h5>
-                    <button onClick={handlePurchase}>Buy</button>
+                    <span id="ticket-price-span">
+                        <h3>Tickets</h3>
+                        <span>
+                            <h4 style={{padding: '0'}}>Price: ${regularPrice} <s>${finalPrice}</s></h4>
+                            <button onClick={handlePurchase}>Buy</button>
+                    </span>
                 </span>
                     </>
                 ) : (
