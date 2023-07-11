@@ -1,0 +1,11 @@
+#navigate-to-top {
+  display: flex;
+  justify-content: center;
+}
+
+#navigate-to-top > span {
+  font-size: 1rem;
+  color: white;
+  padding: 2rem;
+  cursor: pointer;
+}

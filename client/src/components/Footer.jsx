@@ -1,16 +1,11 @@
 import './Footer.css';
-import {FaTwitterSquare, FaTwitter, FaFacebook, FaWikipediaW, FaFacebookF, FaFacebookSquare, FaCaretUp, FaCaretSquareUp } from 'react-icons/fa'
-
+import {FaTwitterSquare, FaTwitter, FaFacebook, FaWikipediaW, FaFacebookF, FaFacebookSquare } from 'react-icons/fa'
+import { ScrollUp } from './ScrollUp';
 export function Footer() {
-    const handlerReturn = (e) => {
-        e.preventDefault()
-        window.scrollTo({top: 0, behavior: 'smooth'})
-    }
+
     return (
         <footer>
-            <section id='navigate-to-top'>
-                <span onClick={handlerReturn}><FaCaretUp /> Back to top</span>
-            </section>
+            <ScrollUp />
             <span className='footer-separator'></span>
             <section id='footer-helpful-links'>
                 <ul>

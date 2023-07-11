@@ -5,6 +5,7 @@ import './ArtistDetails.css'
 import { Link } from 'react-router-dom'
 import { FaPlusCircle, FaMinusCircle, FaWrench, FaReply } from "react-icons/fa"
 import { RelatedPlay } from "./RelatedPlay"
+import { ScrollUp } from "../../ScrollUp"
 
 export function ArtistDetails() {
     const permission = window.sessionStorage.getItem('role')
@@ -106,6 +107,9 @@ export function ArtistDetails() {
             </>
         )}
         </span>
+        <section id="artist-details-scroll-up">
+            <ScrollUp />
+        </section>
         </>
     )
 }
