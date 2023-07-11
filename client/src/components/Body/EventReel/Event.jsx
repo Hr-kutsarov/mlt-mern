@@ -67,7 +67,7 @@ export function Event({ event }) {
                     <p>{event.summary}</p>
                 </div>
                 <div className="hero-buttons">
-                    <Link to="details-view"><button className="info-btn" onClick={handleDetails}><FaInfoCircle /></button></Link>
+                    <Link to="/details-view"><button className="info-btn" onClick={handleDetails}><FaInfoCircle /></button></Link>
                     {permission === 'moderator' ? (<><Link to="edit-event"><button className="edit-btn" onClick={handleEdit}><FaWrench /></button></Link>
                         <Link to="/delete-event"><button className="delete-btn" onClick={handleDelete}><FaTimes /></button></Link>
                     </>) : (<>
