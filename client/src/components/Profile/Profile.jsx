@@ -49,7 +49,7 @@ export function Profile() {
                      <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Events</Link></li>
+                    <li><Link to="/events">Events</Link></li>
                     <li>
                         <span>
                             <FaUser />

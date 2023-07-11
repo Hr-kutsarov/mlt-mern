@@ -11,6 +11,7 @@ import { Devlogs } from './components/Body/DevlogEntries/Devlogs'
 import { CalendarView } from './components/Body/EventReel/CalendarView';
 import { DetailsView } from './components/Body/EventReel/DetailsView'
 
+import { AllEvents } from './components/Body/EventReel/AllEvents';
 import { AddEvent } from './components/Body/EventReel/AddEvent';
 import { EditEvent } from './components/Body/EventReel/EditEvent';
 import { DeleteEvent } from './components/Body/EventReel/DeleteEvent';
@@ -19,6 +20,7 @@ import { ArtistDetails } from './components/Body/Artists/ArtistDetails';
 import { ArtistDelete } from './components/Body/Artists/ArtistDelete'
 import { ArtistCreate } from './components/Body/Artists/ArtistCreate';
 import { ArtistEdit } from './components/Body/Artists/ArtistEdit';
+
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,11 @@ const router = createBrowserRouter([
   {
     path: "profile/",
     element: <Profile />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "events/",
+    element: <AllEvents />,
     errorElement: <ErrorPage />
   },
   {
