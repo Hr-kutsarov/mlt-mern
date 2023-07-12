@@ -5,6 +5,7 @@ import { api } from '../../../utils/utils'
 import { Loading } from './Loading'
 import { Link } from 'react-router-dom'
 import { SeatsLayout } from '../SeatSchema/SeatsLayout'
+import CircularProgress from '@mui/material/CircularProgress';
 
 export function PurchaseModal({setToggleModal, data, user, price, formattedDate}) {
 
@@ -88,7 +89,7 @@ export function PurchaseModal({setToggleModal, data, user, price, formattedDate}
             {loading && (
                 <>
                     <h1>Validating purchase</h1>
-                    <Loading />
+                    <CircularProgress />
                     <h2>Please wait...</h2>
                 </>
             )}
