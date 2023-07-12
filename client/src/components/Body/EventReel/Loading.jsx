@@ -4,7 +4,7 @@ import './Loading.css'
 
 export function Loading() {
     return (
-        <Box id="loading-wrapper" sx={{ display: 'flex' }}>
+        <Box id="loading-wrapper">
             <CircularProgress />
         </Box>
     )

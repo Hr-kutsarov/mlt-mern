@@ -1,9 +1,15 @@
 #loading-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-  /* min-height: 40vh;
-  margin-top: 30vh; */
-  min-width: 80vw;
-  min-height: 25vh;
+  justify-content: center;
+  border-radius: 1rem;
+  width: 80%;
+  align-self: center;
+  margin: 2rem 0;
+  height: 25vh;
+  box-shadow: var(--box-shadow2);
+}
+
+#loading-wrapper > span {
+  width: 80%;
 }
