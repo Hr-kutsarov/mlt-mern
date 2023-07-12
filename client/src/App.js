@@ -21,6 +21,7 @@ import { ArtistDelete } from './components/Body/Artists/ArtistDelete'
 import { ArtistCreate } from './components/Body/Artists/ArtistCreate';
 import { ArtistEdit } from './components/Body/Artists/ArtistEdit';
 
+import { AdminSection } from './components/Body/AdminSection/AdminSection';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,11 @@ const router = createBrowserRouter([
   {
     path: "edit-artist/",
     element: <ArtistEdit />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "admin-section/",
+    element: <AdminSection />,
     errorElement: <ErrorPage />
   }
 ]);
