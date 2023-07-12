@@ -9,7 +9,7 @@
   min-width: 25vw;
   z-index: 99;
   background-color: white;
-  padding: 2rem 3rem;
+  padding: 1.5rem 2.25rem;
   border-radius: 1rem;
   box-shadow: var(--box-shadow2);
 }

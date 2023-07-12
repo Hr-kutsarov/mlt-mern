@@ -2,7 +2,7 @@
   display: flex;
   height: 100%;
   width: 100%;
-  top: 30vh;
+  top: 15vh;
   background-color: var(--blue-dark);
   position: absolute;
   justify-content: center;
@@ -25,7 +25,13 @@
 }
 
 #purchase-modal > h1 {
+  font-size: 3rem;
   margin-bottom: 3rem;
+}
+
+#purchase-modal > h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
 }
 
 /* CLOSE MODAL BUTTON */
@@ -55,6 +61,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 0.5rem;
+  width: 100%;
 }
 
 #purchase-modal-grid > label {
@@ -63,13 +70,12 @@
 
 #purchase-modal-button-box {
   /* background-color: bisque; */
-  display: grid;
-  margin: 1rem auto;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  max-height: 4rem;
+  margin: 2rem 4rem;
   width: 100%;
-  height: 100%;
-  height: 3rem;
 }
 
 #purchase-modal-button-box > button {
@@ -80,6 +86,10 @@
   cursor: pointer;
   font-size: 1.25rem;
   color: white;
+  width: 100%;
+  justify-self: center;
+  min-width: 25%;
+  max-width: 300px;
 }
 
 #purchase-modal-button-box > a {
@@ -90,7 +100,11 @@
   cursor: pointer;
   font-size: 1.25rem;
   color: white;
+  background-color: var(--blue-m);
   text-align: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 300px;
 }
 
 #purchase-modal-button-box > a:hover {
@@ -169,11 +183,15 @@
   #purchase-modal {
     padding: 4rem 3rem;
   }
+
+  #ticket-price-span > span {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (width < 660px) {
   #purchase-modal-button-box {
-    grid-template-columns: 1fr;
-    margin-bottom: 4rem;
+    flex-direction: column;
+    padding: 3rem 0 0 0;
   }
 }

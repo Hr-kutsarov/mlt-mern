@@ -3,6 +3,8 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 #event-details-card > article > h1 {
@@ -11,6 +13,7 @@
 #event-details-nav {
   /* temp */
   background-color: var(--blue-m);
+  width: 100%;
 }
 
 #event-details-nav > ul {
@@ -39,7 +42,7 @@
   display: grid;
   padding: 2rem 3rem;
   border-radius: 1rem;
-  max-width: 80vw;
+  width: 80vw;
   margin: 1rem auto;
   grid-template-columns: 2fr 1fr;
   box-shadow: var(--box-shadow);
@@ -82,7 +85,7 @@
   flex-direction: column;
   width: 80vw;
   border-radius: 1rem;
-  padding: 2rem 3rem;
+  padding: 2rem 4rem 2rem 3rem;
   box-shadow: var(--box-shadow);
 }
 
@@ -94,7 +97,7 @@
 #ticket-price-span span {
   display: grid;
   margin: 1rem 0 0 0;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 4fr 1fr;
   align-items: center;
   gap: 1rem;
 }
@@ -125,7 +128,7 @@
 
 #artists-minireel {
   display: flex;
-  min-height: 30vh;
+  min-height: 10vh;
   flex-wrap: wrap;
   min-width: 90vw;
   justify-content: center;

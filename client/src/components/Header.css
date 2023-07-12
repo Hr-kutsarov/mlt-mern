@@ -12,7 +12,7 @@ header {
 
 header > svg {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 3rem;
   position: relative;
 }
 
