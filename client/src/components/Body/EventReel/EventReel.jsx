@@ -5,8 +5,10 @@ import { api } from '../../../utils/utils.js'
 import { Loading } from './Loading'
 import { slice } from 'lodash'
 import { FaStar } from 'react-icons/fa'
+import { useEventStore } from '../../../store/appStore'
 
 export function EventReel() {
+    const setEventData = useEventStore((state) => state.setData)
     const [data, setData] = useState([])
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(true)
@@ -27,6 +29,7 @@ export function EventReel() {
         api.get('/plays-upcoming')
             .then((res) => {
                 setData(res.data)
+                setEventData(res.data)
             })
             .catch((err) => {
                 setErr(err.message)
