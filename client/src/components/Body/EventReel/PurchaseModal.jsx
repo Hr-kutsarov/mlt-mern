@@ -2,7 +2,6 @@ import './PurchaseModal.css'
 import { IoIosCloseCircle } from 'react-icons/io'
 import { useState } from 'react'
 import { api } from '../../../utils/utils'
-import { Loading } from './Loading'
 import { Link } from 'react-router-dom'
 import { SeatsLayout } from '../SeatSchema/SeatsLayout'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -57,7 +56,7 @@ export function PurchaseModal({setToggleModal, data, user, price, formattedDate}
             .finally(() => {
                 setLoading(false)
             })
-        }, 6000)
+        }, 0)
         }
 
     return (
