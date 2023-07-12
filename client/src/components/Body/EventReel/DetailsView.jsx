@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { Loading } from './Loading'
 import { ArtistMinimal } from '../Artists/ArtistMinimal'
 import { PurchaseModal } from './PurchaseModal'
+import { ScrollUp } from '../../ScrollUp'
 
 export function DetailsView() {
     // tickets are linked to the user 
@@ -81,13 +82,15 @@ export function DetailsView() {
                 } 
             })
             .catch((err) => setErr(err))
-        setLoading(false)
+            .finally(() => {
+                setLoading(false)
+            })
         }, 0)
     }, [])
 
     return (
         <>
-            <span id="event-details-view-wrapper">
+        <span id="event-details-view-wrapper">
             <nav id="event-details-nav">
                 <ul>
                     <li><Link to="/"><FaHome /></Link></li>
@@ -99,8 +102,15 @@ export function DetailsView() {
                     {permission === 'moderator' && (<li onClick={handleEdit}><Link to="/edit-event"><FaWrench /></Link></li>)}
                 </ul>
             </nav>
-            {loading ? (<Loading />) : (
+        
+        {loading && (
             <>
+                <Loading />
+                <Loading />
+                <Loading />
+            </>
+        )}
+        {!loading && data && !err && (
             <section id="event-details-card">
                 <article>
                     <h1>"{data.title}"</h1>
@@ -111,45 +121,48 @@ export function DetailsView() {
                 <span>
                     <img src={data.pictureUrl} alt={data.title}></img>    
                 </span>
-                </section>
-            {!userId && (
+            </section>
+        )}
+        {!userId && !loading && data && !err && (
                 <section id="event-details-tickets">
                     <span>
                         <h3>You must be logged in to view ticket options.</h3>
                     </span>
                 </section>
-            )}
-            {userId && (
+        )}
+        {toggleModal && (<PurchaseModal setToggleModal={setToggleModal} data={data} user={userId} price={finalPrice} formattedDate={formattedDate}/>)}
+        {!loading && userId && data && !expired && (
             <section id="event-details-tickets">
-            {/* PURCHASE MODAL */}
-            {toggleModal && (<PurchaseModal setToggleModal={setToggleModal} data={data} user={userId} price={finalPrice} formattedDate={formattedDate}/>)}
-            {/* PURCHASE MODAL */}
-                {!expired ? (
-                    <>
-                    <span id="ticket-price-span">
+                <span id="ticket-price-span">
                         <h3>Tickets</h3>
                         <span>
                             <h4 style={{padding: '0'}}>Price: ${regularPrice} <s>${finalPrice}</s></h4>
                             <button onClick={handlePurchase}>Buy</button>
                     </span>
                 </span>
-                    </>
-                ) : (
+            </section>
+        )}
+        {userId && data && expired && (
+            <section id="event-details-tickets">
                 <span>
                     <h3>This event is expired.</h3>
                 </span>
-                )}
             </section>
-            )}
-            
-            </>)}
+        )}
+        {!loading && !err && data && (
+            <>
             <span id="artist-minireel-title">
-                {!loading && (<h3>Starring in this play</h3>)}
+                <h3>Starring in this play</h3>
             </span>
             <section id="artists-minireel">
                 {data.artists && (data.artists.map((a) => <ArtistMinimal key={a._id} data={a} />))}
             </section>
+            </>
+        )}
         </span>
+        <section id="artist-details-scroll-up">
+            <ScrollUp />
+        </section>
         </>
     )
 }
