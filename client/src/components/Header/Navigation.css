@@ -14,12 +14,13 @@
   box-shadow: var(--box-shadow2);
 }
 
-#header-navigation > li {
+#header-navigation > a {
   color: var(--blue-dark);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  display: block;
 }
 
-#header-navigation > li:hover {
+#header-navi #header-navigation > a:hover {
   color: var(--blue-light);
   /* text-decoration: underline;
   text-underline-offset: 0.25rem;
@@ -40,7 +41,7 @@
     right: 2rem;
   }
 
-  #header-navigation > li {
+  #header-navigation > a {
     font-size: 2rem;
   }
 }

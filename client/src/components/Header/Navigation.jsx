@@ -7,30 +7,28 @@ export function Navigation({toggleNavigation}) {
     const role = window.sessionStorage.getItem('role')
 
     return (
-        <nav>
-            <ul id='header-navigation' onClick={toggleNavigation}>
-                <li><Link to="/" >Home</Link></li>
-                <li><Link to="/calendar-view">Calendar</Link></li>
+            <nav id='header-navigation' onClick={toggleNavigation}>
+                <Link to="/" >Home</Link>
+                <Link to="/calendar-view">Calendar</Link>
                 {role === 'moderator' && (
                 <>
-                    <li><Link to="/add-event">Add Event</Link></li>
-                    <li><Link to="/devlog">Announcements</Link></li>
+                    <Link to="/add-event">Add Event</Link>
+                    <Link to="/devlog">Announcements</Link>
                 </>    
                 )}
 
                 {!userLoggedIn && (
                     <>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/register">Register</Link></li>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
                     </>
                 )}
                 {userLoggedIn && (
                     <>
-                        <li><Link to="/profile">Profile</Link></li>
-                        <li><Link to="/logout">Logout</Link></li>
+                        <Link to="/profile">Profile</Link>
+                        <Link to="/logout">Logout</Link>
                     </>
                 )}
-            </ul>
-        </nav>
+            </nav>
     )
 }
