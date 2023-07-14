@@ -10,10 +10,12 @@ export function Navigation({toggleNavigation}) {
             <nav id='header-navigation' onClick={toggleNavigation}>
                 <Link to="/" >Home</Link>
                 <Link to="/calendar-view">Calendar</Link>
+                <Link to="/events">Upcoming Events</Link>
                 {role === 'moderator' && (
                 <>
                     <Link to="/add-event">Add Event</Link>
                     <Link to="/devlog">Announcements</Link>
+                    <Link to="/admin-section">Admin Panel</Link>
                 </>    
                 )}
 
