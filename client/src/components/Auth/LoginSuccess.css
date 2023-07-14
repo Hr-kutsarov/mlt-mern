@@ -1,7 +1,7 @@
 #login-success-wrapper {
   display: grid;
   gap: 1rem;
-  margin: auto;
+  margin: 20vh auto;
 }
 
 #login-success-wrapper > h2:hover {
