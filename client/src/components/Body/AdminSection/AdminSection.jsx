@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react'
 import { useEventStore } from '../../../store/appStore'
 import { api } from '../../../utils/utils'
 import { Loading } from '../EventReel/Loading'
+import Chart from "react-apexcharts";
+import { Header } from '../../Header'
+import { IncomeSection } from './IncomeSection'
+import { ChartSection } from './ChartSection'
+
 
 export function AdminSection() {
     const eventData = useEventStore((state) => state.data)
@@ -29,12 +34,24 @@ export function AdminSection() {
     }, [])
 
     return (
-        <span id="admin-section-wrapper">
-            <section id="admin-section">
-                <h1>Admin section</h1>
-                {loading && (<Loading />)}
-                {!loading && (<h1>{ticketData.length}</h1>)}
-            </section>
-        </span>
+        <>
+            <Header />
+            <span id="admin-section-wrapper">
+                <section id="admin-section">
+                    <section id="admin-section-latest">
+                        <span>
+                            <h1>Last sales</h1>
+                            {loading && (<Loading />)}
+                            {!loading && (<h1>{ticketData.length}</h1>)}
+                            {!loading && (ticketData.map((ticket) => (<p key={ticket._id}>{ticket.title}</p>)))}
+                        </span>
+                    </section>
+                    <span>
+                        <IncomeSection ticketData={ticketData}/>
+                        <ChartSection ticketData={ticketData}/>
+                    </span>
+                </section>
+            </span>
+        </>
     )
 }

@@ -1,7 +1,27 @@
 #admin-section-wrapper {
-  background-color: var(--blue-dark);
+  background-color: white;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
+  padding: 0 0 3rem 0;
+}
+
+#admin-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#admin-section-latest {
+  width: 100%;
+  display: flex;
+  padding: 3rem 1.5rem 0 3rem;
+}
+
+#admin-section-latest > span {
+  box-shadow: var(--box-shadow);
+  border-radius: 1rem;
+  padding: 3rem;
+  width: 100%;
+  overflow: hidden;
 }
