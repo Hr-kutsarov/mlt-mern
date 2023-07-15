@@ -6,6 +6,6 @@ const TicketSchema = new mongoose.Schema({
     price: { type: Number },
     seat: { type: Number },
     owner: { type: mongoose.Types.ObjectId }
-})
+}, {timestamps: true})
 
 module.exports = mongoose.model('Ticket', TicketSchema)

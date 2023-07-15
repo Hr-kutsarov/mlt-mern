@@ -17,7 +17,7 @@ const createTicket = async (req, res) => {
 
 const getAllTickets = async (req, res) => {
     try {
-        const tickets = await Ticket.find()
+        const tickets = await Ticket.find().sort({createdAt: -1})
         res.status(200).json(tickets)
     } catch (err) {
         res.status(400).json({error: err.message})
