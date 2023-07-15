@@ -19,28 +19,68 @@ export function Register() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password1, setPassword1] = useState('')
+    const [usernameErr, setUsernameErr] = useState('')
+    const [emailErr, setEmailErr] = useState('')
+    const [passwordErr, setPasswordErr] = useState('')
+    const [password1Err, setPassword1Err] = useState('')
     const [err, setErr] = useState('')
     const [registered, setRegistered] = useState(false)
 
     // Submit login 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!username || !password || !password1 || !email) {
-            alert('Empty fields')
-            return
-        }
-        if (password !== password1) {
-            alert('Passwords do not match')
-            return
-        }
+        // if (!username || !password || !password1 || !email) {
+        //     alert('Empty fields')
+        //     return
+        // }
+        // if (password !== password1) {
+        //     alert('Passwords do not match')
+        //     return
+        // }
         
-        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-            alert('Please input valid email')
+        // if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+        //     alert('Please input valid email')
+        //     return
+        // }
+        if (usernameErr || emailErr || passwordErr || password1Err) {
+            setErr('Invalid fields')
             return
         }
 
         register()
         clearInputData()
+    }
+
+    const usernameBlurValidator = () => {
+        if (!/[a-zA-Z\d]{8,16}/.test(username)) {
+            setUsernameErr('Username must be between 8 and 16 symbols')
+        } else {
+            setUsernameErr('')
+        }
+    }
+
+    const emailBlurValidator = () => {
+        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+            setEmailErr('Invalid email address.')
+        } else {
+            setEmailErr('')
+        }
+    }
+
+    const passwordBlurValidator = () => {
+        if (!/[a-zA-Z!@#$%^&*()\d]{8,16}/.test(password)) {
+            setPasswordErr('Incorrect password') 
+        } else {
+            setPasswordErr('')
+        }
+    }
+
+    const password1BlurValidator = () => {
+        if (password !== password1) {
+            setPassword1Err('Passwords don\'t match')
+        } else {
+            setPassword1Err('')
+        }
     }
 
     const clearInputData = () => {
@@ -56,6 +96,7 @@ export function Register() {
             // console.log(response)
             if (response.status === 201) {
                 setRegistered(true)
+                setErr('')
             }
         } catch (err) {
             setErr(err.message)
@@ -65,7 +106,15 @@ export function Register() {
     return (
         <>
             <span id="register-form-wrapper">
-            {/* THIS MAY LOOK NASTY, SORRY */}
+                <nav id="register-form-navigation-box">
+                    <ul>
+                        <li><Link to="/"><FaHome /></Link></li>
+                        <li><Link to="/login"><FaSignInAlt /></Link></li>
+                        <li onClick={() => {alert('Assistance')}}><FaPhone /></li>
+                        <li onClick={() => {alert('FAQ')}}><FaQuestionCircle /></li>
+                    </ul>
+                </nav>
+
             {!registered ? (
             <Box component="form" onSubmit={handleSubmit} sx={{ 
                 maxWidth: "80vw", 
@@ -74,20 +123,21 @@ export function Register() {
                 p: "3rem 2rem", 
                 borderRadius: "1rem"
             }}>
-                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", mb: "2rem"}}>
-                    <Avatar sx={{ m: 1, bgcolor: "var(--blue-m)", p: "0.25rem"}}>
+                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", mb: "1rem"}}>
+                    <Avatar sx={{ m: 1, bgcolor: "var(--blue-m)", p: "0.25rem", size: "1.5rem"}}>
                         <FaUnlockAlt />
                     </Avatar>
-                    <Typography component="h1" variant="h3">
+                    <Typography component="h1" variant="h4">
                         Register
                     </Typography>
                 </Box>
                 <Box>
-                    <Typography component="h1" variant="h6" sx={{p: "0.25rem 1rem", color: "var(--contrast-orange)", textAlign: "center"}}>
+                    <Typography component="h1" variant="h6" sx={{p: "0.25rem 1rem", color: "var(--contrast-orange)", textAlign: "center", marginBottom: "2rem"}}>
                         {err ? err : " "}
                     </Typography>
                 </Box>
                 <Grid container spacing={3}>
+                    {usernameErr && (<Grid item xs={12} style={{color: "var(--contrast-orange)", fontSize: "1rem"}}>{usernameErr}</Grid>)}
                     <Grid item xs={12}>
                     <TextField
                         required
@@ -100,8 +150,10 @@ export function Register() {
                             setErr('')
                             setUsername(e.target.value)}}
                         value={username}
+                        onBlur={usernameBlurValidator}
                     />
                     </Grid>
+                    {emailErr && (<Grid item xs={12} style={{color: "var(--contrast-orange)", fontSize: "1rem"}}>{emailErr}</Grid>)}
                     <Grid item xs={12}>
                     <TextField
                         required
@@ -112,8 +164,10 @@ export function Register() {
                         autoComplete="email"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
+                        onBlur={emailBlurValidator}
                     />
                     </Grid>
+                    {passwordErr && (<Grid item xs={12} style={{color: "var(--contrast-orange)", fontSize: "1rem"}}>{passwordErr}</Grid>)}
                     <Grid item xs={12}>
                     <TextField
                         required
@@ -125,8 +179,10 @@ export function Register() {
                         autoComplete="new-password"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
+                        onBlur={passwordBlurValidator}
                     />
                     </Grid>
+                    {password1Err && (<Grid item xs={12} style={{color: "var(--contrast-orange)", fontSize: "1rem"}}>{password1Err}</Grid>)}
                 <Grid item xs={12}>
                     <TextField
                         required
@@ -138,6 +194,7 @@ export function Register() {
                         // autoComplete="new-password"
                         onChange={(e) => setPassword1(e.target.value)}
                         value={password1}
+                        onBlur={password1BlurValidator}
                     />
                     </Grid>
                 </Grid>
@@ -156,15 +213,6 @@ export function Register() {
                     <h3><Link to="/login">Log in <FaUnlockAlt /></Link></h3>
                 </span>
             )}
-
-                <nav id="register-form-navigation-box">
-                    <ul>
-                        <li><Link to="/"><FaHome /></Link></li>
-                        <li><Link to="/login"><FaSignInAlt /></Link></li>
-                        <li onClick={() => {alert('Assistance')}}><FaPhone /></li>
-                        <li onClick={() => {alert('FAQ')}}><FaQuestionCircle /></li>
-                    </ul>
-                </nav>
             </span> 
         </>
     )}

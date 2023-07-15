@@ -22,7 +22,7 @@ export function LoginForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!username || !password) {
-            alert('Empty fields')
+            setErr('All fields are required.')
             return
         }
 
@@ -54,7 +54,12 @@ export function LoginForm() {
                 setLogIn()
             }
         } catch (err) {
-            setErr(err.message)
+            if (err.response.status === 400) {
+                setErr('Incorrect username or password')
+            } else {
+                setErr(err.response.statusText)
+            }
+
         }
     }
 
@@ -78,7 +83,7 @@ export function LoginForm() {
                 </Typography>
             </Box>
             <Box>
-                <Typography component="h1" variant="h6" sx={{p: "0.25rem 1rem", color: "var(--contrast-orange)", textAlign: "center"}}>
+                <Typography component="h1" variant="h6" sx={{p: "0.25rem 1rem", color: "var(--contrast-orange)", textAlign: "center", marginBottom: "2rem"}}>
                     {err ? err : " "}
                 </Typography>
             </Box>
