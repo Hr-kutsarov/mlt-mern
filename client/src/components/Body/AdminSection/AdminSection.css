@@ -1,21 +1,22 @@
 #admin-section-wrapper {
   background-color: white;
-  width: 100vw;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
-  padding: 0 0 3rem 0;
+  width: 100vw;
 }
 
 #admin-section {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+/* 
 #admin-section-latest {
   width: 100%;
   display: flex;
-  padding: 3rem 1.5rem 0 3rem;
+  padding: 1rem;
 }
 
 #admin-section-latest > span {
@@ -24,4 +25,4 @@
   padding: 3rem;
   width: 100%;
   overflow: hidden;
-}
+} */
