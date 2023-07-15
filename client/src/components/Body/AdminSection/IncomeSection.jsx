@@ -1,13 +1,11 @@
 import './IncomeSection.css'
-import { useReducer } from 'react'
-import { Link } from 'react-router-dom'
 
 export function IncomeSection({ticketData}) {
     
     const calcTotal = () => {
         let arr = ticketData.map((ticket) => ticket.price)
         const sum = arr.reduce((acc, cv) => acc + cv, 0)
-        return sum
+        return sum.toFixed(2)
     }
 
     return (
