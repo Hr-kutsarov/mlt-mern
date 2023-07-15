@@ -7,8 +7,11 @@
   align-items: center;
 }
 
+#login-form-wrapper > form {
+  min-width: 60vw;
+}
 #login-form-navigation-box {
-  padding: 3rem 0 0 0;
+  padding: 3rem 0 1rem 0;
 }
 
 #login-form-navigation-box > ul {

@@ -2,8 +2,12 @@
   display: grid;
   gap: 1rem;
   margin: 20vh auto;
+  background-color: white;
+  padding: 3rem 5rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
 }
 
 #login-success-wrapper > h2:hover {
-  color: var(--blue-lighter);
+  color: var(--blue-m);
 }
