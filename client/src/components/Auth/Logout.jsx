@@ -8,7 +8,7 @@ export function Logout() {
     }
 
     return (
-        <>
+        <section id="logout-bg">
             <span id="logout-wrapper">
                 <h1>Logout?</h1>
                 <span>
@@ -16,5 +16,5 @@ export function Logout() {
                     <button onClick={handleLogout}><Link to="/">Logout</Link></button>
                 </span>
             </span>
-        </>
+        </section>
     )}
