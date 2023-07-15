@@ -1,21 +1,20 @@
 #chart-section-wrapper {
   min-height: 33vh;
-  padding: 3rem 3rem 0 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 90vw;
+  margin-bottom: 3rem;
 }
 
 #chart-section-wrapper > span {
-  padding: 0.5rem 1.25rem;
+  padding: 3rem;
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   box-shadow: var(--box-shadow);
   border-radius: 1rem;
   justify-content: center;
   align-items: center;
-  height: 35vh;
+  max-height: 50vh;
 }
