@@ -11,3 +11,9 @@
 #login-success-wrapper > h2:hover {
   color: var(--blue-m);
 }
+
+@media screen and (width < 600px) {
+  #login-success-wrapper {
+    width: 90%;
+  }
+}
