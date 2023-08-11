@@ -121,6 +121,17 @@
 #submitted-event-wrapper > p:nth-child(3):hover {
   color: white;
 }
+#artists-modal-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: black/30;
+  backdrop-filter: blur(2px);
+}
 
 #artists-modal {
   display: flex;
@@ -172,7 +183,7 @@
   color: white;
   border: unset;
   cursor: pointer;
-  margin-top: -1.5rem;
+  margin-top: -4rem;
   z-index: 30;
   outline: 0.25rem solid white;
 }
@@ -189,6 +200,13 @@
   margin: 1rem 0;
 }
 /* RESPONSIVE  */
+
+@media screen and (width < 950px) {
+  #artists-modal > span {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media screen and (width < 760px) {
   #add-event-form {
     margin-left: 4rem;
@@ -201,5 +219,22 @@
 
   #add-event-form-navigation-box {
     left: 2vw;
+  }
+
+  #artists-modal > span {
+    width: 90%;
+  }
+
+
+}
+@media screen and (width < 580px) {
+  #artists-modal > span {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (width < 470px) {
+  #artists-modal > span {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

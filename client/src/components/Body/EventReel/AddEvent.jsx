@@ -125,15 +125,18 @@ export function AddEvent() {
                     <textarea onChange={(e) => setContent(e.target.value)} value={content} />
                     <button>CREATE</button>
                 </form>
-                    {toggleArtistsModal && (                        
-                        <span id="artists-modal">
-                            <h4>Artists</h4>
-                            <span>
-                                <button onClick={toggleModal}><IoIosCloseCircle /></button>
-                                {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist} />)}
+                    {toggleArtistsModal && (          
+                        <span id='artists-modal-wrapper'>
+                            <span id="artists-modal">
+                                <h4>Artists</h4>
+                                <span>
+                                    <button onClick={toggleModal}><IoIosCloseCircle /></button>
+                                    {artists.map((artist) => <SelectedArtist key={artist._id} artist={artist} />)}
+                                </span>
+                                <button onClick={confirmSelected}>DONE</button>
                             </span>
-                            <button onClick={confirmSelected}>DONE</button>
-                        </span>)}
+                        </span>
+                        )}
                     </>
                 ) : (
                     <>
