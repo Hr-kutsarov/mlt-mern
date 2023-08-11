@@ -224,8 +224,6 @@
   #artists-modal > span {
     width: 90%;
   }
-
-
 }
 @media screen and (width < 580px) {
   #artists-modal > span {

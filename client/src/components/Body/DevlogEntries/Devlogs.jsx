@@ -1,5 +1,5 @@
 import './Devlogs.css'
-import './Devlog.css'
+
 import { CreateDevlog } from './CreateDevlog.jsx'
 import { ViewDevlog } from './ViewDevlog.jsx'
 import { EditDevlog } from './EditDevlog.jsx'

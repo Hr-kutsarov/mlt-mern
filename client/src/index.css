@@ -118,3 +118,9 @@ textarea::-webkit-scrollbar {
   max-height: auto;
   min-height: 85vh;
 }
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+  outline: none !important;
+}
