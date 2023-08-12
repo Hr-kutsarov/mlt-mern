@@ -71,10 +71,6 @@ There's an implementation of Framer Motion.
 
 > The obvious choice, given the tech stack was to give a number that is the maximum available seats and place them in a grid that changes according to screen size. When the user attemps to purchase a ticket a query to the DB is made requesting the numbers of the already purchased tickets. Then the layout will render the modal while the buttons matching a ticket with that number will be labeled and disabled. 
 
-### SEO optimization
-
-> This is made with create-react-app, the entire content of this application is rendered dynamically within a single div element. There's no server-side rendering.
-
 ### Image upload
 
 > I'm not using an S3 bucket or similar. It is entirely up to the moderator to select which online service for hosting images they would use and just post the link to that image in the creation form.
